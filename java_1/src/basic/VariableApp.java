@@ -14,7 +14,7 @@ public class VariableApp {
 		System.out.println("===========");
 		int num=100;
 		System.out.println("num = "+num);
-		System.out.println("============");
+		;
 		
 	}
 }
