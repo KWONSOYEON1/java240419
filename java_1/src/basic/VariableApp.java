@@ -33,27 +33,27 @@ package basic;
 // => String 클래스 : 문자열을 표현하기 위한 참조형
 
 public class VariableApp {
-	public static void main(String[] args) {
-		int su;//정수값을 저장하기 위한 변수 선언 - 메모리에 su 이름의 변수 생성
-		//대입연산자(=)를 사용하여 값을 변수에 저장
-		// => 대입연산자 오른쪽에는 변수를 왼쪽에는 값을 위치하여 값을 변수에 저장되도록 작성
-		su=100;//입력 명령
-		System.out.print("초기값 = ");
-		System.out.println(su);//변수에 저장된 값을 제공받아 화면에 출력 - 출력명령
+		public static void main(String[] args) {
+				int su;//정수값을 저장하기 위한 변수 선언 - 메모리에 su 이름의 변수 생성
+				//대입연산자(=)를 사용하여 값을 변수에 저장
+				// => 대입연산자 오른쪽에는 변수를 왼쪽에는 값을 위치하여 값을 변수에 저장되도록 작성
+				su=100;//입력 명령
+				System.out.print("초기값 = ");
+				System.out.println(su);//변수에 저장된 값을 제공받아 화면에 출력 - 출력명령
 		
-		//int su;//동일한 이름으로 변수를 선언할 경우 에러 발생		
-		su=200;//변수에는 기존값 대신 새로운 값 저장
-		System.out.print("변경값 = ");
-		System.out.println(su);	
-		System.out.println("==========");
-		int num=100;//변수 선언 및 초기값 저장
-		//"문자열"+값 또는 값+"문자열" >>문자열에 값을 결합한 결과값(문자열)을 제공하는 연산식
-		System.out.println("num = "+num);
-		System.out.println("==========");
-		System.out.println("올해는 "+2+0+2+4+"년입니다.");
-		System.out.println(2+0+2+4+"년은 호랑이띠입니다.");//잘못된 결과값 출력 - 실행 오류
-		//NullString("") : 문자가 하나도 없는 비어 있는 문자열
-		System.out.println(""+2+0+2+4+"년은 호랑이띠입니다.");
-		System.out.println("==========");		
+				//int su;//동일한 이름으로 변수를 선언할 경우 에러 발생		
+				su=200;//변수에는 기존값 대신 새로운 값 저장
+				System.out.print("변경값 = ");
+				System.out.println(su);	
+				System.out.println("==========");
+				int num=100;//변수 선언 및 초기값 저장
+				//"문자열"+값 또는 값+"문자열" >>문자열에 값을 결합한 결과값(문자열)을 제공하는 연산식
+				System.out.println("num = "+num);
+				System.out.println("==========");
+				System.out.println("올해는 "+2+0+2+4+"년입니다.");
+				System.out.println(2+0+2+4+"년은 호랑이띠입니다.");//잘못된 결과값 출력 - 실행 오류
+				//NullString("") : 문자가 하나도 없는 비어 있는 문자열
+				System.out.println(""+2+0+2+4+"년은 호랑이띠입니다.");
+				System.out.println("==========");		
 		}
 }
