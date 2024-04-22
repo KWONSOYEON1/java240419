@@ -55,5 +55,6 @@ public class VariableApp {
 		//NullString("") : 문자가 하나도 없는 비어 있는 문자열
 		System.out.println(""+2+0+2+4+"년은 호랑이띠입니다.");
 		System.out.println("==========");		
-		}
+		
+	}
 }
