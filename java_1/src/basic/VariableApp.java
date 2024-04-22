@@ -12,9 +12,7 @@ public class VariableApp {
 		System.out.print("변경값 = ");
 		System.out.println(su);	
 		System.out.println("===========");
-		int num=100;
-		System.out.println("num = "+num);
-		;
+		
 		
 	}
 }
