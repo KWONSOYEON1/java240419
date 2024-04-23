@@ -8,7 +8,6 @@ package basic;
 // => 참조형(ReferenceType) : 객체를 표현하기 위한 자료형 - 식별자(클래스)
 
 //기본형 : 숫자형(정수형, 실수형, 문자형)과 논리형으로 구분하며 값을 저장하기 위한 변수를 선언할 때 사용
-
 public class DataTypeApp {
 	public static void main(String[] args) {
 		//정수형(IntegerType) : 소수점이 없는 숫자값 - 정수값
@@ -22,12 +21,12 @@ public class DataTypeApp {
 		
 		System.out.println("정수값 = "+2147483647);
 		//4Byte로 표현할 수 없는 정수값을 사용할 경우 에러 발생
-		//System.out.println("정수값 = "+2147483648;
+		//System.out.println("정수값 = "+2147483648);
 		//4Byte로 표현할 수 없는 정수값은 LongType으로 표현하여 사용
 		System.out.println("정수값 = "+2147483648L);
 		
 		//정수값을 표현하기 위한 자료형 - 키워드
-		// =>byte(1Byte), short(2Byte), int(4Byte), long(8Byte)		
+		// => byte(1Byte), short(2Byte), int(4Byte), long(8Byte)		
 		byte a1=127;//1Byte : -128~127
 		short a2=32767;//2Byte : -32768~32767
 		int a3=2147483647;//4Byte : -2147483648~2147483647
@@ -39,7 +38,7 @@ public class DataTypeApp {
 		System.out.println("a3 = "+a3);
 		System.out.println("a4 = "+a4);
 		
-		//int a5=100L;//값에 대한 손실이 발생할 수 있으므로 에러발생
+		//int a5=100L;//값에 대한 손실이 발생할 수 있으므로 에러 발생
 		long a5=100;//자료형이 큰 변수에는 자료형이 작은 리터럴(값) 저장 가능
 		System.out.println("a5 = "+a5);
 		System.out.println("==========");
@@ -53,7 +52,7 @@ public class DataTypeApp {
 		System.out.println("실수값(8Byte) = "+1.23E10);
 		
 		//정수값을 표현하기 위한 자료형 - float(4Byte), double(8Byte)
-		float b1=1.23456789F;//가수부로 표현 가능항 크기(정밀도) : 소수점 7자리
+		float b1=1.23456789F;//가수부로 표현 가능한 크기(정밀도) : 소수점 7자리
 		double b2=1.23456789;//가수부로 표현 가능한 크기(정밀도) : 소수점 15자리
 		
 		System.out.println("b1 = "+b1);
@@ -62,9 +61,9 @@ public class DataTypeApp {
 		//문자형(CharacterType) : ' '안에 하나의 문자로 표현되는 값 - 문자값
 		// => Java 언어는 문자값을 기본적으로 2Byte로 표현
 		// => 문자값은 일반 문자외에 회피문자(제어문자)로 표현
-		//회피문자(Esacape Character) : 표현 불가능한 문자를 표현하기 위해 만들어진 문자값
+		//회피문자(Escape Character) : 표현 불가능한 문자를 표현하기 위해 만들어진 문자값
 		// => [\]기호 사용하여 문자 표현
-		// => '\n' : Enter, '\t' : Tab, '\'' : ' 문자,'\" : " 문자, '\\' : \문자, '\0' : NULL문자
+		// => '\n' : Enter, '\t' : Tab, '\'' : ' 문자,'\"' : " 문자, '\\' : \ 문자, '\0' : NULL문자
 		//문자값은 내부적으로 약속된 정수값(0~65535)으로 표현되어 사용 - 유니코드(Unicode)
 		// => 'A' : 65, 'a' : 97, '0' : 48, ' ' : 32, '\n' : 13, '가' : 44032
 		System.out.println("<<문자형(CharacterType)>>");
@@ -85,7 +84,7 @@ public class DataTypeApp {
 		char c4=45000;
 		System.out.println("c4 = "+c4);
 		System.out.println("==========");
-		//논리혈(BooleanType) : false(거짓) 또는 true(참) - 논리값
+		//논리형(BooleanType) : false(거짓) 또는 true(참) - 논리값
 		// => Java 언어는 논리값을 기본적으로 1Byte로 표현		
 		System.out.println("<<논리형(BooleanType)>>");
 		System.out.println("논리값 = "+false);
@@ -102,7 +101,7 @@ public class DataTypeApp {
 		System.out.println("d1 = "+d2);
 		System.out.println("==========");
 		//문자열(StringType) : " "안에 0개 이상의 문자들을 사용하여 표현된 값 - String 객체
-		// => 문자열으 기본형(원시형)이 아닌 String 클래스(참조형)를 사용하여 표현		
+		// => 문자열은 기본형(원시형)이 아닌 String 클래스(참조형)를 사용하여 표현		
 		System.out.println("<<문자열(StringType)>>");
 		System.out.println("문자열 ="+"홍길동");
 		System.out.println("문자열 = "+"유관순 열사가 \"대한민국 만세\"를 외쳤습니다.");
