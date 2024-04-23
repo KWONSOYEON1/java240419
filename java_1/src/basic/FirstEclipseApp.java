@@ -32,5 +32,4 @@ public class FirstEclipseApp {
 		System.out.println();//엔터(Enter) 출력
 		System.out.println("열심히 해봐요.");
 	}
-}
-
+}		
