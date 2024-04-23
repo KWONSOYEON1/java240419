@@ -26,10 +26,11 @@ package basic;//클래스가 작성된 패키지를 표현하기 위해 사용�
 
 /**이클립스로 만든 프로그램 - API 주석 */
 public class FirstEclipseApp {
-		/*JVM에 의해 자동으로 호출되는 메소드*/
-		public static void main(String[] args) {
-				System.out.print("이클립스로 처음 만든 프로그램입니다.");
-				System.out.println();//엔터(Enter) 출력
-				System.out.println("열심히 해봐요.");
-		}
+	/*JVM에 의해 자동으로 호출되는 메소드*/
+	public static void main(String[] args) {
+		System.out.print("이클립스로 처음 만든 프로그램입니다.");
+		System.out.println();//엔터(Enter) 출력
+		System.out.println("열심히 해봐요.");
+	}
 }
+
