@@ -31,8 +31,7 @@ public class DataTypeApp {
 		short a2=32767;//2Byte : -32768~32767
 		int a3=2147483647;//4Byte : -2147483648~2147483647
 		long a4=2147483648L;//8Byte
-		
-		
+				
 		System.out.println("a1 = "+a1);
 		System.out.println("a2 = "+a2);
 		System.out.println("a3 = "+a3);
@@ -47,11 +46,12 @@ public class DataTypeApp {
 		System.out.println("<<실수형(DoubleType)>>");
 		System.out.println("실수값(4Byte) = "+12.3F);//실수값F >> 4Byte(FloatType)
 		System.out.println("실수값(8Byte) = "+12.3);//실수값 >> 8Byte(DoubleType)
-		//println()메소드는 실수값이 아주 작거나 큰 경우 지수형태로 변환하여 출력
-		System.out.println("실수값(8Byte) = "+0.00000000000123);
+		//실수값을 지수형태로 표현하여 사용 가능
 		System.out.println("실수값(8Byte) = "+1.23E10);
+		//println() 메소드는 실수값이 아주 작거나 큰 경우 지수형태로 변환하여 출력
+		System.out.println("실수값(8Byte) = "+0.00000000000123);
 		
-		//정수값을 표현하기 위한 자료형 - float(4Byte), double(8Byte)
+		//실수값을 표현하기 위한 자료형 - float(4Byte), double(8Byte)
 		float b1=1.23456789F;//가수부로 표현 가능한 크기(정밀도) : 소수점 7자리
 		double b2=1.23456789;//가수부로 표현 가능한 크기(정밀도) : 소수점 15자리
 		

@@ -62,7 +62,7 @@ public class VariableApp {
 		System.out.println("연산결과 ="+(num1+num2));
 		System.out.println("연산결과 ="+num1*num2);
 		System.out.println("연산결과 ="+(num1*num2));
-		System.out.println("==========");	
+		System.out.println("==========");		
 		int kor=88, eng=90;//입력 명령
 		//int tot=88+90;
 		int tot=kor+eng;//데이터 처리 명령

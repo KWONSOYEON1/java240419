@@ -10,7 +10,7 @@ public class TypeCastApp {
 		// => byte >> short >> char >> int >> long >> float >> double
 		//3(int)+1.5(double) >> 3.0(double)+1.5(double) >> 4.5(double)
 		System.out.println("결과 = "+(3+1.5));
-		
+				
 		double su=10;//10 >> 10.0
 		System.out.println("su = "+su);
 		
