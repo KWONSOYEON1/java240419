@@ -4,12 +4,15 @@ public class ForExample {
 	public static void main(String[] args) {
 		//본인 이름을 화면에 7번 출력하세요.
 		//ex) 홍길동 홍길동 홍길동 홍길동 홍길동 홍길동 홍길동
-		
+		for(int i=1;i<=7;i++) {
+			System.out.print("권소연 ");
+			}
+		System.out.println();
 		
 		System.out.println("=========================================");
 		//1~10 범위의 정수 중 홀수를 화면에 출력하세요.
 		//ex) 1     3     5     7     9
-		
+		for()
 
 		System.out.println("=========================================");
 		//1~100 범위의 정수에서 3의 배수들의 합계와 5의 배수들의 합계를 계산하여

@@ -22,7 +22,7 @@ public class ContinueApp {
 		for(int i=1;i<=5;i++) {
 			for(int j=1;j<=5;j++) {
 				//continue 라벨명 : 라벨명으로 지정된 반복문을 다시 실행
-				if(j == 3) continue loop;//for(int i=1;i<=5;i++) 재실행
+				if(j == 3) continue loop;//for(int i=1;i<=5;i++) 재실행//break와 비슷
 				System.out.println("i = "+i+", j = "+j);
 			}
 		}
