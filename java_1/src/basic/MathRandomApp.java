@@ -1,7 +1,7 @@
 package basic;
 
 //컴퓨터로부터 난수값을 제공받아 출력하는 프로그램 작성
-// => 난수값 : 불규칙적으로 발생되는 숫자값
+//=> 난수값 : 불규칙적으로 발생되는 숫자값
 public class MathRandomApp {
 	public static void main(String[] args) {
 		//Math 클래스 : 수학 관련 기능(메소드)이 작성된 클래스
