@@ -39,7 +39,7 @@ public class ForExample {
 			if(j%5==0) {
 				fiv+=j;
 			}	
-		System.out.println(thr-fiv);
+		System.out.println("결과 = "+(thr-fiv));
 		/*
 		int tot3=0, tot5=0;
 		for(int i=1;i<=100;i++) {
@@ -61,6 +61,12 @@ public class ForExample {
 				System.out.println(i+" * "+j+" = "+(i*j));
 			}
 		}
+		/*
+		int dan=7;
+		for(int i=1;i<=9;i++) {
+			System.out.println(dan+" * "+i+" = "+(dan*i));
+		}
+		*/
 		
 		System.out.println("=========================================");
 		//5!의 결과값을 출력하세요.(5! = 5 * 4 * 3 * 2 * 1)
