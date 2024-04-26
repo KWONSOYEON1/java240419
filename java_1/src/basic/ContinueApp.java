@@ -6,7 +6,7 @@ package basic;
 public class ContinueApp {
 	public static void main(String[] args) {
 		for(int i=1;i<=5;i++) {
-			if(i == 3) continue;
+			if(i == 3) continue;//3일때만 건너뜀
 			System.out.println("i = "+i);
 		}
 		System.out.println("==============================================================");
@@ -19,10 +19,10 @@ public class ContinueApp {
 		}
 		System.out.println("==============================================================");
 		loop:
-		for(int i=1;i<=5;i++) {
+		for(int i=1;i<=5;i++) {//이곳으로 돌아옴
 			for(int j=1;j<=5;j++) {
 				//continue 라벨명 : 라벨명으로 지정된 반복문을 다시 실행
-				if(j == 3) continue loop;//for(int i=1;i<=5;i++) 재실행//break와 비슷
+				if(j == 3) continue loop;//for(int i=1;i<=5;i++) 재실행//break와 같은결과
 				System.out.println("i = "+i+", j = "+j);
 			}
 		}
