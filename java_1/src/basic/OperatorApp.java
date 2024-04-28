@@ -46,7 +46,7 @@ public class OperatorApp {
 		
 		//++ 연산자와 -- 연산자를 사용한 단일 명령이 아닌 경우 연산자의 위치는 연산결과에 영향
 		int b1=++a4;//전처리 : ++a4 명령을 실행하고 결과값을 b1 변수에 저장 
-		int b2=a5++;//후처리 : a5 변수값을 b2 변수에 저장하고 b5++ 명령 실행
+		int b2=a5++;//후처리 : a5 변수값을 b2 변수에 저장하고 a5++ 명령 실행
 		
 		System.out.println("a4 = "+a4+", a5 = "+a5);
 		System.out.println("b1 = "+b1+", b2 = "+b2);
