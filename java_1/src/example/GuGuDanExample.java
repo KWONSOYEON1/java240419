@@ -23,7 +23,7 @@ public class GuGuDanExample {
 				for(int i = 1;i<= 9;i++) {
 					System.out.println(number+" * "+i+" = "+number*i);
 				}
-					break;
+				break;
 			}
 			scanner.close();	
 	}

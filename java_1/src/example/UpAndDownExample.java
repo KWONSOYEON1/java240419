@@ -14,18 +14,33 @@ public class UpAndDownExample {
 		Scanner scanner=new Scanner(System.in);
 			int count=0;
 		
-			int computer=(int)(Math.random()*100+1);
+			int computer=(int)(Math.random()*100)+1;
 			System.out.println("1~100 범위 기회는 10번 입니다.");
 			int user;
 			
-			while (true) {
+			while(count<10) {
 				System.out.print("입력 = ");
 				user=scanner.nextInt();
-				if(user<1 || user>100) 
+				
+				if(user<1 || user>100) {
 				System.out.println("[에러] 재입력 하세요.");
 				continue;
+				}
+				count++;
+			
+			
+			
+			if(computer == user) {
+				System.out.println("입력횟수"+count);
+				
+			} else if (computer < user) {
+				System.out.println("큰값 입력");
+			} else {
+				System.out.println("작은값 입력");
+			}	
 			}
-			
-			
+			System.out.println("[정답] = " +computer);
+	        scanner.close();
+	
 	}
 }
