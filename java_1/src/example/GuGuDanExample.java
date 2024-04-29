@@ -15,18 +15,18 @@ public class GuGuDanExample {
 		
 		/*	
 		while(true) {
-				System.out.print("단 입력[2~9] >> ");
-				int number=scanner.nextInt();
-				if(number <2 || number >9) {
-					System.out.println("[에러] 재입력하세요.");
-					continue;
-				}					
-				for(int i = 1;i<= 9;i++) {
-					System.out.println(number+" * "+i+" = "+number*i);
-				}
-				break;
+			System.out.print("단 입력[2~9] >> ");
+			int number=scanner.nextInt();
+			if(number <2 || number >9) {
+				System.out.println("[에러] 재입력하세요.");
+				continue;
+			}					
+			for(int i = 1;i<= 9;i++) {
+				System.out.println(number+" * "+i+" = "+number*i);
 			}
-			*/
+			break;
+			}
+		*/
 		
 		int dan;
 		//키보드 입력값을 검증하기 위한 반복문

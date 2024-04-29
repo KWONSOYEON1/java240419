@@ -15,6 +15,9 @@ public class TotalExample {
 	
 		int total=0;
 		
+		//정수값을 입력받아 정수값을 누적하기 위한 반복문
+		// => 정수값 [0]이 입력되면 반복문 종료
+		
 		while(true) {
 			System.out.print("정수값 입력[0:종료} >> ");
 			int number=scanner.nextInt();

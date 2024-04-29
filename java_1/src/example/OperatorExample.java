@@ -20,8 +20,8 @@ public class OperatorExample {
 		//한대의 가격이 1억 5천원만인 비행기를 20대 구매할 경우 지불해야될 금액을 계산하여 출력하세요. 
 		//단, 15대 이상 구매할 경우 1대당 25%의 할인율을 적용하여 계산하세요.
 		int cost=150_000_000;
-		int n=20;
-		long sum =(long)(n>=15 ? cost*0.75 : cost)*n;
+		int count=20;
+		long sum =(long)(count>=15 ? cost*0.75 : cost)*count;
 		System.out.println("지불금액 = "+sum+"원");
 		System.out.println("==============================================================");
 	}
