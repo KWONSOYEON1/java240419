@@ -29,7 +29,7 @@ public class LottoArrayApp {
 					//lotto[j] : 이전 난수값이 저장된 배열 요소
 					if(lotto[i] == lotto[j]) {//새로운 난수값과 이전 난수값이 중복된 경우
 						result=true;
-						break;//for(int j=0;j<i;i++) 종료
+						break;//for(int j=0;j<i;i++) 종료,다시 랜덤뽑기
 					}
 				}
 				
