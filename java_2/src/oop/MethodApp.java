@@ -18,5 +18,10 @@ public class MethodApp {
 		method.displayTwo();
 		method.displayOne();
 		System.out.println("==============================================================");
+		method.printOne();
+		method.printTwo(50);
+		method.printTwo(-30);
+		method.printThree(35,79);
+		method.printThree(79,35);
 	}
 }
