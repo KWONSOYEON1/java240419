@@ -19,7 +19,7 @@ public class Singleton {
 		// TODO Auto-generated constructor stub
 	}
 
-	//정적 영역(Static Blcok) : 클래스 파일(XXX.class)을 읽어 메모리(methodArea)에 저장된 후
+	//정적 영역(Static Block) : 클래스 파일(XXX.class)을 읽어 메모리(methodArea)에 저장된 후
 	//자동으로 실행될 명령을 작성하기 위한 영역 - 정적 영역의 명령은 프로그램에서 한번만 실행
 	// => 정적 필드 및 정적 메소드만 사용 가능
 	static {

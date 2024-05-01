@@ -23,7 +23,7 @@ public class Student {
 	private static int total=0;
 	
 	public Student() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Student(int num, String name, int kor, int eng) {
