@@ -94,7 +94,7 @@ public class Method {
 			tot+=i;
 		}
 		
-		return tot;//반환형-자료형 일치, sysout 출력 대신 사용
+		return tot;
 	}
 	
 	//매개변수로 전달받은 정수값을 홀수와 짝수로 구분하여 논리값을 반환하는 메소드
