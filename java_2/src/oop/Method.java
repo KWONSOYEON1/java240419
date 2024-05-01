@@ -69,14 +69,13 @@ public class Method {
 	}
 	
 	void printThree(int num1, int num2) {
-		int tot=0;
-		
 		if(num1 > num2) {
 			int temp=num1;
 			num1=num2;
 			num2=temp;
 		}
 		
+		int tot=0;
 		for(int i=num1;i<=num2;i++) {
 			tot+=i;
 		}
@@ -84,19 +83,18 @@ public class Method {
 	}
 	
 	int returnTot(int num1, int num2) {
-		int tot=0;
-		
 		if(num1 > num2) {
 			int temp=num1;
 			num1=num2;
 			num2=temp;
 		}
 		
+		int tot=0;
 		for(int i=num1;i<=num2;i++) {
 			tot+=i;
 		}
 		
-		return tot;
+		return tot;//반환형-자료형 일치, sysout 출력 대신 사용
 	}
 	
 	//매개변수로 전달받은 정수값을 홀수와 짝수로 구분하여 논리값을 반환하는 메소드
