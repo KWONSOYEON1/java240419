@@ -55,7 +55,7 @@ public class StudentApp {
 			student.display();
 			//total+=student.getTot();
 			//Student.total+=student.getTot();
-			Student.setTotal(Student.getTotal()+student.getTot());//총점+총합계
+			Student.setTotal(Student.getTotal()+student.getTot());//총합계+총점
 		}
 		System.out.println("==============================================================");
 		//모든 학생들의 성적 합계를 계산하여 출력
