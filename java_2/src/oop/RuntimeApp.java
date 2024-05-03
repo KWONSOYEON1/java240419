@@ -18,7 +18,7 @@ public class RuntimeApp {
 		//Runtime.totalMemory() : JVM이 사용 가능한 전체 메소드의 크기를 반환하는 메소드
 		//Runtime.freeMemory() : JVM이 사용 가능한 여유 메소드의 크기를 반환하는 메소드
 		System.out.println("메모리 정리 전 메모리 사용량 >> "+(Runtime.getRuntime().totalMemory()
-				-Runtime.getRuntime().freeMemory())+"Byte");
+				-Runtime.getRuntime().freeMemory())+"Byte");//참조변수로 반환X,객체 다 동일함
 		
 		//Runtime.gc() : 메모리를 정리하는 프로그램(Garbage Collector)을 실행하는 메소드
 		//Runtime.getRuntime().gc();

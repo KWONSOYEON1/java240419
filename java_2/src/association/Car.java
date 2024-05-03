@@ -26,7 +26,7 @@ public class Car {
 	private int productionYear;
 	//엔진정보를 저장하기 위한 필드 - Engine 클래스를 사용하여 필드 작성
 	// => 생성자 또는 Setter 메소드를 사용하여 Engine 객체를 전달받아 필드 저장 - 포함관계 완성
-	private Engine engine;
+	private Engine engine;//라이브러리에 Engine 은 없으니 따로 클래스를 만들어야함
 	
 	public Car() {
 		// TODO Auto-generated constructor stub
