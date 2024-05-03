@@ -39,6 +39,7 @@ public class Car /* extends Object */ {
 	//Object 클래스의 toString() 메소드를 오버라이딩 선언
 	// => Object 클래스의 toString() 메소드는 숨겨지고 자식클래스의 toString() 메소드만 사용
 	// => 객체의 필드값을 문자열로 반환하는 명령 작성
+	
 	@Override
 	public String toString() {
 		return "modelName : "+modelName+", userName : "+userName;
