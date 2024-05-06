@@ -28,7 +28,7 @@ public class IfExample {
 		// => 평균을 이용한 학점 계산 : 100~90:A, 89~80:B, 79~70:C, 69~60:D, 59~0:F
 		// => 평균은 소숫점 두자리까지만 출력하고 나머지는 절삭 처리 하세요.
 		String name="홍길동";
-		int kor=189, eng=93, mat=95;
+		int kor=89, eng=93, mat=95;
 		
 		//입력값 검증(Validation)
 		/*		 
