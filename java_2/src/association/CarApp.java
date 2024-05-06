@@ -17,7 +17,7 @@ public class CarApp {
 		//Setter 메소드를 호출하여 객체 필드값 변경
 		carOne.setModelName("쏘렌토");
 		carOne.setProductionYear(2020);
-		//Setter 메소드를 호출하요 Car 객체의 engine 필드에 엔진정보(Engine 객체) 저장
+		//Setter 메소드를 호출하여 Car 객체의 engine 필드에 엔진정보(Engine 객체) 저장
 		// => Setter 메소드를 사용하여 Car 객체의 필드에 Engine 객체를 저장하여 포함 관계 구현
 		carOne.setEngine(engine);
 		
