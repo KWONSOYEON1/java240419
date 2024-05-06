@@ -39,7 +39,7 @@ public class DataTypeApp {
 		System.out.println("a5 = "+a5);
 		System.out.println("==============================================================");
 		//실수형(DoubleType) : 소숫점이 있는 숫자값 - 실수값
-		// => Java 언어는 정수값을 기본적으로 8Byte로 표현 - 부동소숫점 방식으로 표현
+		// => Java 언어는 실수값을 기본적으로 8Byte로 표현 - 부동소숫점 방식으로 표현
 		System.out.println("<<실수형(DoubleType)>>");
 		System.out.println("실수값(4Byte) = "+12.3F);//실수값F >> 4Byte(FloatType)
 		System.out.println("실수값(8Byte) = "+12.3);//실수값 >> 8Byte(DoubleType)
