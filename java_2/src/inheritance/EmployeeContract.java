@@ -10,9 +10,11 @@ public class EmployeeContract extends Employee {
 	}
 
 	public EmployeeContract(int empNo, String empName, int contractPay) {
-		super(empNo, empName);
+		super();
 		this.contractPay = contractPay;
 	}
+
+
 
 	public int getContractPay() {
 		return contractPay;

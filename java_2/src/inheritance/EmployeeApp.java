@@ -36,7 +36,7 @@ public class EmployeeApp {
 			//자식클래스의 메소드 호출 불가능
 			// => 부모클래스의 참조변수로 자식클래스의 메소드를 호출하기 위해서는 객체 형변환 사용
 			//자식클래스가 여러개인 경우 부모클래스의 참조변수가 객체 형변환 가능한지를 확인하기
-			//위해 instanceof 연산자으로 비교한 후 명시적 객체 형변환 사용 - ClassCastException 
+			//위해 instanceof 연산자으로 비교한 후 명시적 객체 형변환 사용 - ClassCastException 발지
 			if(employee instanceof EmployeeRegular) {
 				System.out.println("사원급여 = "+((EmployeeRegular)employee).computeSalary());
 			} else if(employee instanceof EmployeeTime) {
