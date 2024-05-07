@@ -24,6 +24,7 @@ public class CarApp {
 		//String.toString() : String 객체에 저장된 문자열을 반환하는 메소드
 		// => Object 클래스의 toString() 메소드를 오버라이딩 선언한 메소드
 		//System.out.println("name.toString() = "+name.toString());
+	
 
 		//String 객체가 저장된 참조변수를 출력할 경우 String 클래스의 toString() 메소드가 
 		//자동 호출되어 String 객체를 저장된 문자열을 반환받아 출력
