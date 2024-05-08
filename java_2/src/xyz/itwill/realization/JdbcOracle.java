@@ -18,7 +18,7 @@ public class JdbcOracle implements Jdbc {
 		System.out.println("[oracle]학생정보를 검색하는 기능의 메소드");
 	}
 	*/
-	
+	@Override
 	public void insert() {
 		System.out.println("[oracle]학생정보를 삽입하는 기능의 메소드");
 	}
