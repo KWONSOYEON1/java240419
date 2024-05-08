@@ -27,7 +27,7 @@ package xyz.itwill.realization;
 //ex) public class 늑대인간 extends 인간, 늑대 => 불가능 : 에러 발생
 //    public class 늑대인간 extends 인간 implements 늑대 => 가능
 //    public class 흡혈늑대인간 extends 인간 implements 늑대, 흡혈귀 => 가능
-//2.클래스 선언시 반드시 작성해야될 메소드를 제공하기 위해 인터페이스 사용 - 작업지시어
+//2.클래스 선언시 반드시 작성해야될 메소드를 제공하기 위해 인터페이스 사용 - 작업지시서
 //ex) TV and Radio and SmartPhone >> 볼륨 증가, 볼륨 감소 - 인터페이스
 // => 인터페이스를 상속받은 모든 자식클래스에 동일한 메소드가 선언되도록 규칙 제공
 // => 클래스간의 결합도를 낮춰 클래스 교체에 따른 기존 클래스의 영향 최소화 - 유지보수의 효율성 증가
