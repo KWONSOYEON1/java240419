@@ -21,7 +21,7 @@ public class EnumerateApp {
 		System.out.println("==============================================================");
 		//나열형으로 선언된 변수값은 같은 자료형(열거형)의 상수필드로만 비교 가능
 		// => case 키워드에는 switch 키워드의 열거형의 상수필드만 작성하여 비교 가능
-		switch(choice) {
+		switch(choice) {//choice에는 EnumerateOne만 가능 
 		case INSERT:
 			System.out.println("# 학생정보를 삽입합니다.");
 			break;
