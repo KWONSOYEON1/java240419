@@ -1,4 +1,4 @@
- package xyz.itwill.exception;
+package xyz.itwill.exception;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
