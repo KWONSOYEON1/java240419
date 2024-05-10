@@ -65,7 +65,7 @@ public class ExceptionHandleApp {
 			// => 예외클래스의 객체에 저장된 정보를 사용하여 예외가 발생된 이유 제공하여 디버깅 처리
 			//Throwable.getMessage() : 예외클래스의 객체에 저장된 예외 메세지를 반환하는 메소드
 			//System.out.println("[예외]"+e.getMessage());
-			
+	
 			//Throwable.printStackTrace() : 예외가 발생된 이유를 역으로 추적하여 출력하는 메소드
 			//e.printStackTrace();
 		} finally {

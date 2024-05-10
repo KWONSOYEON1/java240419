@@ -1,7 +1,7 @@
 package xyz.itwill.thread;
 
 public class MultiThreadTwo implements Runnable {
-	@Override
+	@Override//오버라이딩 하면 try~catch만 가능,throws 불가능
 	public void run() {
 		for(char i='a';i<='z';i++) {
 			System.out.print(i);
