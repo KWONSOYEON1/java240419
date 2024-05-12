@@ -19,7 +19,7 @@ public class StringBufferApp {
 		//System.out.println("sb.toString() = "+sb.toString());
 		System.out.println("sb = "+sb);//sb = ABC
 
-		//tringBuffer 객체에 저장된 문자열을 반환받아 String 객체로 변환할 경우 toString() 메소드 호출
+		//StringBuffer 객체에 저장된 문자열을 반환받아 String 객체로 변환할 경우 toString() 메소드 호출
 		String str=sb.toString();
 		System.out.println("str = "+str);//str = ABC
 		System.out.println("===============================================================");
