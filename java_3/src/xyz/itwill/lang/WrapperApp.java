@@ -30,8 +30,8 @@ public class WrapperApp {
 		//객체에 저장된 값을 반환받아 사용할 수 있는 기능 제공
 		//오토박싱(AutoBoxing) : 값을 자동으로 Wrapper 클래스의 객체로 생성하여 제공하는 기능
 		//오토언박싱(AutoUnBoxing) : Wrapper 클래스의 객체에 저장된 값을 자동으로 제공하는 기능
-		Integer num1=100, num2=200;
-		Integer num3=num1+num2;
+		Integer num1=100, num2=200;//오토박싱
+		Integer num3=num1+num2;//오토언박싱
 		System.out.println("합계 = "+num3);
 		System.out.println("==============================================================");
 		//Integer.valueOf(String s, int radix) : 매개변수로 전달받은 문자열을 원하는 진수의

@@ -16,8 +16,8 @@ public class ConsoleCalculateApp {
 		
 		while(true) {
 			System.out.print("연산식 입력 >> ");
-			number=scanner.nextLine();
-			
+			number=scanner.nextLine().replace(" ", "");
+						
 			if(number.lastIndexOf("*")!= -1 || number.lastIndexOf("/")!= -1 || 
 					number.lastIndexOf("+")!= -1 || number.lastIndexOf("-") != -1) {
 				break; 
@@ -29,7 +29,14 @@ public class ConsoleCalculateApp {
 		scanner.close();
 		
 		String[] stringArray = number.split("[*/+-]");
+		int result=0;
+		switch(number) {
+		case "*":result=number*number; break;
+		case "/":result=number/number; break;
+		case "+":result=number+number.; break;
+		case "-":result=number-number; break;
+		}
 		
-		System.out.println("[결과]"+(Integer.parseInt(stringArray[0])+Integer.parseInt(stringArray[1])));
+		System.out.println("[결과]"+result);
 	}
 }
