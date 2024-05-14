@@ -40,7 +40,7 @@ public class DateApp {
 		//Date.getTime() : Date 객체에 저장된 날짜와 시간을 시간값(TimeStamp)로 변환하여 반환하는 메소드
 		long currentTime=now.getTime();//long currentTime=System.currentTimeMillis();
 		
-		//new 연산지로 Date 클래스의 Date(int year, int month, int date) 생성자를 호출하여 객체 생성
+		//new 연산자로 Date 클래스의 Date(int year, int month, int date) 생성자를 호출하여 객체 생성
 		// => [2000년 1월 1일 0시 0분 0초]의 날짜와 시간이 저장된 Date 객체 생성
 		Date wantDate=new Date(100, 0, 1);
 		long wantTime=wantDate.getTime();
