@@ -29,7 +29,7 @@ public class LamdaApp {
 		integerConsumer.accept(200);
 		System.out.println("==============================================================");
 		//Predicate<T> 함수형 인터페이스 : 제네릭으로 전달된 Java 자료형의 객체를 매개변수로 전달받아 
-		//처리하고 논리값(boolean)을 반환하는 test() 추상메소드가 작성된 함수형 인터페이스
+		//처리하고 논리값(boolean)을 반환하는 test() 추상메소드가 작성된 함수형 인터페이스// filter-true, false
 		Predicate<Integer> isEven = i -> i % 2 == 0;
 		
 		if(isEven.test(10)) {
@@ -40,7 +40,7 @@ public class LamdaApp {
 		System.out.println("==============================================================");
 		//Function<T, R> 함수형 인터페이스 : 첫번째 제네릭으로 전달된 Java 자료형의 객체를 
 		//매개변수로 전달받아 처리하고 두번째 제네릭으로 전달된 Java 자료형의 객체를 반환하는
-		//apply() 추상메소드가 작성된 함수형 인터페이스
+		//apply() 추상메소드가 작성된 함수형 인터페이스//T 입력값, R 반환값
 		Function<String, Integer> stringLength = str -> str.length();
 		
 		System.out.println("문자 갯수 = "+stringLength.apply("Java Programming"));

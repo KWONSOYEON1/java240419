@@ -29,10 +29,10 @@ public class PersonApp {
 	}
 	
 	public static void main(String[] args) {
-		forEach(Arrays.asList("홍길동","임꺽정","전우치"), str -> System.out.print(str+" "));
+		forEach(Arrays.asList("홍길동","임꺽정","전우치"), str -> System.out.print(str+" "));//가변적
 		//List.of(E... element) : 매개변수로 전달받은 0개 이상의 객체가 요소값으로 저장된
 		//List 객체를 반환하는 정적메소드
-		forEach(List.of("홍길동","임꺽정","전우치"), str -> System.out.print(str+" "));
+		forEach(List.of("홍길동","임꺽정","전우치"), str -> System.out.print(str+" "));//불변적
 		System.out.println("==============================================================");
 		List<Person> personList=new ArrayList<Person>();
 		personList.add(new Person("홍길동", 50));
