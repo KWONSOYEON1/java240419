@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 //java.util.regex 패키지 : 정규표현식 관련 기능을 제공하는 Java 자료형이 선언된 패키지
 
-//정규표현식(RegualarExpression) : 메타문자(Meta Character), 회피문자(Escape Character)등을
+//정규표현식(RegularExpression) : 메타문자(Meta Character), 회피문자(Escape Character)등을
 //사용해 일정한 패턴의 문자열을 표현하기 위한 표현식 - 사용자 입력값에 대한 검증 처리
 /*
 ^문자 : 문자(열)로 시작됨을 의미
@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 
 //키보드를 이용하여 사용자로부터 값(문자열)을 입력받아 원하는 패턴의 문자열인지를 비교하여
 //결과를 출력하는 메소드
-public class RegualarExpressionApp {
+public class RegularExpressionApp {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
 		
