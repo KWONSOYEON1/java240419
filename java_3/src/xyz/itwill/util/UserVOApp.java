@@ -14,7 +14,7 @@ public class UserVOApp {
 		System.out.println("set = "+set);
 		System.out.println("==============================================================");
 		//아이디가 중복된 UserVO 객체는 Set 객체의 요소값으로 저장 불가능
-		set.add(new UserVO("abc123", "홍길동", "abc@itwill.xyz"));
+		set.add(new UserVO("abc123", "홍길동", "abc@itwill.xyz"));//해시코드로 위와 메모리주소 동일하게 변환
 		System.out.println("set = "+set);
 		System.out.println("==============================================================");
 	}
