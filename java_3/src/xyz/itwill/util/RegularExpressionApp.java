@@ -54,7 +54,7 @@ public class RegularExpressionApp {
 		}
 		
 		//아이디 입력값에 대한 패턴정보를 정규표현식으로 작성하여 저장
-		//String idReg="^[a-zA-Z][a-zA-Z0-9_]{5,19}$";//{5,19}-앞의 패턴이 5부터 19번 반복
+		//String idReg="^[a-zA-Z][a-zA-Z0-9_]{5,19}$";//{5,19} : [a-zA-Z0-9_]패턴이 5부터 19번 반복
 		String idReg="^[a-zA-Z]\\w{5,19}$";
 		
 		//Pattern 클래스 : 정규표현식이 저장된 객체를 생성하기 위한 클래스
@@ -82,7 +82,7 @@ public class RegularExpressionApp {
 		}
 		
 		String passwordReg="^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{8,30}$";
-		//.{8,30}-문자열의 길이가 8에서 30 사이
+		//.{8,30} : 문자열의 길이가 8에서 30 사이
 		
 		if(!Pattern.matches(passwordReg, password)) {
 			System.out.println("[에러]비밀번호는 8~30자의 영문자,숫자,특수문자가 반드시 1번이상 포함되도록 입력해 주세요.");
