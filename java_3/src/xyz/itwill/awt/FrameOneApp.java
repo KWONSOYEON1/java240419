@@ -23,7 +23,7 @@ import java.awt.Frame;
 public class FrameOneApp {
 	public static void main(String[] args) {
 		//Frame 클래스 : 메뉴가 존재하는 컨테이너를 생성하기 위한 클래스
-		// => new 연산자로 Frame 클래스의 기본 생성자를 호출하여 객체 생성 
+		// => new 연산자로 Frame 클래스의 기본 생성자를 호출하여 객체 생성 - 제목 미설정
 		// => Frame 클래스로 객체를 생성하면 프레임이 보여지지 않은 상태로 생성
 		//Frame frame=new Frame();
 		
