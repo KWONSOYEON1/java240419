@@ -34,6 +34,7 @@ public class PanelApp extends Frame {
 		
 		//TextField 클래스 : 한줄의 문자열을 입출력 처리하기 위한 컴퍼넌트를 구현한 클래스
 		TextField textField=new TextField();
+		
 		//프레임에 컨테이너 또는 컴퍼넌트 배치
 		add(panel, BorderLayout.NORTH);
 		add(textArea, BorderLayout.CENTER);
@@ -64,12 +65,11 @@ public class PanelApp extends Frame {
 		//Component.setEnable(boolean b) : 컴퍼넌트의 활성화 및 비활성화를 변경하는 메소드
 		// => false : 컴퍼넌트 비활성화, true(기본) : 컴퍼넌트 활성화
 		red.setEnabled(false);
-		/*
+		
 		//TextComponent.setFocusable(boolean b) : 텍스트 컴퍼넌트에 포커스(Focus) 제공 여부를 
 		//변경하는 메소드 - 텍스트 컴퍼넌트를 사용한 입력 처리 불가능
 		// => false : 포커스 미제공, true(기본) : 포커스 제공
 		textArea.setFocusable(false);
-		*/ 
 		
 		setBounds(600, 100, 400, 500);
 		setVisible(true);
