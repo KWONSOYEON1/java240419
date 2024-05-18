@@ -48,7 +48,7 @@ public class MenuBarApp extends Frame {
 		menuBar.add(help);
 		
 		//Frame.setMenuBar(MenuBar menuBar) : 프레임의 메뉴바를 변경하는 메소드
-		//setMenuBar(menuBar);
+		setMenuBar(menuBar);
 		
 		TextArea textArea=new TextArea();
 		textArea.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 20));
