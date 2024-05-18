@@ -44,7 +44,7 @@ public class EventHandleApp extends Frame {
 		Button exit=new Button("EXIT");
 		exit.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
 		add(exit);
-		
+	
 		exit.addActionListener(new ButtonEventHandle());
 		
 		setBounds(800, 200, 300, 300);
@@ -58,10 +58,10 @@ public class EventHandleApp extends Frame {
 
 //이벤트 처리 클래스 - Listener 인터페이스를 상속받아 작성
 class ButtonEventHandle implements ActionListener {
-	//이베트 처리 메소드 - 이벤트 처리 명령 작성
+	//이벤트 처리 메소드 - 이벤트 처리 명령 작성
 	// => 이벤트가 발생되면 이벤트 처리 클래스의 객체로 자동 호출되는 메소드
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.exit(0);
 	}
-}
+}		
