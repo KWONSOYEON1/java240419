@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 public class DigitalClockApp extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private JLabel clockLable;
+	private JLabel clockLabel;
 	private JButton startButton, stopButton;
 	
 	//스레드의 명령의 실행여부 상태를 저장하기 위한 필드
@@ -34,11 +34,11 @@ public class DigitalClockApp extends JFrame {
 		String printDate=dateFormat.format(date);
 		*/
 		
-		//clockLable=new JLabel("2024년 05월 17일 16시 55분 20초", JLabel.CENTER);
-		//clockLable=new JLabel(printDate, JLabel.CENTER);
+		//clockLabel=new JLabel("2024년 05월 17일 16시 55분 20초", JLabel.CENTER);
+		//clockLabel=new JLabel(printDate, JLabel.CENTER);
 		//새롭게 생성된 스레드를 사용하여 JLabel 컴퍼넌트의 문자열을 변경 처리
-		clockLable=new JLabel("", JLabel.CENTER);
-		clockLable.setFont(new Font("굴림체", Font.BOLD, 30));
+		clockLabel=new JLabel("", JLabel.CENTER);
+		clockLabel.setFont(new Font("굴림체", Font.BOLD, 30));
 		
 		startButton=new JButton("다시 실행");
 		stopButton=new JButton("일시 중지");
@@ -66,7 +66,7 @@ public class DigitalClockApp extends JFrame {
 					//isRun 필드값이 [true]인 경우에만 플렛폼의 현재 날짜와 시간을 제공받아
 					//JLabel 컴퍼넌트의 문자열 변경
 					if(isRun) {
-						clockLable.setText(dateFormat.format(new Date()));
+						clockLabel.setText(dateFormat.format(new Date()));
 					}
 					try {
 						Thread.sleep(1000);
@@ -77,7 +77,7 @@ public class DigitalClockApp extends JFrame {
 			}
 		}).start();
 		
-		getContentPane().add(clockLable, BorderLayout.CENTER);
+		getContentPane().add(clockLabel, BorderLayout.CENTER);
 		getContentPane().add(panel, BorderLayout.SOUTH);
 		
 		startButton.addActionListener(new ClockButtonEventHandle());
@@ -102,7 +102,7 @@ public class DigitalClockApp extends JFrame {
 				Date date=new Date();
 				String printDate=dateFormat.format(date);
 				//JLabel.setText(String label) : JLabel 컴퍼넌트의 문자열(라벨)을 변경하는 메소드
-				clockLable.setText(printDate);
+				clockLabel.setText(printDate);
 				
 				try {
 					Thread.sleep(1000);
