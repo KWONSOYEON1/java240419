@@ -5,13 +5,16 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.ref.Cleaner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 //사칙 연산식을 입력받아 연산 결과를 출력하는 프로그램 작성
 public class CalculatorFrameApp extends JFrame implements ActionListener {
@@ -150,6 +153,22 @@ public class CalculatorFrameApp extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+	
+		Object eventSource=e.getSource();
 		
-	}
+		if(eventSource == bClear) {
+			label.setText("");
+		}else if(eventSource == bEquals) {
+			label.setText(operation); 	
+		}else if(eventSource == b0 || eventSource ==  b1 || eventSource ==  b2
+				|| eventSource ==  b3 || eventSource == b4 || eventSource ==  b5
+				|| eventSource == b6 || eventSource ==  b7 || eventSource == b8
+				|| eventSource ==  b9 || eventSource == bPlus || eventSource == bMinus
+				|| eventSource ==  bMulti|| eventSource == bDiv) {
+			JButton button = (JButton) eventSource;
+		    String buttonText = button.getText();
+		    label.setText(label.getText() + buttonText);
+		}
+		
+	}	
 }
