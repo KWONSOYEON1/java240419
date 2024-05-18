@@ -150,14 +150,14 @@ public class CalculatorFrameApp extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		new CalculatorFrameApp("계산기");
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
 		Object eventSource=e.getSource();
 		
 		if(eventSource == bClear) {
-			label.setText("");
+			label.setText("0");
 		}else if(eventSource == bEquals) {
 			label.setText(operation); 
 		}else if(eventSource == b0 || eventSource ==  b1 || eventSource ==  b2
