@@ -159,7 +159,7 @@ public class CalculatorFrameApp extends JFrame implements ActionListener {
 		if(eventSource == bClear) {
 			label.setText("");
 		}else if(eventSource == bEquals) {
-			label.setText(operation); 	
+			label.setText(operation); 
 		}else if(eventSource == b0 || eventSource ==  b1 || eventSource ==  b2
 				|| eventSource ==  b3 || eventSource == b4 || eventSource ==  b5
 				|| eventSource == b6 || eventSource ==  b7 || eventSource == b8
