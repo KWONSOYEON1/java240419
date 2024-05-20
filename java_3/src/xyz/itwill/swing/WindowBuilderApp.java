@@ -63,12 +63,12 @@ public class WindowBuilderApp extends JFrame {
 		panel.add(redButton);
 		
 		greenButton = new JButton("초록색");
-		greenButton.setForeground(new Color(0, 128, 64));
+		greenButton.setForeground(new Color(0, 255, 0));
 		greenButton.setFont(new Font("굴림체", Font.BOLD, 20));
 		panel.add(greenButton);
 		
 		blueButton = new JButton("파란색");
-		blueButton.setForeground(new Color(0, 128, 255));
+		blueButton.setForeground(new Color(0, 0, 255));
 		blueButton.setFont(new Font("굴림체", Font.BOLD, 20));
 		panel.add(blueButton);
 		
@@ -95,5 +95,24 @@ public class WindowBuilderApp extends JFrame {
 		textField.setFont(new Font("굴림체", Font.BOLD, 20));
 		contentPane.add(textField, BorderLayout.SOUTH);
 		textField.setColumns(10);
+		
+		redButton.addActionListener(new ColorButtonEventhandle());
+		greenButton.addActionListener(new ColorButtonEventhandle());
+		blueButton.addActionListener(new ColorButtonEventhandle());
 	}
+		public class ColorButtonEventhandle implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Object eventSource=e.getSource();
+		
+				if(eventSource == redButton) {
+					textArea.setBackground(Color.RED);
+				}else if(eventSource == greenButton) {
+					textArea.setBackground(Color.GREEN);
+				}else if(eventSource == blueButton) {
+					textArea.setBackground(Color.BLUE);
+				}
+			}
+		}
 }
