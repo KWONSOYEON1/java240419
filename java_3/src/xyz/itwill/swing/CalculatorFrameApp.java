@@ -31,7 +31,7 @@ public class CalculatorFrameApp extends JFrame implements ActionListener {
 	public CalculatorFrameApp(String title) {
 		super(title);
 		initButtons();
-		init();
+		init();//초기화 작업
 	}
 
 	private void initButtons() {
