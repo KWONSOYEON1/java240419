@@ -63,7 +63,6 @@ public class WindowBuilderApp extends JFrame {
 		panel.add(redButton);
 		
 		greenButton = new JButton("초록색");
-		greenButton.setBackground(new Color(240, 240, 240));
 		greenButton.setForeground(new Color(0, 128, 64));
 		greenButton.setFont(new Font("굴림체", Font.BOLD, 20));
 		panel.add(greenButton);
