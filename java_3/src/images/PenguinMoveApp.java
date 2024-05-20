@@ -81,6 +81,10 @@ public class PenguinMoveApp extends JFrame {
 				case KeyEvent.VK_LEFT : 
 					penguinX -= 10;
 					
+					if(penguinX <= 0) {
+						penguinX = 0;
+					}
+					
 					//펭귄 이미지를 구분하기 위한 필드값을 변경
 					penguinNo++;
 					penguinNo%=3;
@@ -90,6 +94,10 @@ public class PenguinMoveApp extends JFrame {
 				
 				case KeyEvent.VK_RIGHT : 
 					penguinX += 10;
+					
+					if(penguinX >= JFRAME_WIDTH-PENGUIN_SIZE) {
+						penguinX = JFRAME_WIDTH-PENGUIN_SIZE;
+					}
 					
 					//펭귄 이미지를 구분하기 위한 필드값을 변경
 					penguinNo++;
