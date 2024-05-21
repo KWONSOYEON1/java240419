@@ -104,14 +104,20 @@ public class WindowBuilderApp extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Object eventSource=e.getSource();
-		
+				JButton eventSource=(JButton)e.getSource();
+				
+				redButton.setEnabled(true);
+				greenButton.setEnabled(true);
+				blueButton.setEnabled(true);
+
+				eventSource.setEnabled(false);
+				
 				if(eventSource == redButton) {
-					textArea.setBackground(Color.RED);
+					textArea.setForeground(Color.RED);
 				}else if(eventSource == greenButton) {
-					textArea.setBackground(Color.GREEN);
+					textArea.setForeground(Color.GREEN);
 				}else if(eventSource == blueButton) {
-					textArea.setBackground(Color.BLUE);
+					textArea.setForeground(Color.BLUE);
 				}
 			}
 		}

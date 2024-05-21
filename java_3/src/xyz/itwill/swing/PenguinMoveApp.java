@@ -1,4 +1,4 @@
-package images;
+package xyz.itwill.swing;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -44,7 +44,7 @@ public class PenguinMoveApp extends JFrame {
 		//URL 클래스 : 리소스 파일(그림파일, 소리파일,동영상파일 등)의 시스템의 파일 경로 또는 
 		//인터넷에 존재하는 파일 경로가 저장된 객체를 생성하기 위한 클래스
 		//Object.getClass() : 현재 사용중인 클래스에 대한 정보가 저장된 Class 객체를 반환하는 메소드
-		//Class.getResource(String name) : 현재 사용중인 클래스의 파일 경로를 기존으로 리소스
+		//Class.getResoutce(String name) : 현재 사용중인 클래스의 파일 경로를 기존으로 리소스
 		//파일을 제공받아 리소스 파일의 경로 정보가 저장된 URL 객체를 반환하는 메소드
 		//ImageIcon.getImage() : ImageIcon 객체에 저장된 그림파일에서 이미지가 저장된 Image
 		//객체를 반환하는 메소드
@@ -80,13 +80,14 @@ public class PenguinMoveApp extends JFrame {
 				//이벤트가 발생된 키보드 버튼이 왼쪽 방향키인 경우
 				case KeyEvent.VK_LEFT : 
 					penguinX -= 10;
-					
+
 					if(penguinX <= 0) {
 						penguinX = 0;
 					}
 					
 					//펭귄 이미지를 구분하기 위한 필드값을 변경
 					penguinNo++;
+					//나머지 결과값으로 0~2 범위의 정수값을 제공받아 변수에 저장
 					penguinNo%=3;
 					
 					repaint();
@@ -96,7 +97,7 @@ public class PenguinMoveApp extends JFrame {
 					penguinX += 10;
 					
 					if(penguinX >= JFRAME_WIDTH-PENGUIN_SIZE) {
-						penguinX = JFRAME_WIDTH-PENGUIN_SIZE;
+						penguinX=JFRAME_WIDTH-PENGUIN_SIZE;
 					}
 					
 					//펭귄 이미지를 구분하기 위한 필드값을 변경
