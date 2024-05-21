@@ -53,7 +53,7 @@ public class PenguinMoveApp extends JFrame {
 		//Image 객체를 요소값으로 저장할 수 있는 배열을 생성하여 필드에 저장
 		penguins=new Image[3];
 		
-		//배열 요소값으로 펭귄 이미지 파일을 읽이 이미지 저장
+		//배열 요소값으로 펭귄 이미지 파일을 읽어 이미지 저장
 		for(int i=0;i<penguins.length;i++) {
 			penguins[i]=new ImageIcon(getClass().getResource("/images/penguin"+(i+1)+".gif")).getImage();
 		}
