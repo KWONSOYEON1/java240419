@@ -170,9 +170,7 @@ public class NotepadApp extends JFrame {
 				
 			} else if(eventSource == exit) {
 				System.exit(0);
-			}
-					
+			}					
 		}
-
 	}
 }
