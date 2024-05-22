@@ -165,8 +165,7 @@ public class NotepadApp extends JFrame {
 				} else if (option == JFileChooser.CANCEL_OPTION) {
 					   return;
 				}
-					
-				
+									
 				
 			} else if(eventSource == exit) {
 				System.exit(0);
