@@ -3,7 +3,7 @@ package xyz.itwill.io;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-//키보드로 원시데이타를 입력받아 파일에 전달하여 저장하는 프로그램 작성
+//키보드로 원시데이타를 입력받아 파일에 전달하여 저장하는 프로그램 작성//파일에 데이터를 출력
 // => EOF 신호(Ctrl+Z - 입력 종료)를 입력 받으면 프로그램 종료
 public class FileOutputStreamApp {
 	public static void main(String[] args) throws IOException {
