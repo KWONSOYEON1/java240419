@@ -18,7 +18,7 @@ public class CharacterStreamApp {
 		//InputStreamReader 클래스 : 매개변수로 InputStream 객체를 전달받아 문자데이타를
 		//제공받을 수 있는 입력스트림(Reader 객체)을 생성하기 위한 클래스 - 스트림 확장
 		// => 키보드 입력값을 인코딩 처리된 문자값으로 전달받기 위한 입력스트림 생성
-		InputStreamReader in=new InputStreamReader(System.in);
+		InputStreamReader in=new InputStreamReader(System.in);//System.in - 1Byte, 2Byte로 확장 필요
 		
 		//OutputStreamWriter 클래스 : 매개변수로 OutputStream 객체를 전달받아 문자데이타를
 		//제공할 수 있는 출력스트림(Writer 객체)을 생성하기 위한 클래스 - 스트림 확장
@@ -28,7 +28,7 @@ public class CharacterStreamApp {
 		//PrintWriter 클래스 : 매개변수로 OutputStream 객체를 전달받아 문자데이타를
 		//제공할 수 있는 출력스트림(Writer 객체)을 생성하기 위한 클래스 - 스트림 확장
 		// => OutputStreamWriter 클래스를 상속받은 자식클래스로 다양한 출력메소드 제공
-		PrintWriter out=new PrintWriter(System.out);
+		PrintWriter out=new PrintWriter(System.out);//System.out - 1Byte, 2Byte로 확장 필요
 		
 		//키보드 입력값(2Byte - 문자데이타)을 저장하기 위한 변수
 		int readByte;
@@ -42,8 +42,8 @@ public class CharacterStreamApp {
 			
 			//Writer.write(int b) : 매개변수로 전달받은 정수값을 인코딩 처리한 문자데이타로 변환
 			//하여 출력스트림으로 전달하는 메소드
-			// => 모니터 출력스트림(System.out) 버퍼(Buffer)에 문자데이타를 저장하고 일정 크기가
-			//되면 출력스트림으로 전달하여 처리
+			// => 모니터 출력스트림(System.out)을 사용할 경우 출력버퍼(Buffer)에 문자데이타를 
+			//저장하고 일정 크기가 되면 출력스트림으로 전달하여 출력처리
 			out.write(readByte);
 			
 			//Writer.flush() : 출력스트림 버퍼(Buffer)에 저장된 문자데이타를 출력스트림으로
