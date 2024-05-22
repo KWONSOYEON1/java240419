@@ -148,6 +148,34 @@ public class NotepadApp extends JFrame {
 				}
 			} else if(eventSource == save) {
 				
+				int option=fileChooser.showSaveDialog(NotepadApp.this);
+				
+				if(option == JFileChooser.APPROVE_OPTION) {
+					file=fileChooser.getSelectedFile();
+					
+					try {
+						BufferedReader in=new BufferedReader(new FileReader(file.getAbsoluteFile()));
+						
+						textArea.setText("");
+						
+						while(true) {
+							
+							String text=in.readLine();
+														
+							if(text == null) break;
+														
+							textArea.append(text+"\n");
+						}
+						
+						in.close();
+					} catch (FileNotFoundException exception) {
+						JOptionPane.showMessageDialog(NotepadApp.this, "파일을 찾을 수 없습니다.");
+					} catch (IOException exception) {
+						JOptionPane.showMessageDialog(NotepadApp.this, "프로그램에 문제가 발생 하였습니다.");
+					}
+				} else if(option == JFileChooser.CANCEL_OPTION) {//[취소] 버튼을 누른 경우
+					return;
+				}
 			} else if(eventSource == exit) {
 				System.exit(0);
 			}
