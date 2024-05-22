@@ -7,9 +7,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JFileChooser;
@@ -147,38 +149,30 @@ public class NotepadApp extends JFrame {
 					return;
 				}
 			} else if(eventSource == save) {
-				
-				int option=fileChooser.showSaveDialog(NotepadApp.this);
+					int option=fileChooser.showSaveDialog(NotepadApp.this);
 				
 				if(option == JFileChooser.APPROVE_OPTION) {
 					file=fileChooser.getSelectedFile();
 					
-					try {
-						BufferedReader in=new BufferedReader(new FileReader(file.getAbsoluteFile()));
-						
-						textArea.setText("");
-						
-						while(true) {
-							
-							String text=in.readLine();
-														
-							if(text == null) break;
-														
-							textArea.append(text+"\n");
-						}
-						
-						in.close();
-					} catch (FileNotFoundException exception) {
-						JOptionPane.showMessageDialog(NotepadApp.this, "파일을 찾을 수 없습니다.");
+					try (BufferedWriter out=new BufferedWriter(new FileWriter(file))) {
+					        out.write(textArea.getText()); 
+					        
+					        JOptionPane.showMessageDialog(NotepadApp.this, "파일이 성공적으로 저장되었습니다.");
 					} catch (IOException exception) {
-						JOptionPane.showMessageDialog(NotepadApp.this, "프로그램에 문제가 발생 하였습니다.");
-					}
-				} else if(option == JFileChooser.CANCEL_OPTION) {//[취소] 버튼을 누른 경우
-					return;
+					        JOptionPane.showMessageDialog(NotepadApp.this, "파일을 찾을 수 없습니다.");
+					       
+					    }
+				} else if (option == JFileChooser.CANCEL_OPTION) {
+					   return;
 				}
+					
+				
+				
 			} else if(eventSource == exit) {
 				System.exit(0);
 			}
+					
 		}
+
 	}
 }
