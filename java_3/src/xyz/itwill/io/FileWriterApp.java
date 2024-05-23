@@ -11,7 +11,7 @@ public class FileWriterApp {
 		System.out.println("[메세지]키보드를 눌러 값을 입력해 주세요.[프로그램 종료 : Ctrl+Z]");
 		
 		//키보드 입력스트림(System.in)을 매개변수로 전달받아 문자데이타를 제공받을 수 있는
-		//입력스트림 확장
+		//입력스트림 확장//1Byte -> 2Byte로 확장 
 		InputStreamReader in=new InputStreamReader(System.in);
 		
 		//FileWriter 클래스 : 파일에 문자데이타를 전달하여 저장할 수 있는 출력스트림을
@@ -35,7 +35,7 @@ public class FileWriterApp {
 			//확장된 키보드 입력스트림을 사용해 문자데이타를 반환받아 변수에 저장
 			readByte=in.read();
 			if(readByte == -1) break;
-			//파일 출력스트림을 사용해 파일에 문자데이타를 전달받아 저장
+			//파일 출력스트림을 사용해 파일에 문자데이타를 전달해 저장
 			out.write(readByte);
 		}
 		

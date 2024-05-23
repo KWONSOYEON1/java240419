@@ -18,8 +18,7 @@ public class FileOutputStreamApp {
 		//생성해 파일 출력스트림을 제공하므로 FileNotFoundException은 예외 처리하지 않고 전달
 		// => name 매개변수로 전달받은 전달받은 파일이 있는 경우 기존 내용을 초기화하고 새로운
 		//내용으로 저장되도록 처리
-		//FileOutputStream out=new FileOutputStream("c:/data/byte.txt");
-		
+		//FileOutputStream out=new FileOutputStream("c:/data/byte.txt");		
 		
 		//FileOutputStream(String name, boolean append) 생성자를 사용하여 FileOutputStream 객체 생성
 		// => append 매개변수에 [true]를 전달할 경우 name 매개변수로 전달받은 전달받은 파일이
