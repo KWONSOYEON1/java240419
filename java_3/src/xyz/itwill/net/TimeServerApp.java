@@ -39,7 +39,7 @@ public class TimeServerApp {
 				
 				//Socket.getOutputStream() : Socket 객체로부터 접속된 클라이언트에게 원시데이타를
 				//전달할 수 있는 출력스트림(OutputStream 객체)를 반환하는 메소드
-				OutputStream outputStream=socket.getOutputStream();
+				OutputStream outputStream=socket.getOutputStream();//서버에 데이터 전송
 				
 				//매개변수로 클라이언트로 원시데이타를 전달할 수 있는 OutputStream 객체를 전달받아
 				//객체를 전달할 수 있는 출력스트림(ObjectOutputStream 객체)으로 확장
