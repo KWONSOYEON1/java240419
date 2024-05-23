@@ -41,7 +41,7 @@ public class FileOutputStreamApp {
 		//FileOutputStream.close() : 파일 출력스트림을 제거하는 메소드
 		// => 파일에는 입력스트림과 출력스트림을 각각 하나씩만 생성하여 사용 가능하므로
 		//입력스트림 또는 출력스트림을 사용한 후에는 반드시 제거
-		out.close();
+		out.close();//파일은 close() 필수
 
 		System.out.println("[결과]c:\\data\\byte.txt 파일을 확인해 보세요.");
 	}
