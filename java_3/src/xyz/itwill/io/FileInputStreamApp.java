@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-//파일에 저장된 내용을 원시데이타로 제공받아 모니터(콘솔)에 출력하는 프로그램 작성//데이터를 파일에서 읽어옴
+//파일에 저장된 내용을 원시데이타로 제공받아 모니터(콘솔)에 출력하는 프로그램 작성//데이터를 파일에서 받음
 public class FileInputStreamApp {
 	public static void main(String[] args) throws IOException {
 		//FileInputStream 클래스 : 파일에 저장된 내용을 원시데이타로 제공받을 수 있는 입력스트림을
