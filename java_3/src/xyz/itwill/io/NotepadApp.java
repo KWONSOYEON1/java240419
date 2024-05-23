@@ -110,12 +110,12 @@ public class NotepadApp extends JFrame {
 				setTitle("제목 없음 - Java 메모장");//프레임의 제목 변경
 				file=null;//작업중인 파일이 없으므로 file 필드에 [null] 저장 
 			} else if(eventSource == open) {
-				//JFleChooser.showOpenDialog(Component parent) : 열기 관련 파일 다이얼로그를
+				//JFileChooser.showOpenDialog(Component parent) : 열기 관련 파일 다이얼로그를
 				//화면에 출력하는 메소드 - [열기] 또는 [취소] 버튼 선택에 따른 정수값 반환
 				int option=fileChooser.showOpenDialog(NotepadApp.this);
 				
 				if(option == JFileChooser.APPROVE_OPTION) {//파일 선택 후 [열기] 버튼을 누른 경우
-					//JFleChooser.getSelectedFile() : 선택한 파일의 경로가 저장된 File 객체를 반환하는 메소드
+					//JFileChooser.getSelectedFile() : 선택한 파일의 경로가 저장된 File 객체를 반환하는 메소드
 					// => 파일 다이얼로그의 [파일이름]에 입력된 문자열(파일명)을 제공받아 File 객체 생성 
 					file=fileChooser.getSelectedFile();
 					
