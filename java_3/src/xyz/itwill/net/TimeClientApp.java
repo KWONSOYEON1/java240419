@@ -25,7 +25,7 @@ public class TimeClientApp {
 			
 			//Socket.getInputStream() : Socket 객체로부터 접속된 서버에서 보내온 원시데이타를
 			//받을 수 있는 입력스트림(InputStream 객체)를 반환하는 메소드
-			InputStream inputStream=socket.getInputStream();//서버로부터 데이터 받는 역할
+			InputStream inputStream=socket.getInputStream();//데이터를 서버에서 받음
 
 			//매개변수로 서버에서 보내온 원시데이타를 받을 수 있는 OutputStream 객체를 전달받아
 			//객체를 반환받기 위한 입력스트림(ObjectInputStream 객체)으로 확장
