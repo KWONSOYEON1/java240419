@@ -48,7 +48,7 @@ public class CharacterStreamApp {
 			
 			//Writer.flush() : 출력스트림 버퍼(Buffer)에 저장된 문자데이타를 출력스트림으로
 			//전달하는 메소드
-			out.flush();
+			out.flush();//파일은 종료되면 자동으로 flush()되기 떄문에 사용 안함 
 		}
 		
 		System.out.println("[메세지]프로그램을 종료합니다.");
