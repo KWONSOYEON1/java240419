@@ -17,7 +17,7 @@ public class MemberLoadApp {
 		while(true) {
 			try {
 				//ObjectInputStream.readObject() 메소드를 호출하여 파일에 저장된 Member 객체를
-				//차례대러 제공받아 저장
+				//차례대로 제공받아 저장
 				// => readObject() 메소드를 호출시 제공받을 객체가 없는 경우 EOFException 발생 
 				Member member=(Member)in.readObject();
 				System.out.println(member);//Member 클래스의 toString() 메소드 자동 호출
