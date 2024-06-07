@@ -1,4 +1,4 @@
-package xyz.itwill.jdbc;
+package xyz.itwill.project;
 
 import java.awt.EventQueue;
 
