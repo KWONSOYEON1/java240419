@@ -36,6 +36,7 @@ public class MenuUpdate extends JDialog {
 	 * Create the dialog.
 	 */
 	public MenuUpdate() {
+		setTitle("시술 수정");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

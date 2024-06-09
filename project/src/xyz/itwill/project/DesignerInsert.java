@@ -44,6 +44,7 @@ public class DesignerInsert extends JDialog {
 	 * Create the dialog.
 	 */
 	public DesignerInsert() {
+		setTitle("디자이너 등록");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -34,6 +34,7 @@ public class ReservationSelect extends JDialog {
 	 * Create the dialog.
 	 */
 	public ReservationSelect() {
+		setTitle("예약 검색");
 		setBounds(100, 100, 400, 250);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

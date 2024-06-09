@@ -43,6 +43,7 @@ public class MemberUpdate extends JDialog {
 	 * Create the dialog.
 	 */
 	public MemberUpdate() {
+		setTitle("회원 수정");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

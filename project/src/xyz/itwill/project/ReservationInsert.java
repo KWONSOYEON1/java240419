@@ -42,6 +42,7 @@ public class ReservationInsert extends JDialog {
 	 * Create the dialog.
 	 */
 	public ReservationInsert() {
+		setTitle("예약 등록");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

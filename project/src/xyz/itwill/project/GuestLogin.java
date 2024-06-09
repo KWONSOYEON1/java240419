@@ -33,6 +33,7 @@ public class GuestLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public GuestLogin() {
+		setTitle("비회원 로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();

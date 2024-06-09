@@ -41,6 +41,7 @@ public class MainLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public MainLogin() {
+		setTitle("메인 로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 250);
 		contentPane = new JPanel();

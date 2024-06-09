@@ -44,6 +44,7 @@ public class AdministratorLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public AdministratorLogin() {
+		setTitle("관리자 로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();

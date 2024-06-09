@@ -34,6 +34,7 @@ public class DesignerSelect extends JDialog {
 	 * Create the dialog.
 	 */
 	public DesignerSelect() {
+		setTitle("디자이너 검색");
 		setBounds(100, 100, 400, 250);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
