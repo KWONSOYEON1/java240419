@@ -150,15 +150,25 @@ public class MemberUpdate extends JDialog {
 			gbc_chckbxNewCheckBox.gridx = 2;
 			gbc_chckbxNewCheckBox.gridy = 5;
 			contentPanel.add(chckbxNewCheckBox, gbc_chckbxNewCheckBox);
-		}
-		{
+		
 			JCheckBox chckbxNewCheckBox_1 = new JCheckBox("여자");
 			GridBagConstraints gbc_chckbxNewCheckBox_1 = new GridBagConstraints();
 			gbc_chckbxNewCheckBox_1.insets = new Insets(0, 0, 5, 5);
 			gbc_chckbxNewCheckBox_1.gridx = 3;
 			gbc_chckbxNewCheckBox_1.gridy = 5;
 			contentPanel.add(chckbxNewCheckBox_1, gbc_chckbxNewCheckBox_1);
-		}
+		
+			chckbxNewCheckBox.addActionListener(e -> {
+				if(chckbxNewCheckBox.isSelected()) {
+	            chckbxNewCheckBox_1.setSelected(false);
+				}
+			});
+	    
+			chckbxNewCheckBox_1.addActionListener(e -> {
+				if(chckbxNewCheckBox_1.isSelected()) {
+					chckbxNewCheckBox.setSelected(false);
+				}
+			});
 		{
 			JLabel lblNewLabel_5 = new JLabel("핸드폰 번호");
 			GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
@@ -281,4 +291,5 @@ public class MemberUpdate extends JDialog {
 		}
 	}
 
+	}
 }
