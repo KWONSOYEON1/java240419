@@ -95,6 +95,8 @@ public class DesignerSelect extends JDialog {
 				cancelButton.addActionListener(e -> {
 					dispose(); 
 				});
+				
+				
 			}
 		}
 	}

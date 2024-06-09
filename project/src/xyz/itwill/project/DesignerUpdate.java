@@ -257,6 +257,11 @@ public class DesignerUpdate extends JDialog {
 				gbc_okButton.gridy = 0;
 				buttonPane.add(okButton, gbc_okButton);
 				getRootPane().setDefaultButton(okButton);
+				
+				okButton.addActionListener(e -> {
+				    
+				    dispose();
+				});
 			}
 			{
 				JButton cancelButton = new JButton("취소");
