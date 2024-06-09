@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -60,5 +62,27 @@ public class GuestLogin extends JFrame {
 		
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
+		
+		
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				
+			    int selectedIndex = tabbedPane.getSelectedIndex();
+                                         	
+			    if (selectedIndex == 0) {
+                    openMenuSelect();
+                } else if (selectedIndex == 1) {
+                    openDesignerSelect();
+                }
+            }
+        });
 	}
+	private void openMenuSelect() {      
+		MenuSelect menuSelect = new MenuSelect();
+		menuSelect.setVisible(true);
+	}	
+    private void openDesignerSelect() {      
+    	DesignerSelect designerSelect = new DesignerSelect();
+    	designerSelect.setVisible(true);
+    }	
 }

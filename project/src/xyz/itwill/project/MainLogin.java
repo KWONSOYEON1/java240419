@@ -188,16 +188,16 @@ public class MainLogin extends JFrame {
 		             return;
 		    	}		    	
 		    	if (chckbxNonMember.isSelected()) {		         
-		        	GuestLogin GuestLogin = new GuestLogin();
-		        	GuestLogin.setVisible(true);
+		        	GuestLogin guestLogin = new GuestLogin();
+		        	guestLogin.setVisible(true);
 		        	setVisible(false);
 		        } else if (chckbxMember.isSelected()) {		            
-		        	MemberLogin MemberLogin = new MemberLogin();
-		        	MemberLogin.setVisible(true);
+		        	MemberLogin memberLogin = new MemberLogin();
+		        	memberLogin.setVisible(true);
 		        	setVisible(false);
 		        } else if (chckbxAdmin.isSelected()) {		           
-		        	AdministratorLogin AdministratorLogin = new AdministratorLogin();
-		        	AdministratorLogin.setVisible(true);
+		        	AdministratorLogin administratorLogin = new AdministratorLogin();
+		        	administratorLogin.setVisible(true);
 		        	setVisible(false);
 		        } else {
 		            JOptionPane.showMessageDialog(MainLogin.this, "아이디 또는 비밀번호가 올바르지 않습니다.", "경고", JOptionPane.WARNING_MESSAGE);

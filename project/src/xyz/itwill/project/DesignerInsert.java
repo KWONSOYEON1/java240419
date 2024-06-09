@@ -266,6 +266,10 @@ public class DesignerInsert extends JDialog {
 				gbc_cancelButton.gridx = 2;
 				gbc_cancelButton.gridy = 0;
 				buttonPane.add(cancelButton, gbc_cancelButton);
+				
+				cancelButton.addActionListener(e -> {
+					dispose(); 
+				});
 			}
 		}
 	}
