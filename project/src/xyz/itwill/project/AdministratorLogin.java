@@ -116,7 +116,6 @@ public class AdministratorLogin extends JFrame {
 					reservationInsertdialog.setVisible(true);
 					break;
 				default:	
-					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
 					break;
 				}
 			}
@@ -150,8 +149,7 @@ public class AdministratorLogin extends JFrame {
 					ReservationSelect reservationSelectdialog = new ReservationSelect();
 					reservationSelectdialog.setVisible(true);
 					break;
-				default:	
-					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+				default:					
 					break;
 				}
 			}
@@ -185,8 +183,7 @@ public class AdministratorLogin extends JFrame {
 					ReservationUpdate reservationUpdatedialog = new ReservationUpdate();
 					reservationUpdatedialog.setVisible(true);
 					break;
-				default:	
-					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+				default:						
 					break;
 				}
 			}
