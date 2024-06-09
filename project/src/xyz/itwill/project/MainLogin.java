@@ -186,8 +186,7 @@ public class MainLogin extends JFrame {
 		    	if (username.isEmpty() || password.isEmpty()) {
 		             JOptionPane.showMessageDialog(MainLogin.this, "아이디나 비밀번호를 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
 		             return;
-		    	}
-		    	
+		    	}		    	
 		    	if (chckbxNonMember.isSelected()) {		         
 		        	GuestLogin GuestLogin = new GuestLogin();
 		        	GuestLogin.setVisible(true);
