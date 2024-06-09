@@ -43,7 +43,7 @@ public class MemberInsert extends JDialog {
 	 * Create the dialog.
 	 */
 	public MemberInsert() {
-		setTitle("회원 검색");
+		setTitle("회원 등록");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
