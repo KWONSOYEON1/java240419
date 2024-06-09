@@ -5,12 +5,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTable;
 
 
@@ -84,6 +89,27 @@ public class MemberLogin extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		JButton btnNewButton_2 = new JButton("예약 ");
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					
+				case 1 :
+					
+					break;
+				case 2 :
+					ReservationInsert reservationInsertdialog = new ReservationInsert();
+					reservationInsertdialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+		
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton_2.gridx = 1;
@@ -91,6 +117,27 @@ public class MemberLogin extends JFrame {
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
 		
 		JButton btnNewButton_1 = new JButton("예약 확인");
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					
+				case 1 :
+					
+					break;
+				case 2 :
+					ReservationSelect reservationSelectdialog = new ReservationSelect();
+					reservationSelectdialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+		
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton_1.gridx = 2;
@@ -98,6 +145,28 @@ public class MemberLogin extends JFrame {
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("예약 변경");
+		
+
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					
+				case 1 :
+					
+					break;
+				case 2 :
+					ReservationUpdate reservationUpdatedialog = new ReservationUpdate();
+					reservationUpdatedialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+		
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 3;
@@ -109,6 +178,28 @@ public class MemberLogin extends JFrame {
 		gbc_btnNewButton_3.gridx = 4;
 		gbc_btnNewButton_3.gridy = 0;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
-	}
+	
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+			
+				int selectedIndex = tabbedPane.getSelectedIndex();
+                                     	
+				if (selectedIndex == 0) {
+                openMenuSelect();
+				} else if (selectedIndex == 1) {
+                openDesignerSelect();
+				}
+				}
+			});
+		}
+	private void openMenuSelect() {      
+		MenuSelect menuSelect = new MenuSelect();
+		menuSelect.setVisible(true);
+	}	
+	private void openDesignerSelect() {      
+		DesignerSelect designerSelect = new DesignerSelect();
+		designerSelect.setVisible(true);
+	}	
 
 }
+
