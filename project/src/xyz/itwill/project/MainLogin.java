@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
@@ -178,7 +180,15 @@ public class MainLogin extends JFrame {
 				
 		btnNewButton.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		        if (chckbxNonMember.isSelected()) {		         
+		    	String username = textField.getText();
+		        String password = textField_1.getText();
+		    	
+		    	if (username.isEmpty() || password.isEmpty()) {
+		             JOptionPane.showMessageDialog(MainLogin.this, "아이디나 비밀번호를 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
+		             return;
+		    	}
+		    	
+		    	if (chckbxNonMember.isSelected()) {		         
 		        	GuestLogin GuestLogin = new GuestLogin();
 		        	GuestLogin.setVisible(true);
 		        	setVisible(false);
@@ -190,6 +200,8 @@ public class MainLogin extends JFrame {
 		        	AdministratorLogin AdministratorLogin = new AdministratorLogin();
 		        	AdministratorLogin.setVisible(true);
 		        	setVisible(false);
+		        } else {
+		            JOptionPane.showMessageDialog(MainLogin.this, "아이디 또는 비밀번호가 올바르지 않습니다.", "경고", JOptionPane.WARNING_MESSAGE);
 		        }
 		    }
 		});	
