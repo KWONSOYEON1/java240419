@@ -151,14 +151,25 @@ public class DesignerInsert extends JDialog {
 			gbc_chckbxNewCheckBox_1.gridx = 2;
 			gbc_chckbxNewCheckBox_1.gridy = 5;
 			contentPanel.add(chckbxNewCheckBox_1, gbc_chckbxNewCheckBox_1);
-		}
-		{
+		
 			JCheckBox chckbxNewCheckBox = new JCheckBox("여자");
 			GridBagConstraints gbc_chckbxNewCheckBox = new GridBagConstraints();
 			gbc_chckbxNewCheckBox.insets = new Insets(0, 0, 5, 5);
 			gbc_chckbxNewCheckBox.gridx = 3;
 			gbc_chckbxNewCheckBox.gridy = 5;
 			contentPanel.add(chckbxNewCheckBox, gbc_chckbxNewCheckBox);
+			
+			chckbxNewCheckBox.addActionListener(e -> {
+				if(chckbxNewCheckBox.isSelected()) {
+	            chckbxNewCheckBox_1.setSelected(false);
+				}
+			});
+	    
+			chckbxNewCheckBox_1.addActionListener(e -> {
+				if(chckbxNewCheckBox_1.isSelected()) {
+					chckbxNewCheckBox.setSelected(false);
+				}
+			});
 		}
 		{
 			JLabel lblNewLabel_8 = new JLabel("핸드폰 번호");
