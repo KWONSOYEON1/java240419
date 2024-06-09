@@ -9,11 +9,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AdministratorLogin extends JFrame {
 
@@ -84,6 +85,7 @@ public class AdministratorLogin extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 250, 440, 40);
 		contentPane.add(panel);
+		
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{95, 57, 57, 57, 57, 57, 0};
 		gbl_panel.rowHeights = new int[]{23, 0};
@@ -91,39 +93,116 @@ public class AdministratorLogin extends JFrame {
 		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JButton btnNewButton_2 = new JButton("삭제");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		JButton btnNewButton_1 = new JButton("검색");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
 		JButton btnNewButton = new JButton("등록");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					MenuInsert menuInsertdialog = new MenuInsert();
+					menuInsertdialog.setVisible(true);
+					break;
+				case 1 :
+					DesignerInsert designerInsertdialog = new DesignerInsert();
+					designerInsertdialog.setVisible(true);
+					break;
+				case 2 :
+					MemberInsert memberInsertdialog = new MemberInsert();
+					memberInsertdialog.setVisible(true);
+					break;
+				case 3 :
+					ReservationInsert reservationInsertdialog = new ReservationInsert();
+					reservationInsertdialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+				
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 2;
 		gbc_btnNewButton.gridy = 0;
 		panel.add(btnNewButton, gbc_btnNewButton);
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_1.gridx = 3;
-		gbc_btnNewButton_1.gridy = 0;
-		panel.add(btnNewButton_1, gbc_btnNewButton_1);
+				
+		JButton btnNewButton_2 = new JButton("검색");
 		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					MenuSelect menuSelectdialog = new MenuSelect();
+					menuSelectdialog.setVisible(true);
+					break;
+				case 1 :
+					DesignerSelect designerSelectdialog = new DesignerSelect();
+					designerSelectdialog.setVisible(true);
+					break;
+				case 2 :
+					MemberSelect memberSelectdialog = new MemberSelect();
+					memberSelectdialog.setVisible(true);
+					break;
+				case 3 :
+					ReservationSelect reservationSelectdialog = new ReservationSelect();
+					reservationSelectdialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+				
+		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton_2.gridx = 3;
+		gbc_btnNewButton_2.gridy = 0;
+		panel.add(btnNewButton_2, gbc_btnNewButton_2);
+				
 		JButton btnNewButton_3 = new JButton("수정");
+		
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					MenuUpdate menuUpdatedialog = new MenuUpdate();
+					menuUpdatedialog.setVisible(true);
+					break;
+				case 1 :
+					DesignerUpdate designerUpdatedialog = new DesignerUpdate();
+					designerUpdatedialog.setVisible(true);
+					break;
+				case 2 :
+					MemberUpdate memberUpdatedialog = new MemberUpdate();
+					memberUpdatedialog.setVisible(true);
+					break;
+				case 3 :
+					ReservationUpdate reservationUpdatedialog = new ReservationUpdate();
+					reservationUpdatedialog.setVisible(true);
+					break;
+				default:	
+					System.out.println("선택한 탭에 해당하는 다이얼로그가 없습니다.");
+					break;
+				}
+			}
+		});
+				
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
 		gbc_btnNewButton_3.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton_3.gridx = 4;
 		gbc_btnNewButton_3.gridy = 0;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
-		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.gridx = 5;
-		gbc_btnNewButton_2.gridy = 0;
-		panel.add(btnNewButton_2, gbc_btnNewButton_2);
+						
+		JButton btnNewButton_1 = new JButton("삭제");
+		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.gridx = 5;
+		gbc_btnNewButton_1.gridy = 0;
+		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 	}
+
 }
