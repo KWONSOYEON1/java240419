@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import java.awt.Insets;
 import javax.swing.JCheckBox;
 
-public class MainLogin extends JDialog {
+public class MainLogin1 extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
@@ -25,7 +25,7 @@ public class MainLogin extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			MainLogin dialog = new MainLogin();
+			MainLogin1 dialog = new MainLogin1();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -36,7 +36,7 @@ public class MainLogin extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public MainLogin() {
+	public MainLogin1() {
 		setBounds(100, 100, 450, 250);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
