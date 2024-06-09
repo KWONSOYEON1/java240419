@@ -7,11 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class GuestLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -49,7 +52,13 @@ public class GuestLogin extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("시술 검색", null, scrollPane, null);
 		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("디자이너 검색", null, scrollPane_1, null);
+		
+		table_1 = new JTable();
+		scrollPane_1.setViewportView(table_1);
 	}
 }
