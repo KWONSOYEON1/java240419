@@ -20,7 +20,6 @@ public class ReservationInsert extends JDialog {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_6;
 	private JTextField textField_9;
@@ -113,21 +112,20 @@ public class ReservationInsert extends JDialog {
 		{
 			JLabel lblNewLabel_3 = new JLabel("예약 디자이너");
 			GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-			gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
+			gbc_lblNewLabel_3.anchor = GridBagConstraints.EAST;
 			gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel_3.gridx = 1;
 			gbc_lblNewLabel_3.gridy = 4;
 			contentPanel.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		}
 		{
-			textField_3 = new JTextField();
-			GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-			gbc_textField_3.insets = new Insets(0, 0, 5, 5);
-			gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-			gbc_textField_3.gridx = 2;
-			gbc_textField_3.gridy = 4;
-			contentPanel.add(textField_3, gbc_textField_3);
-			textField_3.setColumns(10);
+			JComboBox comboBox = new JComboBox();
+			GridBagConstraints gbc_comboBox = new GridBagConstraints();
+			gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+			gbc_comboBox.gridx = 2;
+			gbc_comboBox.gridy = 4;
+			contentPanel.add(comboBox, gbc_comboBox);
 		}
 		{
 			JLabel lblNewLabel_4 = new JLabel("예약 회원");
