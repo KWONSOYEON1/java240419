@@ -89,6 +89,7 @@ public class MemberLogin extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		JButton btnNewButton_2 = new JButton("예약 ");
+		btnNewButton_2.setVisible(false);
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -176,6 +177,11 @@ public class MemberLogin extends JFrame {
 		gbc_btnNewButton_3.gridy = 0;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
 	
+		btnNewButton_2.setVisible(false);
+		btnNewButton_1.setVisible(false);
+		btnNewButton.setVisible(false);
+		btnNewButton_3.setVisible(false);
+		
 		tabbedPane.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 			
@@ -186,8 +192,8 @@ public class MemberLogin extends JFrame {
 				} else if (selectedIndex == 1) {
                 openDesignerSelect();
 				}
-				}
-		});
+			}
+		});		
 		
 		tabbedPane.addChangeListener(new ChangeListener() {
 		    public void stateChanged(ChangeEvent e) {
