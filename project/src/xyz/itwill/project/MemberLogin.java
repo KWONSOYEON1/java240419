@@ -187,8 +187,28 @@ public class MemberLogin extends JFrame {
                 openDesignerSelect();
 				}
 				}
-			});
+		});
+		
+		tabbedPane.addChangeListener(new ChangeListener() {
+		    public void stateChanged(ChangeEvent e) {
+		        int selectedIndex = tabbedPane.getSelectedIndex();
+		        if (selectedIndex == 0 || selectedIndex == 1) {
+		            btnNewButton_2.setVisible(false); 
+		            btnNewButton_1.setVisible(false); 
+		            btnNewButton.setVisible(false);
+		            btnNewButton_3.setVisible(false); 
+		        } else if (selectedIndex == 2) {
+		            btnNewButton_2.setVisible(true); 
+		            btnNewButton_1.setVisible(true); 
+		            btnNewButton.setVisible(true); 
+		            btnNewButton_3.setVisible(true); 
+		        }
+		    }
+		});
+		
 		}
+	
+		
 	private void openMenuSelect() {      
 		MenuSelect menuSelect = new MenuSelect();
 		menuSelect.setVisible(true);
