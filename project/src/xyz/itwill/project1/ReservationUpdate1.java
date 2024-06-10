@@ -1,4 +1,4 @@
-package xyz.itwill.project2;
+package xyz.itwill.project1;
 
 import java.awt.BorderLayout;
 
@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
-public class ReservationInsert1 extends JDialog {
+public class ReservationUpdate1 extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
@@ -21,15 +21,15 @@ public class ReservationInsert1 extends JDialog {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_4;
+	private JTextField textField_5;
 	private JTextField textField_6;
-	private JTextField textField_9;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			ReservationInsert1 dialog = new ReservationInsert1();
+			ReservationUpdate1 dialog = new ReservationUpdate1();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -40,8 +40,8 @@ public class ReservationInsert1 extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public ReservationInsert1() {
-		setTitle("예약 등록");
+	public ReservationUpdate1() {
+		setTitle("예약 수정");
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -174,14 +174,14 @@ public class ReservationInsert1 extends JDialog {
 			contentPanel.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		}
 		{
-			textField_6 = new JTextField();
-			GridBagConstraints gbc_textField_6 = new GridBagConstraints();
-			gbc_textField_6.insets = new Insets(0, 0, 5, 5);
-			gbc_textField_6.fill = GridBagConstraints.HORIZONTAL;
-			gbc_textField_6.gridx = 2;
-			gbc_textField_6.gridy = 7;
-			contentPanel.add(textField_6, gbc_textField_6);
-			textField_6.setColumns(10);
+			textField_5 = new JTextField();
+			GridBagConstraints gbc_textField_5 = new GridBagConstraints();
+			gbc_textField_5.insets = new Insets(0, 0, 5, 5);
+			gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_5.gridx = 2;
+			gbc_textField_5.gridy = 7;
+			contentPanel.add(textField_5, gbc_textField_5);
+			textField_5.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_7 = new JLabel("현금 여부");
@@ -229,14 +229,14 @@ public class ReservationInsert1 extends JDialog {
 			contentPanel.add(lblNewLabel_9, gbc_lblNewLabel_9);
 		}
 		{
-			textField_9 = new JTextField();
-			GridBagConstraints gbc_textField_9 = new GridBagConstraints();
-			gbc_textField_9.insets = new Insets(0, 0, 0, 5);
-			gbc_textField_9.fill = GridBagConstraints.HORIZONTAL;
-			gbc_textField_9.gridx = 2;
-			gbc_textField_9.gridy = 10;
-			contentPanel.add(textField_9, gbc_textField_9);
-			textField_9.setColumns(10);
+			textField_6 = new JTextField();
+			GridBagConstraints gbc_textField_6 = new GridBagConstraints();
+			gbc_textField_6.insets = new Insets(0, 0, 0, 5);
+			gbc_textField_6.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_6.gridx = 2;
+			gbc_textField_6.gridy = 10;
+			contentPanel.add(textField_6, gbc_textField_6);
+			textField_6.setColumns(10);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -248,7 +248,7 @@ public class ReservationInsert1 extends JDialog {
 			gbl_buttonPane.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 			buttonPane.setLayout(gbl_buttonPane);
 			{
-				JButton okButton = new JButton("등록");
+				JButton okButton = new JButton("수정");
 				okButton.setActionCommand("OK");
 				GridBagConstraints gbc_okButton = new GridBagConstraints();
 				gbc_okButton.anchor = GridBagConstraints.NORTHWEST;
