@@ -62,7 +62,7 @@ public class MemberLogin extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("시술 검색", null, scrollPane, null);
-		
+					
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
