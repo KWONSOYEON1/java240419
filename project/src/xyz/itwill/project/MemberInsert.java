@@ -50,9 +50,9 @@ public class MemberInsert extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_contentPanel = new GridBagLayout();
 		gbl_contentPanel.columnWidths = new int[]{100, 60, 75, 75, 100, 0};
-		gbl_contentPanel.rowHeights = new int[]{23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 0};
+		gbl_contentPanel.rowHeights = new int[]{23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 0};
 		gbl_contentPanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblNewLabel = new JLabel("아이디");
@@ -234,7 +234,7 @@ public class MemberInsert extends JDialog {
 			JLabel lblNewLabel_8 = new JLabel("메모");
 			GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
 			gbc_lblNewLabel_8.anchor = GridBagConstraints.WEST;
-			gbc_lblNewLabel_8.insets = new Insets(0, 0, 0, 5);
+			gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel_8.gridx = 1;
 			gbc_lblNewLabel_8.gridy = 9;
 			contentPanel.add(lblNewLabel_8, gbc_lblNewLabel_8);
@@ -242,9 +242,10 @@ public class MemberInsert extends JDialog {
 		{
 			textField_8 = new JTextField();
 			GridBagConstraints gbc_textField_8 = new GridBagConstraints();
+			gbc_textField_8.gridheight = 2;
 			gbc_textField_8.gridwidth = 2;
-			gbc_textField_8.insets = new Insets(0, 0, 0, 5);
-			gbc_textField_8.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_8.insets = new Insets(0, 0, 5, 5);
+			gbc_textField_8.fill = GridBagConstraints.BOTH;
 			gbc_textField_8.gridx = 2;
 			gbc_textField_8.gridy = 9;
 			contentPanel.add(textField_8, gbc_textField_8);
@@ -255,39 +256,39 @@ public class MemberInsert extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			GridBagLayout gbl_buttonPane = new GridBagLayout();
 			gbl_buttonPane.columnWidths = new int[]{200, 57, 57, 0};
-			gbl_buttonPane.rowHeights = new int[]{23, 23, 23, 0};
+			gbl_buttonPane.rowHeights = new int[]{23, 23, 0};
 			gbl_buttonPane.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-			gbl_buttonPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_buttonPane.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 			buttonPane.setLayout(gbl_buttonPane);
 			{
-				JButton okButton = new JButton("등록");
-				okButton.setActionCommand("OK");
-				GridBagConstraints gbc_okButton = new GridBagConstraints();
-				gbc_okButton.anchor = GridBagConstraints.NORTHWEST;
-				gbc_okButton.insets = new Insets(0, 0, 5, 5);
-				gbc_okButton.gridx = 1;
-				gbc_okButton.gridy = 0;
-				buttonPane.add(okButton, gbc_okButton);
-				getRootPane().setDefaultButton(okButton);
-				
-				okButton.addActionListener(e -> {
-				    
-				    dispose();
-				});
-			}
-			{
-				JButton cancelButton = new JButton("취소");
-				cancelButton.setActionCommand("Cancel");
-				GridBagConstraints gbc_cancelButton = new GridBagConstraints();
-				gbc_cancelButton.insets = new Insets(0, 0, 5, 0);
-				gbc_cancelButton.anchor = GridBagConstraints.NORTHWEST;
-				gbc_cancelButton.gridx = 2;
-				gbc_cancelButton.gridy = 0;
-				buttonPane.add(cancelButton, gbc_cancelButton);
-				
-				cancelButton.addActionListener(e -> {
-					dispose(); 
-				});
+				{
+					JButton okButton = new JButton("등록");
+					okButton.setActionCommand("OK");
+					GridBagConstraints gbc_okButton = new GridBagConstraints();
+					gbc_okButton.anchor = GridBagConstraints.NORTHWEST;
+					gbc_okButton.insets = new Insets(0, 0, 5, 5);
+					gbc_okButton.gridx = 1;
+					gbc_okButton.gridy = 0;
+					buttonPane.add(okButton, gbc_okButton);
+					getRootPane().setDefaultButton(okButton);
+					JButton cancelButton = new JButton("취소");
+					cancelButton.setActionCommand("Cancel");
+					GridBagConstraints gbc_cancelButton = new GridBagConstraints();
+					gbc_cancelButton.insets = new Insets(0, 0, 5, 0);
+					gbc_cancelButton.anchor = GridBagConstraints.NORTHWEST;
+					gbc_cancelButton.gridx = 2;
+					gbc_cancelButton.gridy = 0;
+					buttonPane.add(cancelButton, gbc_cancelButton);
+					
+					cancelButton.addActionListener(e -> {
+						dispose(); 
+					});
+					
+					okButton.addActionListener(e -> {
+					    
+					    dispose();
+					});
+				}
 			}
 		}
 	}
