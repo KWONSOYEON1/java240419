@@ -15,7 +15,7 @@ public class DeleteStudentApp {
 			
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
 			String username="scott";
-			String password="tiger";
+			String password="tiger";		
 			con=DriverManager.getConnection(url, username, password);
 			 
 			stmt=con.createStatement();
