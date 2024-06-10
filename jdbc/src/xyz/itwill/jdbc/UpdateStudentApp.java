@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-//STUDENT 테이블에 저장된 행(학생정보)에서 학번이 [2000]인 학생의 이름을 [임걱정]으로 변경하고
-//주소를 [부천시 원미구]로 변경하는 JDBC 프로그램 작성
+//STUDENT 테이블에 저장된 행(학생정보)에서 NO 컬럼값(학번)이 [2000]인 행의 NAME 컬럼값(이름)을
+//[임걱정]으로 변경하고 ADDRESS 컬럼값(주소)를 [부천시 원미구]로 변경하는 JDBC 프로그램 작성
 public class UpdateStudentApp {
 	public static void main(String[] args) {
 		Connection con=null;
@@ -21,7 +21,7 @@ public class UpdateStudentApp {
 			
 			stmt=con.createStatement();
 			
-			String sql="update student set name='임걱정',address='부천시 원미구' where no=2000";
+			String sql="update set student name='임걱정',address='부천시 원미구' where no=2000";
 			int rows=stmt.executeUpdate(sql);
 			
 			System.out.println("[메세지]"+rows+"명의 학생정보를 변경 하였습니다.");

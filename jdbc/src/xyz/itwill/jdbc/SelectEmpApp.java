@@ -12,46 +12,36 @@ public class SelectEmpApp {
 	public static void main(String[] args) {
 		Connection con=null;
 		Statement stmt=null;
-		ResultSet rs=null;		
+		ResultSet rs=null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
-			String username="Scott";
-			String password="tiger";			
-			con=DriverManager.getConnection(url,username,password);
+			String username="scott";
+			String password="tiger";
+			con=DriverManager.getConnection(url, username, password);
 			
 			stmt=con.createStatement();
 			
 			String sql="select empno,ename,sal from emp order by sal desc";
-			
 			rs=stmt.executeQuery(sql);
 			
-			if(rs.next()) {
-				do {
-					int empno=rs.getInt("empno");
-					String ename=rs.getString("ename");
-					int sal=rs.getInt("sal");
-					
-					System.out.println("사원번호 = "+empno);
-					System.out.println("사원이름 = "+ename);
-					System.out.println("급여 = "+sal);										
-				} while(rs.next()); 
-			} else {
-				System.out.println("[결과]검색된 사원정보가 없습니다.");
-			}			
+			while(rs.next()) {
+				System.out.println("사원번호 = "+rs.getInt("empno")+", 사원이름 = "
+						+rs.getString("ename")+", 사원급여 = "+rs.getInt("sal"));				
+			}					
 		} catch (ClassNotFoundException e) {
-				System.out.println("[에러]OracleDriver 클래스를 찾을 수 없습니다.");			
+			System.out.println("[에러]OracleDriver 클래스를 찾을 수 없습니다.");
 		} catch (SQLException e) {
 			System.out.println("[에러]DBMS 관련 오류 = "+e.getMessage());
 		} finally {
 			try {
-				if(rs!=null) rs.close();			
+				if(rs!=null) rs.close();
 				if(stmt!=null) stmt.close();
 				if(con!=null) con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();}
+				e.printStackTrace();
+			}
 		}
-		
 	}
-}
+} 
