@@ -15,7 +15,7 @@ public class SelectEmpApp {
 		ResultSet rs=null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-					
+			
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
 			String username="scott";
 			String password="tiger";
