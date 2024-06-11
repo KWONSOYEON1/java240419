@@ -15,8 +15,7 @@ import java.sql.Statement;
 //STUDENT 테이블에 저장된 행(학생정보)에서 NO 컬럼값(학번)이 [2000]인 행의 NAME 컬럼값(이름)을
 //[임꺽정]으로 변경하는 JDBC 프로그램 작성
 public class TransactionControlApp { 
-	public static void main(String[] args) {		
-	
+	public static void main(String[] args) {
 		Connection con=null;
 		Statement stmt=null;
 		try {
@@ -53,8 +52,8 @@ public class TransactionControlApp {
 		} catch (Exception e) {
 			System.out.println("[에러]프로그램 실행에 예기치 못한 오류가 발생 되었습니다.");
 			
-			//Connection.rollback() : ROLLBACK 명령을 전달하여 실행하는 메소드 - 롤백 처리
 			try {
+				//Connection.rollback() : ROLLBACK 명령을 전달하여 실행하는 메소드 - 롤백 처리
 				con.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
