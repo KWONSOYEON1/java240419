@@ -16,6 +16,7 @@ import java.sql.Statement;
 //[임꺽정]으로 변경하는 JDBC 프로그램 작성
 public class TransactionControlApp { 
 	public static void main(String[] args) {
+	
 		Connection con=null;
 		Statement stmt=null;
 		try {
