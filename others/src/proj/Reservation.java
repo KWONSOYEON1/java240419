@@ -1,4 +1,4 @@
-package xyz.itwill.project1;
+package proj;
 
 import java.awt.EventQueue;
 
