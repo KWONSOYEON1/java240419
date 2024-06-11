@@ -85,7 +85,6 @@ public class StatementApp {
 		ResultSet rs=stmt.executeQuery(sql);
 		
 		System.out.println("<<조회결과>>");
-		
 		if(rs.next()) {
 			do {
 				System.out.println("학번 = "+rs.getInt("no")+", 이름 = "+rs.getString("name")
