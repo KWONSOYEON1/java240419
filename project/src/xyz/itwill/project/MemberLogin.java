@@ -227,7 +227,6 @@ public class MemberLogin extends JFrame {
 		            btnNewButton_4.setVisible(false); 
 		        }
 		    }
-		});
-		
+		});		
 	}			
 }
