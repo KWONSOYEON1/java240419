@@ -25,9 +25,9 @@ public class MainLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JCheckBox chckbxNonMember;
 	private JCheckBox chckbxMember;
 	private JCheckBox chckbxAdmin;
+	private JButton btnNewButton_2;
 
 	/**
 	 * Launch the application.
@@ -100,71 +100,35 @@ public class MainLogin extends JFrame {
 		contentPane.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		chckbxNonMember = new JCheckBox("비회원");
-		GridBagConstraints gbc_chckbxNonMember = new GridBagConstraints();
-		gbc_chckbxNonMember.insets = new Insets(0, 0, 5, 5);
-		gbc_chckbxNonMember.gridx = 2;
-		gbc_chckbxNonMember.gridy = 3;
-		contentPane.add(chckbxNonMember, gbc_chckbxNonMember);
-		
 		chckbxMember = new JCheckBox("회원");
 		GridBagConstraints gbc_chckbxMember = new GridBagConstraints();
 		gbc_chckbxMember.insets = new Insets(0, 0, 5, 5);
-		gbc_chckbxMember.gridx = 3;
+		gbc_chckbxMember.gridx = 2;
 		gbc_chckbxMember.gridy = 3;
 		contentPane.add(chckbxMember, gbc_chckbxMember);
 		
-		chckbxAdmin = new JCheckBox("관리자");
-		GridBagConstraints gbc_chckbxAdmin = new GridBagConstraints();
-		gbc_chckbxAdmin.gridwidth = 2;
-		gbc_chckbxAdmin.insets = new Insets(0, 0, 5, 0);
-		gbc_chckbxAdmin.gridx = 4;
-		gbc_chckbxAdmin.gridy = 3;
-		contentPane.add(chckbxAdmin, gbc_chckbxAdmin);
-				
-		JButton btnNewButton = new JButton("로그인");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(chckbxNonMember.isSelected()) {					
-				} else if(chckbxMember.isSelected()) {					
-				} else if(chckbxAdmin.isSelected()) {
-					
-				}
-			}
+		chckbxMember.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxMember.isSelected()) {
+				    chckbxAdmin.setSelected(false);
+		        }
+		    }
 		});
 		
-		 chckbxNonMember.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		            if (chckbxNonMember.isSelected()) {
-		                chckbxMember.setSelected(false);
-		                chckbxAdmin.setSelected(false);
-		            }
+		chckbxAdmin = new JCheckBox("관리자");
+		GridBagConstraints gbc_chckbxAdmin = new GridBagConstraints();
+		gbc_chckbxAdmin.insets = new Insets(0, 0, 5, 5);
+		gbc_chckbxAdmin.gridx = 3;
+		gbc_chckbxAdmin.gridy = 3;
+		contentPane.add(chckbxAdmin, gbc_chckbxAdmin);
+		
+		chckbxAdmin.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxAdmin.isSelected()) {
+		            chckbxMember.setSelected(false);
 		        }
-		    });
-
-		    chckbxMember.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		            if (chckbxMember.isSelected()) {
-		                chckbxNonMember.setSelected(false);
-		                chckbxAdmin.setSelected(false);
-		            }
-		        }
-		    });
-
-		    chckbxAdmin.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		            if (chckbxAdmin.isSelected()) {
-		                chckbxNonMember.setSelected(false);
-		                chckbxMember.setSelected(false);
-		            }
-		        }
-		    });
-		    
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 5;
-		contentPane.add(btnNewButton, gbc_btnNewButton);		
+		    }
+		});
 		
 		JButton btnNewButton_1 = new JButton("취소");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -173,12 +137,37 @@ public class MainLogin extends JFrame {
 		    }
 		});
 		
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_1.gridx = 3;
-		gbc_btnNewButton_1.gridy = 5;
-		contentPane.add(btnNewButton_1, gbc_btnNewButton_1);
-				
+		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxMember.isSelected()) {									
+				} else if(chckbxAdmin.isSelected()) {
+					
+				}
+			}
+		});
+		
+		btnNewButton_2 = new JButton("비회원");
+		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton_2.gridx = 1;
+		gbc_btnNewButton_2.gridy = 5;
+		contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GuestLogin guestLogin = new GuestLogin();
+                guestLogin.setVisible(true);
+                setVisible(false);
+            }
+        });	
+		
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton.gridx = 3;
+		gbc_btnNewButton.gridy = 5;
+		contentPane.add(btnNewButton, gbc_btnNewButton);		
+		
 		btnNewButton.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		    	String username = textField.getText();
@@ -188,11 +177,8 @@ public class MainLogin extends JFrame {
 		             JOptionPane.showMessageDialog(MainLogin.this, "아이디나 비밀번호를 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
 		             return;
 		    	}		    	
-		    	if (chckbxNonMember.isSelected()) {		         
-		        	GuestLogin guestLogin = new GuestLogin();
-		        	guestLogin.setVisible(true);
-		        	setVisible(false);
-		        } else if (chckbxMember.isSelected()) {		            
+		    	
+		        if (chckbxMember.isSelected()) {		            
 		        	MemberLogin memberLogin = new MemberLogin();
 		        	memberLogin.setVisible(true);
 		        	setVisible(false);
@@ -205,6 +191,12 @@ public class MainLogin extends JFrame {
 		        }
 		    }
 		});	
+		
+		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton_1.gridx = 4;
+		gbc_btnNewButton_1.gridy = 5;
+		contentPane.add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		}
 
