@@ -201,7 +201,7 @@ public class MainLogin extends JFrame {
 		        	administratorLogin.setVisible(true);
 		        	setVisible(false);
 		        } else {
-		            JOptionPane.showMessageDialog(MainLogin.this, "아이디 또는 비밀번호가 올바르지 않습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+		            JOptionPane.showMessageDialog(MainLogin.this, "계정 유형을 반드시 선택하세요.", "경고", JOptionPane.WARNING_MESSAGE);
 		        }
 		    }
 		});	

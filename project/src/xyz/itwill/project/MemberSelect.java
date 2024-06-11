@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class MemberSelect extends JDialog {
@@ -87,7 +88,11 @@ public class MemberSelect extends JDialog {
 				okButton.addActionListener(e -> {
 				    String name = textField.getText(); 
 				    
-				    dispose();
+				    if (name.isEmpty()) { 
+                        JOptionPane.showMessageDialog(this, "이름을 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
+                    } else {                        
+                        dispose();
+                    }
 				});
 			}
 			{

@@ -58,7 +58,7 @@ public class MemberLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 780, 480);
+		tabbedPane.setBounds(0, 0, 785, 480);
 		contentPane.add(tabbedPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
