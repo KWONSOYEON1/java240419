@@ -90,6 +90,7 @@ public class MemberSelect extends JDialog {
 				    
 				    if (name.isEmpty()) { 
                         JOptionPane.showMessageDialog(this, "이름을 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
+                        
                     } else {                        
                         dispose();
                     }
