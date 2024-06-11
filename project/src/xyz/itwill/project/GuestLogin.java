@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class GuestLogin extends JFrame {
 
@@ -44,7 +45,7 @@ public class GuestLogin extends JFrame {
 	public GuestLogin() {
 		setTitle("비회원 로그인");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 350);
+		setBounds(100, 100, 800, 600);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,7 +54,7 @@ public class GuestLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 440, 250);
+		tabbedPane.setBounds(0, 0, 780, 480);
 		contentPane.add(tabbedPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -69,12 +70,12 @@ public class GuestLogin extends JFrame {
 		scrollPane_1.setViewportView(table_1);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 254, 440, 61);
+		panel.setBounds(0, 482, 780, 79);
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{300, 57, 0};
-		gbl_panel.rowHeights = new int[]{19, 23, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{600, 57, 50, 0};
+		gbl_panel.rowHeights = new int[]{5, 23, 0};
+		gbl_panel.columnWeights = new double[]{1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
@@ -99,6 +100,7 @@ public class GuestLogin extends JFrame {
 		});
 		
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.anchor = GridBagConstraints.NORTH;
 		gbc_btnNewButton.gridx = 1;
 		gbc_btnNewButton.gridy = 1;
