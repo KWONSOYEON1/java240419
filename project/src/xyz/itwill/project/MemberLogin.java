@@ -82,11 +82,32 @@ public class MemberLogin extends JFrame {
 		panel.setBounds(0, 250, 440, 40);
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{80, 57, 57, 57, 57};
+		gbl_panel.columnWidths = new int[]{80, 0, 57, 57, 57, 57};
 		gbl_panel.rowHeights = new int[]{23, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
+		
+		JButton btnNewButton_1 = new JButton("예약 확인");
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+					
+				case 1 :
+					
+					break;
+				case 2 :
+					ReservationSelect reservationSelectdialog = new ReservationSelect();
+					reservationSelectdialog.setVisible(true);
+					break;
+				default:						
+					break;
+				}
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("예약 ");
 		btnNewButton_2.setVisible(false);
@@ -112,34 +133,15 @@ public class MemberLogin extends JFrame {
 		
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_2.gridx = 1;
+		gbc_btnNewButton_2.gridx = 2;
 		gbc_btnNewButton_2.gridy = 0;
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
 		
-		JButton btnNewButton_1 = new JButton("예약 확인");
-		
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int sel = tabbedPane.getSelectedIndex();
-				switch (sel) {
-				case 0 :
-					
-				case 1 :
-					
-					break;
-				case 2 :
-					ReservationSelect reservationSelectdialog = new ReservationSelect();
-					reservationSelectdialog.setVisible(true);
-					break;
-				default:						
-					break;
-				}
-			}
-		});
+			btnNewButton_2.setVisible(false);
 		
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_1.gridx = 2;
+		gbc_btnNewButton_1.gridx = 3;
 		gbc_btnNewButton_1.gridy = 0;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
@@ -167,17 +169,15 @@ public class MemberLogin extends JFrame {
 		
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 3;
+		gbc_btnNewButton.gridx = 4;
 		gbc_btnNewButton.gridy = 0;
 		panel.add(btnNewButton, gbc_btnNewButton);
 		
 		JButton btnNewButton_3 = new JButton("예약 취소");
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
-		gbc_btnNewButton_3.gridx = 4;
+		gbc_btnNewButton_3.gridx = 5;
 		gbc_btnNewButton_3.gridy = 0;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
-	
-		btnNewButton_2.setVisible(false);
 		btnNewButton_1.setVisible(false);
 		btnNewButton.setVisible(false);
 		btnNewButton_3.setVisible(false);
