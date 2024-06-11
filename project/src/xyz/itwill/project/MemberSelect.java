@@ -10,12 +10,13 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class MemberSelect extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -46,7 +47,7 @@ public class MemberSelect extends JDialog {
 		gbl_contentPanel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPanel.setLayout(gbl_contentPanel);
 		{
-			JLabel lblNewLabel = new JLabel("회원 검색");
+			JLabel lblNewLabel = new JLabel("회원 검색 (이름)");
 			GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 			gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel.gridx = 1;
@@ -54,13 +55,14 @@ public class MemberSelect extends JDialog {
 			contentPanel.add(lblNewLabel, gbc_lblNewLabel);
 		}
 		{
-			JComboBox comboBox = new JComboBox();
-			GridBagConstraints gbc_comboBox = new GridBagConstraints();
-			gbc_comboBox.insets = new Insets(0, 0, 0, 5);
-			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-			gbc_comboBox.gridx = 1;
-			gbc_comboBox.gridy = 2;
-			contentPanel.add(comboBox, gbc_comboBox);
+			textField = new JTextField();
+			GridBagConstraints gbc_textField = new GridBagConstraints();
+			gbc_textField.insets = new Insets(0, 0, 0, 5);
+			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField.gridx = 1;
+			gbc_textField.gridy = 2;
+			contentPanel.add(textField, gbc_textField);
+			textField.setColumns(10);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -83,9 +85,10 @@ public class MemberSelect extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 				
 				okButton.addActionListener(e -> {
-                   
-                    dispose();
-                });
+				    String name = textField.getText(); 
+				    
+				    dispose();
+				});
 			}
 			{
 				JButton cancelButton = new JButton("취소");

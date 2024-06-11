@@ -201,5 +201,4 @@ public class AdministratorLogin extends JFrame {
 		gbc_btnNewButton_1.gridy = 0;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 	}
-
 }

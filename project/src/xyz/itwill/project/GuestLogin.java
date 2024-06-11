@@ -5,11 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
 
 public class GuestLogin extends JFrame {
 
@@ -63,26 +67,41 @@ public class GuestLogin extends JFrame {
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 254, 440, 61);
+		contentPane.add(panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{300, 57, 0};
+		gbl_panel.rowHeights = new int[]{19, 23, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
 		
-		tabbedPane.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
+		JButton btnNewButton = new JButton("검색");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        int selectedIndex = tabbedPane.getSelectedIndex(); 
+		        switch (selectedIndex) {
+		            case 0:
+		                MenuSelect menuSelect = new MenuSelect();
+		                menuSelect.setVisible(true);
+		                break;
+		            case 1: 
+		                DesignerSelect designerSelect = new DesignerSelect();
+		                designerSelect.setVisible(true);
+		                break;
+		            default:
+		                break;
+		        }
+		    }
+		});
+		
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnNewButton.gridx = 1;
+		gbc_btnNewButton.gridy = 1;
+		panel.add(btnNewButton, gbc_btnNewButton);
 				
-			    int selectedIndex = tabbedPane.getSelectedIndex();
-                                         	
-			    if (selectedIndex == 0) {
-                    openMenuSelect();
-                } else if (selectedIndex == 1) {
-                    openDesignerSelect();
-                }
-            }
-        });
-	}
-	private void openMenuSelect() {      
-		MenuSelect menuSelect = new MenuSelect();
-		menuSelect.setVisible(true);
 	}	
-    private void openDesignerSelect() {      
-    	DesignerSelect designerSelect = new DesignerSelect();
-    	designerSelect.setVisible(true);
-    }	
 }
