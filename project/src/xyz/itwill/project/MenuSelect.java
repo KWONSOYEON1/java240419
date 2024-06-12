@@ -63,11 +63,16 @@ public class MenuSelect extends JDialog {
 			contentPanel.add(comboBox, gbc_comboBox);
 			
 			comboBox.addItem("");
-			comboBox.addItem("컷");
-			comboBox.addItem("펌");
-			comboBox.addItem("컬러");
-			comboBox.addItem("클리닉");
-			comboBox.addItem("드라이");
+			comboBox.addItem("남성-컷");
+			comboBox.addItem("남성-펌");
+			comboBox.addItem("남성-컬러");
+			comboBox.addItem("남성-클리닉");
+			comboBox.addItem("남성-드라이");
+			comboBox.addItem("여성-컷");
+			comboBox.addItem("여성-펌");
+			comboBox.addItem("여성-컬러");
+			comboBox.addItem("여성-클리닉");
+			comboBox.addItem("여성-드라이");
 			
 		}
 		{
