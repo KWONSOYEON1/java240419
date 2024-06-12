@@ -60,20 +60,7 @@ public class MenuSelect extends JDialog {
 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBox.gridx = 1;
 			gbc_comboBox.gridy = 2;
-			contentPanel.add(comboBox, gbc_comboBox);
-			
-			comboBox.addItem("");
-			comboBox.addItem("남성-컷");
-			comboBox.addItem("남성-펌");
-			comboBox.addItem("남성-컬러");
-			comboBox.addItem("남성-클리닉");
-			comboBox.addItem("남성-드라이");
-			comboBox.addItem("여성-컷");
-			comboBox.addItem("여성-펌");
-			comboBox.addItem("여성-컬러");
-			comboBox.addItem("여성-클리닉");
-			comboBox.addItem("여성-드라이");
-			
+			contentPanel.add(comboBox, gbc_comboBox);						
 		}
 		{
 			JPanel buttonPane = new JPanel();
