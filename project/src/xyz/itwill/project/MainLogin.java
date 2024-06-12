@@ -173,7 +173,7 @@ public class MainLogin extends JFrame {
 		    	String username = textField.getText();
 		        String password = textField_1.getText();
 		    	
-		    	if (username.isEmpty() || password.isEmpty()) {
+		    	if (username.trim().isEmpty() || password.trim().isEmpty()) {
 		             JOptionPane.showMessageDialog(MainLogin.this, "아이디나 비밀번호를 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
 		             return;
 		    	}		    	
