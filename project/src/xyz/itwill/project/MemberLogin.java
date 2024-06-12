@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
@@ -53,32 +54,44 @@ public class MemberLogin extends JFrame {
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+				
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+					
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 785, 480);
 		contentPane.add(tabbedPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("시술 검색", null, scrollPane, null);
-					
+				
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"종류","시술 시간","가격"}));
+
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("디자이너 검색", null, scrollPane_1, null);
-		
+			
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
-		
+		table_1.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"이름","직급"}));
+				
 		JScrollPane scrollPane_2 = new JScrollPane();
 		tabbedPane.addTab("예약", null, scrollPane_2, null);
 		
 		
 		table_2 = new JTable();
-		scrollPane_2.setViewportView(table_2);
+		scrollPane_2.setViewportView(table_2);		
+		table_2.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"번호","날짜","시간","디자이너","회원","시술","결제금액","현금여부","예약상태","메모"}));
+		
+
+		
+		
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 481, 780, 80);

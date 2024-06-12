@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -64,24 +65,35 @@ public class AdministratorLogin extends JFrame {
 		
 		table_2 = new JTable();
 		scrollPane_2.setViewportView(table_2);
+		table_2.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"번호","종류","시간","가격"}));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("디자이너 관리", null, scrollPane, null);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","직급","급여","고용일"}));
+		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("회원 관리", null, scrollPane_1, null);
 		
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
+		table_1.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","가입일","이용횟수","메모"}));
+		
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
 		tabbedPane.addTab("예약 관리", null, scrollPane_3, null);
-		
+				
 		table_3 = new JTable();
 		scrollPane_3.setViewportView(table_3);
+		table_3.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"번호","날짜","시간","디자이너","회원","시술","결제금액","현금여부","예약상태","메모"}));
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 481, 780, 80);

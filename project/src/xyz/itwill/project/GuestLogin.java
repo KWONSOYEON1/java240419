@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -62,12 +63,18 @@ public class GuestLogin extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"종류","시술 시간","가격"}));
+
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("디자이너 검색", null, scrollPane_1, null);
 		
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
+		table_1.setModel(new DefaultTableModel(new Object[][] {},
+                new String[] {"이름","직급"}));
+				
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 482, 780, 79);
