@@ -61,6 +61,14 @@ public class MenuSelect extends JDialog {
 			gbc_comboBox.gridx = 1;
 			gbc_comboBox.gridy = 2;
 			contentPanel.add(comboBox, gbc_comboBox);
+			
+			comboBox.addItem("");
+			comboBox.addItem("컷");
+			comboBox.addItem("펌");
+			comboBox.addItem("컬러");
+			comboBox.addItem("클리닉");
+			comboBox.addItem("드라이");
+			
 		}
 		{
 			JPanel buttonPane = new JPanel();

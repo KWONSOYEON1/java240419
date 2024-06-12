@@ -65,6 +65,10 @@ public class GuestLogin extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"종류","시술 시간","가격"}));
+		table.setEnabled(false);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setResizingAllowed(false);
+		
 
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -74,6 +78,10 @@ public class GuestLogin extends JFrame {
 		scrollPane_1.setViewportView(table_1);
 		table_1.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"이름","직급"}));
+		table_1.setEnabled(false);
+		table_1.getTableHeader().setReorderingAllowed(false);
+		table_1.getTableHeader().setResizingAllowed(false);
+		
 				
 		
 		JPanel panel = new JPanel();

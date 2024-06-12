@@ -67,6 +67,10 @@ public class AdministratorLogin extends JFrame {
 		scrollPane_2.setViewportView(table_2);
 		table_2.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"번호","종류","시간","가격"}));
+		table_2.setEnabled(false);
+		table_2.getTableHeader().setReorderingAllowed(false);
+		table_2.getTableHeader().setResizingAllowed(false);
+		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("디자이너 관리", null, scrollPane, null);
@@ -75,7 +79,9 @@ public class AdministratorLogin extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","직급","급여","고용일"}));
-		
+		table.setEnabled(false);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setResizingAllowed(false);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("회원 관리", null, scrollPane_1, null);
@@ -84,7 +90,9 @@ public class AdministratorLogin extends JFrame {
 		scrollPane_1.setViewportView(table_1);
 		table_1.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","가입일","이용횟수","메모"}));
-		
+		table_1.setEnabled(false);
+		table_1.getTableHeader().setReorderingAllowed(false);
+		table_1.getTableHeader().setResizingAllowed(false);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
 		tabbedPane.addTab("예약 관리", null, scrollPane_3, null);
@@ -93,6 +101,9 @@ public class AdministratorLogin extends JFrame {
 		scrollPane_3.setViewportView(table_3);
 		table_3.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"번호","날짜","시간","디자이너","회원","시술","결제금액","현금여부","예약상태","메모"}));
+		table_3.setEnabled(false);
+		table_3.getTableHeader().setReorderingAllowed(false);
+		table_3.getTableHeader().setResizingAllowed(false);
 		
 		
 		JPanel panel = new JPanel();

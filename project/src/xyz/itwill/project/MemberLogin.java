@@ -69,6 +69,9 @@ public class MemberLogin extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"종류","시술 시간","가격"}));
+		table.setEnabled(false);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setResizingAllowed(false);
 
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -78,6 +81,9 @@ public class MemberLogin extends JFrame {
 		scrollPane_1.setViewportView(table_1);
 		table_1.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"이름","직급"}));
+		table_1.setEnabled(false);
+		table_1.getTableHeader().setReorderingAllowed(false);
+		table_1.getTableHeader().setResizingAllowed(false);
 				
 		JScrollPane scrollPane_2 = new JScrollPane();
 		tabbedPane.addTab("예약", null, scrollPane_2, null);
@@ -87,12 +93,10 @@ public class MemberLogin extends JFrame {
 		scrollPane_2.setViewportView(table_2);		
 		table_2.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"번호","날짜","시간","디자이너","회원","시술","결제금액","현금여부","예약상태","메모"}));
-		
-
-		
-		
-		
-		
+		table_2.setEnabled(false);
+		table_2.getTableHeader().setReorderingAllowed(false);
+		table_2.getTableHeader().setResizingAllowed(false);
+				
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 481, 780, 80);
 		contentPane.add(panel);
