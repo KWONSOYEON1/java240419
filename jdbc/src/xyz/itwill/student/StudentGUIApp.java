@@ -9,10 +9,14 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Vector;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -111,6 +115,8 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+		
+		displayAllStudent();
 	}
 	
 	//모든 JTextField 컴퍼넌트를 비활성화 처리하는 메소드
@@ -250,11 +256,122 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 					initDisplay();
 				}
 			} else if (c == cancelB) {
+				displayAllStudent();
 				initDisplay();
-				
 			}
 		} catch (Exception e) {
 			System.out.println("예외 발생 : " + e);
 		}		
+	}
+	
+	//STUDENT 테이블에 저장된 모든 행을 검색하여 JTable 컴퍼넌트에 출력하는 메소드
+	public void displayAllStudent() {
+		//STUDENT 테이블에 저장된 모든 행을 검색하여 List 객체로 반환하는 DAO 클래스의 메소드 호출
+		List<StudentDTO> studentList=StudentDAOImpl.getDAO().selectStudentAll();
+		
+		//List.isEmpty() : List 객체에 요소가 있는 경우 [false]를 반환하고 요소가 없는 경우
+		//[true]를 반환하는 메소드
+		if(studentList.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "저장된 학생정보가 없습니다.");
+			return;
+		}
+		
+		//JTable.getModel() : JTable 컴퍼넌트의 행(Row) 또는 열(Column)을 관리하기 위한
+		//TableModel 객체를 반환하는 메소드
+		// => TableModel 객체는 DefaultTableModel 클래스로 명시적 객체 형변환하여 사용
+		//DefaultTableModel 객체 : JTable 컴퍼넌트의 행(Row) 또는 열(Column)을 관리하기 위한 객체
+		DefaultTableModel defaultTableModel=(DefaultTableModel)table.getModel();
+		
+		//DefaultTableModel.getRowCount() : DefaultTableModel 객체에 저장된 행의 갯수를 반환하는 메소드
+		//DefaultTableModel 객체에 저장된 행의 갯수만큼 명령을 실행하는 반복문
+		// => JTable 컴퍼넌트에 출력된 기존 행을 모든 삭제 처리 - JTable 컴퍼넌트 초기화
+		for(int i=defaultTableModel.getRowCount();i>0;i--) {
+			//DefaultTableModel.removeRow(int rowIndex) : DefaultTableModel 객체를 사용해
+			//매개변수로 전달받은 위치의 행을 삭제하는 메소드
+			defaultTableModel.removeRow(0);//JTable 컴퍼넌트에 출력된 첫번째 행을 삭제 처리
+		}
+		
+		//List 객체의 요소값(StudentDTO 객체)을 차례대로 제공받아 처리하는 반복문
+		// => List 객체의 요소값을 JTable 컴퍼넌트의 행으로 출력 처리
+		for(StudentDTO student : studentList) {
+			//StudentDTO 객체를 JTable 컴퍼넌트에 행으로 출력하기 위한  Vector 객체 생성  
+			Vector<Object> rowData=new Vector<Object>();
+			
+			//StudentDTO 객체의 필드값을 Vector 객체의 요소값으로 추가하여 저장
+			// => JTable 컴퍼넌트에 출력될 순서대로 필드값을 Vector 객체의 요소값으로 추가
+			rowData.add(student.getNo());
+			rowData.add(student.getName());
+			rowData.add(student.getPhone());
+			rowData.add(student.getAddress());
+			rowData.add(student.getBirthday());
+			
+			//DefaultTableModel.addRow(Vector rowData) : DefaultTableModel 객체에 행을 추가
+			//하는 메소드 - JTable 컴퍼넌트에 행 출력
+			defaultTableModel.addRow(rowData);
+		}
+	}
+	
+	//JTextField 컴퍼넌트에 입력된 학생정보를 제공받아 STUDENT 테이블에 행으로 삽입하여 저장하고
+	//STUDENT 테이블에 저장된 모든 행을 검색하여 JTable 컴퍼넌트에 출력하는 메소드
+	// => 프레임의 모든 컴퍼넌트를 초기화 처리하기 위한 initDisplay() 메소드 호출
+	public void addStudent() {
+		//JTextField.getText() : JTextField 컴퍼넌트에 입력된 값을 문자열로 반환하는 메소드
+		String noString=noTF.getText();
+		
+		if(noString.equals("")) {//JTextField 컴퍼넌트에 입력된 값이 없는 경우
+			JOptionPane.showMessageDialog(this, "학번을 입력해 주세요.");
+			noTF.requestFocus();//JTextField 컴퍼넌트를 포커스가 위치되도록 커서 이동
+			return;
+		}
+		
+		String noReg="^[1-9][0-9]{3}$";
+		if(!Pattern.matches(noReg, noString)) {//정규표현식과 입력값의 패턴이 맞지 않는 경우
+			JOptionPane.showMessageDialog(this, "학번은 4자리 숫자로만 입력해 주세요.");
+			noTF.requestFocus();
+			return;
+		}
+	
+		int no=Integer.parseInt(noString);//문자열을 정수값으로 변환하여 저장
+		
+		//매개변수로 정수값(학번)을 전달받아 STUDNET 테이블에 저장된 행에서 NO 컬럼값이 매개변수에 
+		//저장된 값과 같은 행을 검색하여 StudentDTO 객체로 반환하는 DAO 클래스의 메소드 호출
+		// => 메소드 호출로 NULL을 반환한 경우 검색행이 없으며 StudentDTO 객체가 반환된 경우
+		//검색행 존재 - 검색행이 있으면 학번이 중복된 경우이므로 에러 메세지 출력
+		if(StudentDAOImpl.getDAO().selectStudentByNo(no) != null) {
+			JOptionPane.showMessageDialog(this, "이미 사용중인 학번을 입력 하였습니다.");
+			noTF.requestFocus();
+			return;
+		}
+		
+		String name=nameTF.getText();
+		
+		
+		String phone=phoneTF.getText();
+		
+		
+		String address=addressTF.getText();
+		
+		
+		String birthday=birthdayTF.getText();
+		
+		
+		
+		//StudentDTO 객체를 생성하여 입력값을 객체의 필드값으로 변경
+		// => DAO 클래스의 메소드 호출할 때 매개변수에 전달하기 위해 StudentDTO 객체 생성
+		StudentDTO student=new StudentDTO();
+		student.setNo(no);
+		student.setName(name);
+		student.setPhone(phone);
+		student.setAddress(address);
+		student.setBirthday(birthday);
+		
+		//매개변수로 StudentDTO 객체를 전달받아 STUDENT 테이블의 행으로 삽입하여 저장하고
+		//삽입행의 갯수를 반환하는 DAO 클래스의 메소드 호출
+		int rows=StudentDAOImpl.getDAO().insertStudent(student);
+		
+		JOptionPane.showMessageDialog(this, rows+"명의 학생정보를 삽입하여 저장 하였습니다.");
+		
+		displayAllStudent();
+		initDisplay();
 	}
 }
