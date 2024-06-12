@@ -88,7 +88,7 @@ public class MemberSelect extends JDialog {
 				okButton.addActionListener(e -> {
 				    String name = textField.getText(); 
 				    
-				    if (name.isEmpty()) { 
+				    if (name.trim().isEmpty()) { 
                         JOptionPane.showMessageDialog(this, "이름을 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
                         
                     } else {                        
