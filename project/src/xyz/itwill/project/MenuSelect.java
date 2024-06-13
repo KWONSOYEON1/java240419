@@ -60,7 +60,7 @@ public class MenuSelect extends JDialog {
 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBox.gridx = 1;
 			gbc_comboBox.gridy = 2;
-			contentPanel.add(comboBox, gbc_comboBox);
+			contentPanel.add(comboBox, gbc_comboBox);						
 		}
 		{
 			JPanel buttonPane = new JPanel();
