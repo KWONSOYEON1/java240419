@@ -66,6 +66,10 @@ public class MenuInsert extends JDialog {
 			gbc_comboBox.gridx = 2;
 			gbc_comboBox.gridy = 2;
 			contentPanel.add(comboBox, gbc_comboBox);
+			String[] items = {"","남성-커트","여성-커트", "남성-파마", "여성-파마"};
+			for (String item : items) {
+			    comboBox.addItem(item);
+			}
 		}
 		{
 			JLabel lblNewLabel_2 = new JLabel("시술 시간");
@@ -84,6 +88,10 @@ public class MenuInsert extends JDialog {
 			gbc_comboBox.gridx = 2;
 			gbc_comboBox.gridy = 3;
 			contentPanel.add(comboBox, gbc_comboBox);
+			String[] items = {"","1","1", "2", "2"};
+			for (String item : items) {
+			    comboBox.addItem(item);
+			}
 		}
 		{
 			JLabel lblNewLabel_3 = new JLabel("시술 가격");
