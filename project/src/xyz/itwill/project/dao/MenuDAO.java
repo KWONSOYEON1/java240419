@@ -57,7 +57,7 @@ public class MenuDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update menu set value=?,mtime=?,price=?,mno=?, where mno=?";
+			String sql = "update menu set value=?,mtime=?,price=? where mno=?";
 			pstmt = con.prepareStatement(sql);				
 			pstmt.setString(1, menu.getValue());
 			pstmt.setInt(2, menu.getMtime());
@@ -179,7 +179,7 @@ public class MenuDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select mno,value,mtime,price from menu where value order by value";
+			String sql = "select mno,value,mtime,price from menu order by value";
 			pstmt = con.prepareStatement(sql);
 
 			rs=pstmt.executeQuery();

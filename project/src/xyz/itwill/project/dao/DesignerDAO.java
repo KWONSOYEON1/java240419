@@ -23,7 +23,7 @@ public class DesignerDAO extends JdbcDAO {
 	}
 
 	// 디자이너 추가
-	public int insertStudent(DesignerDTO designer) {
+	public int insertDesigner(DesignerDTO designer) {
 		Connection con = null;
 		PreparedStatement pstmt = null;		
 		int rows = 0;
@@ -39,15 +39,15 @@ public class DesignerDAO extends JdbcDAO {
 			pstmt.setString(3, designer.getBirth());
 			pstmt.setString(4, designer.getName());
 			pstmt.setString(5, designer.getGender());
-			pstmt.setString(6, designer.getRank());
-			pstmt.setInt(7, designer.getSal());
-			pstmt.setString(8, designer.getHire_date());
-			pstmt.setString(9, designer.getPhone());
+			pstmt.setString(6, designer.getPhone());
+			pstmt.setString(7, designer.getRank());
+			pstmt.setInt(8, designer.getSal());
+			pstmt.setString(9, designer.getHire_date());
 			pstmt.setInt(10, designer.getCareer());
 
 			rows = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]insertDesigner() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
@@ -55,7 +55,7 @@ public class DesignerDAO extends JdbcDAO {
 	}
 	
 	// 디자이너 수정
-	public int updateStudent(DesignerDTO designer) {
+	public int updateDesigner(DesignerDTO designer) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -63,30 +63,30 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "update designer set pw=?,birth=?,name=?,gender=?,rank=?,sal=?,hire_date=?,phone=?,carrer=?,id=?, where id=?";
+			String sql = "update designer set pw=?,birth=?,name=?,gender=?,phone=?,rank=?,sal=?,hire_date=?,carrer=? where id=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, designer.getPw());
 			pstmt.setString(2, designer.getBirth());
 			pstmt.setString(3, designer.getName());
 			pstmt.setString(4, designer.getGender());
-			pstmt.setString(5, designer.getRank());
-			pstmt.setInt(6, designer.getSal());
-			pstmt.setString(7, designer.getHire_date());
-			pstmt.setString(8, designer.getPhone());
+			pstmt.setString(5, designer.getPhone());
+			pstmt.setString(6, designer.getRank());
+			pstmt.setInt(7, designer.getSal());
+			pstmt.setString(8, designer.getHire_date());
 			pstmt.setInt(9, designer.getCareer());
 			pstmt.setString(10, designer.getId());
 
 			rows = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]updateDesigner() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
 	}
 	
-	public int deleteStudent(String id) {
+	public int deleteDesigner(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -94,21 +94,21 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "delete from designer where = id=?";
+			String sql = "delete from designer where id=?";
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, id);
 
 			rows = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]deleteDesigner() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
 	}
 	
-	public DesignerDTO selectStudentByID(String id) {
+	public DesignerDTO selectDesignerByID(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -118,7 +118,7 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select id,pw,birth,name,gender,rank,sal,hire_date,phone,carrer from designer where id = ?";
+			String sql = "select id,pw,birth,name,gender,phone,rank,sal,hire_date,carrer from designer where id = ?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, id);
@@ -133,22 +133,22 @@ public class DesignerDAO extends JdbcDAO {
 				designer.setBirth(rs.getString("birth"));
 				designer.setName(rs.getString("name"));
 				designer.setGender(rs.getString("gender"));
+				designer.setPhone(rs.getString("phone"));
 				designer.setRank(rs.getString("rank"));
 				designer.setSal(rs.getInt("sal"));
 				designer.setHire_date(rs.getString("hire_date"));
-				designer.setPhone(rs.getString("phone"));
 				designer.setCareer(rs.getInt("career"));
 			}
 
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]selectDesignerByID() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
 		return designer;
 	}
 	
-	public List<DesignerDTO> selectStudentByName(String name) {
+	public List<DesignerDTO> selectDesignerByName(String name) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -158,7 +158,7 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select id,pw,birth,name,gender,rank,sal,hire_date,phone,carrer from designer where name = ? order by name";
+			String sql = "select id,pw,birth,name,gender,phone,rank,sal,hire_date,carrer from designer where name like '%'||?||'%' order by name";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, name);
@@ -173,24 +173,24 @@ public class DesignerDAO extends JdbcDAO {
 				designer.setBirth(rs.getString("birth"));
 				designer.setName(rs.getString("name"));
 				designer.setGender(rs.getString("gender"));
+				designer.setPhone(rs.getString("phone"));
 				designer.setRank(rs.getString("rank"));
 				designer.setSal(rs.getInt("sal"));
 				designer.setHire_date(rs.getString("hire_date"));
-				designer.setPhone(rs.getString("phone"));
 				designer.setCareer(rs.getInt("career"));
 				
 				designerList.add(designer);
 			}
 
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]selectDesignerByName() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
 		return designerList;
 	}
 	
-	public List<DesignerDTO> selectStudentAll() {
+	public List<DesignerDTO> selectDesignerAll() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -200,7 +200,7 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select id,pw,birth,name,gender,rank,sal,hire_date,phone,carrer from designer where order by name";
+			String sql = "select id,pw,birth,name,gender,phone,rank,sal,hire_date,carrer from designer order by name";
 			pstmt = con.prepareStatement(sql);
 
 			rs=pstmt.executeQuery();
@@ -213,29 +213,20 @@ public class DesignerDAO extends JdbcDAO {
 				designer.setBirth(rs.getString("birth"));
 				designer.setName(rs.getString("name"));
 				designer.setGender(rs.getString("gender"));
+				designer.setPhone(rs.getString("phone"));
 				designer.setRank(rs.getString("rank"));
 				designer.setSal(rs.getInt("sal"));
 				designer.setHire_date(rs.getString("hire_date"));
-				designer.setPhone(rs.getString("phone"));
 				designer.setCareer(rs.getInt("career"));
 				
 				designerList.add(designer);
 			}
 
 		} catch (SQLException e) {
-			System.out.println("[에러]insertStudent() 메소드의 SQL 오류 = " + e.getMessage());
+			System.out.println("[에러]selectDesignerAll() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
 		return designerList;
 	}
 }
-
-
-
-
-
-
-
-
-
