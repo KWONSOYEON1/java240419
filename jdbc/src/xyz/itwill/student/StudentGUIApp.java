@@ -419,15 +419,3 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 	//학번과 같은 행을 검색하여 JTextField 컴퍼넌트에 출력하는 메소드
 	// => [UPDATE_CHANGE] 상태를 변경하여 컴퍼넌트 활성 또는 비활성화 상태를 변경
 }
-
-
-
-
-
-
-
-
-
-
-
-
