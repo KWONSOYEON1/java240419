@@ -31,7 +31,7 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "insert into deisigner values(?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into designer values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, designer.getId());
@@ -63,7 +63,7 @@ public class DesignerDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "update designer set pw=?,birth=?,name=?,gender=?,phone=?,rank=?,sal=?,hire_date=?,carrer=? where id=?";
+			String sql = "update designer set pw=?,birth=?,name=?,gender=?,phone=?,rank=?,sal=?,hire_date=?,career=? where id=?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, designer.getPw());
