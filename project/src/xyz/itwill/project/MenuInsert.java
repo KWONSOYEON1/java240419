@@ -10,7 +10,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -20,7 +19,9 @@ public class MenuInsert extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
-
+	private JTextField textField_1;
+	private JTextField textField_2;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -52,46 +53,40 @@ public class MenuInsert extends JDialog {
 		{
 			JLabel lblNewLabel_1 = new JLabel("시술 종류");
 			GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-			gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
+			gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
 			gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel_1.gridx = 1;
 			gbc_lblNewLabel_1.gridy = 2;
 			contentPanel.add(lblNewLabel_1, gbc_lblNewLabel_1);
-		}
+		}		
 		{
-			JComboBox comboBox = new JComboBox();
-			GridBagConstraints gbc_comboBox = new GridBagConstraints();
-			gbc_comboBox.insets = new Insets(0, 0, 5, 5);
-			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-			gbc_comboBox.gridx = 2;
-			gbc_comboBox.gridy = 2;
-			contentPanel.add(comboBox, gbc_comboBox);
-			String[] items = {"","남성-커트","여성-커트", "남성-파마", "여성-파마"};
-			for (String item : items) {
-			    comboBox.addItem(item);
-			}
+			textField_1 = new JTextField();
+			GridBagConstraints gbc_textField_1 = new GridBagConstraints();
+			gbc_textField_1.insets = new Insets(0, 0, 5, 5);
+			gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_1.gridx = 2;
+			gbc_textField_1.gridy = 2;
+			contentPanel.add(textField_1, gbc_textField_1);
+			textField_1.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_2 = new JLabel("시술 시간");
 			GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-			gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
+			gbc_lblNewLabel_2.anchor = GridBagConstraints.EAST;
 			gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel_2.gridx = 1;
 			gbc_lblNewLabel_2.gridy = 3;
 			contentPanel.add(lblNewLabel_2, gbc_lblNewLabel_2);
-		}
+		}		
 		{
-			JComboBox comboBox = new JComboBox();
-			GridBagConstraints gbc_comboBox = new GridBagConstraints();
-			gbc_comboBox.insets = new Insets(0, 0, 5, 5);
-			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-			gbc_comboBox.gridx = 2;
-			gbc_comboBox.gridy = 3;
-			contentPanel.add(comboBox, gbc_comboBox);
-			String[] items = {"","1","1", "2", "2"};
-			for (String item : items) {
-			    comboBox.addItem(item);
-			}
+			textField_2 = new JTextField();
+			GridBagConstraints gbc_textField_2 = new GridBagConstraints();
+			gbc_textField_2.insets = new Insets(0, 0, 5, 5);
+			gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_2.gridx = 2;
+			gbc_textField_2.gridy = 3;
+			contentPanel.add(textField_2, gbc_textField_2);
+			textField_2.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_3 = new JLabel("시술 가격");
@@ -126,7 +121,8 @@ public class MenuInsert extends JDialog {
 			{
 				JButton okButton = new JButton("등록");
 				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
+					public void actionPerformed(ActionEvent e) {			
+						
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -139,8 +135,7 @@ public class MenuInsert extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 				
 				okButton.addActionListener(e -> {
-				    
-				    dispose();
+					 dispose();
 				});
 			}
 			JButton cancelButton = new JButton("취소");

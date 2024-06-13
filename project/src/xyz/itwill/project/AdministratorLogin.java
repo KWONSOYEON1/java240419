@@ -15,12 +15,12 @@ import xyz.itwill.project.dao.DesignerDTO;
 import xyz.itwill.project.dao.MenuDAO;
 import xyz.itwill.project.dao.MenuDTO;
 
-
-
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -140,7 +140,7 @@ public class AdministratorLogin extends JFrame {
 				switch (sel) {
 				case 0 :
 					MenuInsert menuInsertdialog = new MenuInsert();
-					menuInsertdialog.setVisible(true);
+					menuInsertdialog.setVisible(true);					
 					break;
 				case 1 :
 					DesignerInsert designerInsertdialog = new DesignerInsert();
@@ -322,4 +322,8 @@ public class AdministratorLogin extends JFrame {
 			defaultTableModel.addRow(rowData);
 		}
 	}
+	
+	
+	
+	
 }
