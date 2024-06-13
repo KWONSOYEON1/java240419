@@ -25,6 +25,7 @@ public class DesignerUpdate extends JDialog {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -50,9 +51,9 @@ public class DesignerUpdate extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_contentPanel = new GridBagLayout();
 		gbl_contentPanel.columnWidths = new int[]{100, 60, 75, 75, 100, 0};
-		gbl_contentPanel.rowHeights = new int[]{23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 0};
-		gbl_contentPanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPanel.rowHeights = new int[]{23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 0, 0};
+		gbl_contentPanel.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPanel.setLayout(gbl_contentPanel);
 		{
 			JLabel lblNewLabel = new JLabel("아이디");
@@ -234,7 +235,7 @@ public class DesignerUpdate extends JDialog {
 			JLabel lblNewLabel_7 = new JLabel("고용일");
 			GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
 			gbc_lblNewLabel_7.anchor = GridBagConstraints.WEST;
-			gbc_lblNewLabel_7.insets = new Insets(0, 0, 0, 5);
+			gbc_lblNewLabel_7.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewLabel_7.gridx = 1;
 			gbc_lblNewLabel_7.gridy = 9;
 			contentPanel.add(lblNewLabel_7, gbc_lblNewLabel_7);
@@ -242,7 +243,7 @@ public class DesignerUpdate extends JDialog {
 		{
 			textField_7 = new JTextField();
 			GridBagConstraints gbc_textField_7 = new GridBagConstraints();
-			gbc_textField_7.insets = new Insets(0, 0, 0, 5);
+			gbc_textField_7.insets = new Insets(0, 0, 5, 5);
 			gbc_textField_7.gridwidth = 2;
 			gbc_textField_7.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textField_7.gridx = 2;
@@ -251,13 +252,33 @@ public class DesignerUpdate extends JDialog {
 			textField_7.setColumns(10);
 		}
 		{
+			JLabel lblNewLabel_9 = new JLabel("경력");
+			GridBagConstraints gbc_lblNewLabel_9 = new GridBagConstraints();
+			gbc_lblNewLabel_9.anchor = GridBagConstraints.WEST;
+			gbc_lblNewLabel_9.insets = new Insets(0, 0, 0, 5);
+			gbc_lblNewLabel_9.gridx = 1;
+			gbc_lblNewLabel_9.gridy = 10;
+			contentPanel.add(lblNewLabel_9, gbc_lblNewLabel_9);
+		}
+		{
+			textField_3 = new JTextField();
+			GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+			gbc_textField_3.gridwidth = 2;
+			gbc_textField_3.insets = new Insets(0, 0, 0, 5);
+			gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_3.gridx = 2;
+			gbc_textField_3.gridy = 10;
+			contentPanel.add(textField_3, gbc_textField_3);
+			textField_3.setColumns(10);
+		}
+		{
 			JPanel buttonPane = new JPanel();
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			GridBagLayout gbl_buttonPane = new GridBagLayout();
 			gbl_buttonPane.columnWidths = new int[]{200, 57, 57, 0};
-			gbl_buttonPane.rowHeights = new int[]{23, 23, 23, 0};
+			gbl_buttonPane.rowHeights = new int[]{23, 23, 0};
 			gbl_buttonPane.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-			gbl_buttonPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_buttonPane.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 			buttonPane.setLayout(gbl_buttonPane);
 			{
 				JButton okButton = new JButton("수정");
