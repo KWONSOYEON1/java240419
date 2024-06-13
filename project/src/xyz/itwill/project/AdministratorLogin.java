@@ -78,7 +78,8 @@ public class AdministratorLogin extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(new Object[][] {},
-                new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","직급","급여","고용일"}));
+                new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","직급","급여","고용일","경력"}));
+
 		table.setEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.getTableHeader().setResizingAllowed(false);
