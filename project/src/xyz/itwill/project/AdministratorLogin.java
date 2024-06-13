@@ -18,9 +18,7 @@ import xyz.itwill.project.dao.MenuDTO;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
