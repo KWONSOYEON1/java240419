@@ -321,9 +321,5 @@ public class AdministratorLogin extends JFrame {
 						
 			defaultTableModel.addRow(rowData);
 		}
-	}
-	
-	
-	
-	
+	}	
 }
