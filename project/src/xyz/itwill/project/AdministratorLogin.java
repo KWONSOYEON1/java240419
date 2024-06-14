@@ -17,7 +17,6 @@ import xyz.itwill.project.dao.MenuDTO;
 import xyz.itwill.project.dao.RsrrvtDAO;
 import xyz.itwill.project.dao.RsrrvtDTO;
 
-
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -30,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Vector;
+import java.util.regex.Pattern;
 
 
 public class AdministratorLogin extends JFrame {
@@ -250,6 +250,55 @@ public class AdministratorLogin extends JFrame {
 		gbc_btnNewButton_1.gridy = 1;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
+		btnNewButton_1.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	            int sel = tabbedPane.getSelectedIndex();
+	            switch (sel) {
+	                case 0:
+	                    int selectedMenuRow = table_2.getSelectedRow();
+	                    if (selectedMenuRow != -1) {
+	                        int mno = (int) table_2.getValueAt(selectedMenuRow, 0);
+	                        removeMenu(mno);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 메뉴를 선택해주세요.");
+	                    }
+	                    break;
+	                case 1:
+	                	int selectedDesinerRow = table.getSelectedRow();
+	                    if (selectedDesinerRow != -1) {
+	                        int mno = (int) table.getValueAt(selectedDesinerRow, 0);
+	                        removeDesiner(id);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 디자이너를 선택해주세요.");
+	                    }
+	                    break;
+	                case 2:
+	                	int selectedMemberRow = table_1.getSelectedRow();
+	                    if (selectedMemberRow != -1) {
+	                        int mno = (int) table_1.getValueAt(selectedMemberRow, 0);
+	                        removeMember(mno);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 회원을 선택해주세요.");
+	                    }
+	                    break;
+	                case 3:
+	                	int selectedMemberRow = table_1.getSelectedRow();
+	                    if (selectedMemberRow != -1) {
+	                        int mno = (int) table_1.getValueAt(selectedMemberRow, 0);
+	                        removeMember(mno);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 예약을 선택해주세요.");
+	                    }
+	                    break;
+	                default:
+	                    break;
+	            }
+	        }
+		});
+		
+		
+		
+		
 		displayAllMenu();
 		displayAllDesigner();
 		displayAllCustomer();	
@@ -366,10 +415,19 @@ public class AdministratorLogin extends JFrame {
 
 			defaultTableModel.addRow(rowData);
 
-		}
+		}	
+	
 		
 	}
-	
-	
-	
+	public void removeMenu(int mno) {
+		int rows=MenuDAO.getDAO().deleteMenu(mno);
+        	
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(null, rows+"명의 메뉴정보를 삭제 하였습니다.");
+			displayAllMenu();
+		} else {
+			JOptionPane.showMessageDialog(null, "삭제할 번호의 메뉴정보를 찾을 수 없습니다.");
+		}
+        
+	}
 }
