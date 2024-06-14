@@ -164,7 +164,6 @@ public class AdministratorLogin extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","직급","급여","고용일","경력"}));
-		table.setEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.getTableHeader().setResizingAllowed(false);
 		table.getColumnModel().getColumn(5).setPreferredWidth(150); // 핸드폰번호
@@ -176,7 +175,6 @@ public class AdministratorLogin extends JFrame {
 		scrollPane_1.setViewportView(table_1);
 		table_1.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"아이디","비밀번호","생년월일","이름","성별","핸드폰번호","가입일","이용횟수","메모"}));
-		table_1.setEnabled(false);
 		table_1.getTableHeader().setReorderingAllowed(false);
 		table_1.getTableHeader().setResizingAllowed(false);
 		table_1.getColumnModel().getColumn(5).setPreferredWidth(150);
@@ -189,7 +187,6 @@ public class AdministratorLogin extends JFrame {
 		scrollPane_3.setViewportView(table_3);
 		table_3.setModel(new DefaultTableModel(new Object[][] {},
                 new String[] {"번호","날짜","시간","디자이너","회원","시술","결제금액","현금여부","예약상태","메모"}));
-		table_3.setEnabled(false);
 		table_3.getTableHeader().setReorderingAllowed(false);
 		table_3.getTableHeader().setResizingAllowed(false);
 		
@@ -314,6 +311,53 @@ public class AdministratorLogin extends JFrame {
 		gbc_btnNewButton_1.gridy = 1;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
+		btnNewButton_1.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	            int sel = tabbedPane.getSelectedIndex();
+	            switch (sel) {
+	                case 0:
+	                    int selectedMenuRow = mTable.getSelectedRow();
+	                    if (selectedMenuRow != -1) {
+	                        int mno = (int) mTable.getValueAt(selectedMenuRow, 0);
+	                        removeMenu(mno);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 메뉴를 선택해주세요.");
+	                    }
+	                    break;
+	                case 1:
+	                	int selectedDesignerRow = table.getSelectedRow();
+	                    if (selectedDesignerRow != -1) {
+	                    	String id = (String) table.getValueAt(selectedDesignerRow, 0);
+	                        removedesigner(id);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 디자이너를 선택해주세요.");
+	                    }
+	                    break;
+	                case 2:
+	                	int selectedMemberRow = table_1.getSelectedRow();
+	                    if (selectedMemberRow != -1) {
+	                    	String id = (String) table_1.getValueAt(selectedMemberRow, 0);
+	                        removeMember(id);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 회원을 선택해주세요.");
+	                    }
+	                    break;
+	                case 3:
+	                	int selectedRsrrvtRow = table_3.getSelectedRow();
+	                    if (selectedRsrrvtRow != -1) {
+	                    	String rdate = (String) table_3.getValueAt(selectedRsrrvtRow, 0);
+	                        removeRsrrvt(rdate);
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "삭제할 예약을 선택해주세요.");
+	                    }
+	                    break;
+	                default:
+	                    break;
+	            }
+	        }
+		});
+		
+		
 		displayAllMenu();
 		displayAllDesigner();
 		displayAllmember();	
@@ -431,9 +475,59 @@ public class AdministratorLogin extends JFrame {
 			defaultTableModel.addRow(rowData);
 
 		}
-		
 	}
-	
-	
-	
+	//디자이너, 회원은 삭제되고 바로 표에서 사라지는데 시술이랑 예약쪽은 안돼요 
+	public void removeMenu(int mno) {
+		int rows=MenuDAO.getDAO().deleteMenu(mno);
+        	
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(null, rows+"개의 메뉴 정보를 삭제 하였습니다.");
+			DefaultTableModel defaultTableModel=(DefaultTableModel)mTable.getModel();
+			defaultTableModel.setNumRows(0);	
+			displayAllMenu();
+			
+		} else {
+			JOptionPane.showMessageDialog(null, "삭제할 번호의 메뉴 정보를 찾을 수 없습니다.");
+		}
+        
+	}
+	public void removedesigner(String id) {
+		int rows=DesignerDAO.getDAO().deleteDesigner(id);
+        	
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(null, rows+"개의 디자이너 정보를 삭제 하였습니다.");
+			DefaultTableModel defaultTableModel=(DefaultTableModel)table.getModel();
+			defaultTableModel.setNumRows(0);
+			displayAllDesigner();
+			
+		} else {
+			JOptionPane.showMessageDialog(null, "삭제할 아이디의 디자이너 정보를 찾을 수 없습니다.");
+		}
+	}
+	public void removeMember(String id) {
+		int rows=MemberDAO.getDAO().deleteMember(id);
+        	
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(null, rows+"개의 회원	정보를 삭제 하였습니다.");
+			DefaultTableModel defaultTableModel=(DefaultTableModel)table_1.getModel();
+			defaultTableModel.setNumRows(0);
+			displayAllmember();	
+			
+		} else {
+			JOptionPane.showMessageDialog(null, "삭제할 아이디의 회원 정보를 찾을 수 없습니다.");
+		}
+	}
+	public void removeRsrrvt(String rdate) {
+		int rows=RsrrvtDAO.get_dao().deleteRsrrvt(rdate);
+        	
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(null, rows+"개의 예약 정보를 삭제 하였습니다.");
+			DefaultTableModel defaultTableModel=(DefaultTableModel)table_3.getModel();
+			defaultTableModel.setNumRows(0);
+			displayAllRsrrvt();
+			
+		} else {
+			JOptionPane.showMessageDialog(null, "삭제할 날짜의 예약 정보를 찾을 수 없습니다.");
+		}
+	}	
 }
