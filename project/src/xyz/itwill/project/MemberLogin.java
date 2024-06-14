@@ -80,7 +80,7 @@ public class MemberLogin extends JFrame {
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
 		table_1.setModel(new DefaultTableModel(new Object[][] {},
-                new String[] {"이름","직급","경력"}));
+                new String[] {"이름","직급"}));
 		table_1.setEnabled(false);
 		table_1.getTableHeader().setReorderingAllowed(false);
 		table_1.getTableHeader().setResizingAllowed(false);
