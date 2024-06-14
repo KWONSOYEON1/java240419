@@ -1,6 +1,6 @@
 package xyz.itwill.project.dao;
 
-public class CustomerDTO {
+public class MemberDTO {
 	private String id;
 	private String pw;
 	private String birth;
@@ -11,11 +11,11 @@ public class CustomerDTO {
 	private int used_count;
 	private String memo;
 	
-	public CustomerDTO() {
+	public MemberDTO() {
 		// TODO Auto-generated constructor stub
 	}	
 
-	public CustomerDTO(String id, String pw, String birth, String name, String gender, String phone, String join_date,
+	public MemberDTO(String id, String pw, String birth, String name, String gender, String phone, String join_date,
 			int used_count, String memo) {
 		super();
 		this.id = id;
