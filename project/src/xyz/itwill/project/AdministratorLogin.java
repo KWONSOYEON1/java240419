@@ -46,6 +46,7 @@ public class AdministratorLogin extends JFrame {
 	// Insert Frame
 	MenuInsert menuInsertdialog;
 	DesignerInsert designerInsertdialog;
+	MemberInsert memberInsertdialog;
 	ReservationInsert reservationInsertdialog;
 	
 	// Update Frame
@@ -104,6 +105,7 @@ public class AdministratorLogin extends JFrame {
 		// insert Frame
 		menuInsertdialog = new MenuInsert(this);
 		designerInsertdialog = new DesignerInsert(this);
+		memberInsertdialog =new MemberInsert(this);
 		reservationInsertdialog = new ReservationInsert(this);
 		
 		
@@ -217,11 +219,11 @@ public class AdministratorLogin extends JFrame {
 					designerInsertdialog.setVisible(true);
 					break;
 				case 2 :
-					MemberInsert memberInsertdialog = new MemberInsert();
+//					MemberInsert memberInsertdialog = new MemberInsert();
 					memberInsertdialog.setVisible(true);
 					break;
 				case 3 :
-					//ReservationInsert reservationInsertdialog = new ReservationInsert();
+//					ReservationInsert reservationInsertdialog = new ReservationInsert();
 					reservationInsertdialog.setVisible(true);
 					break;
 				default:	
@@ -369,9 +371,7 @@ public class AdministratorLogin extends JFrame {
 		if(MenuList.isEmpty()) {
 			JOptionPane.showMessageDialog(this, "저장된 시술 정보가 없습니다.");
 			return;
-		}
-		
-		
+		}		
 		
 		DefaultTableModel defaultTableModel=(DefaultTableModel)mTable.getModel();
 		
@@ -449,7 +449,6 @@ public class AdministratorLogin extends JFrame {
 	
 	public void displayAllRsrrvt() {
 		List<RsrrvtDTO> rsrrvtList = RsrrvtDAO.get_dao().selectRsrrvtAll();
-
 		if (rsrrvtList.isEmpty()) {
 			JOptionPane.showMessageDialog(this, "저장된 예약 정보가 없습니다.");
 			return;
