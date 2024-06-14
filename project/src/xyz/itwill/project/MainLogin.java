@@ -200,7 +200,7 @@ public class MainLogin extends JFrame {
 		    	
 		        if (chckbxMember.isSelected()) {	// 손님 로그인      	
 		        	
-		        	MemberDTO customr = MemberDAO.getDAO().selectCustomerByID(login_id);
+		        	MemberDTO customr = MemberDAO.getDAO().selectMemberByID(login_id);
 		        	if(customr == null) {	// 해당 id가 존재하지 않는경우
 		    			JOptionPane.showMessageDialog(null, "ID가 존재하지 않습니다.");
 		    			idField.requestFocus();
