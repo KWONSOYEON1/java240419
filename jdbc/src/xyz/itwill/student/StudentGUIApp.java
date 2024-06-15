@@ -446,7 +446,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 			noTF.requestFocus();
 			noTF.setText("");
 			return;
-		}
+		}		
 		
 		//검색된 학생정보를 JTextField 컴퍼넌트에 출력 - 변경값 입력
 		noTF.setText(student.getNo()+"");
