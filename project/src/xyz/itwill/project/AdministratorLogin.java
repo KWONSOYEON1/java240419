@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import xyz.itwill.project.dao.MemberDAO;
 import xyz.itwill.project.dao.MemberDTO;
@@ -32,6 +33,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
 
 
 public class AdministratorLogin extends JFrame {
@@ -59,6 +62,7 @@ public class AdministratorLogin extends JFrame {
 	String pushValue;
 	int pushMtime;
 	int pushPrice;
+	private JTextField textField;
 	
 	// 디자이너 변경 변수 //
 	
@@ -198,73 +202,50 @@ public class AdministratorLogin extends JFrame {
 		contentPane.add(panel);
 		
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{450, 57, 57, 57, 57, 50, 0};
+		gbl_panel.columnWidths = new int[]{50, 150, 57, 200, 57, 57, 57, 50, 0};
 		gbl_panel.rowHeights = new int[]{5, 23, 0};
-		gbl_panel.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JButton btnNewButton = new JButton("등록");
-		
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int sel = tabbedPane.getSelectedIndex();
-				switch (sel) {
-				case 0 :
-//					MenuInsert menuInsertdialog = new MenuInsert();
-					menuInsertdialog.setVisible(true);					
-					break;
-				case 1 :
-//					DesignerInsert designerInsertdialog = new DesignerInsert();
-					designerInsertdialog.setVisible(true);
-					break;
-				case 2 :
-//					MemberInsert memberInsertdialog = new MemberInsert();
-					memberInsertdialog.setVisible(true);
-					break;
-				case 3 :
-//					ReservationInsert reservationInsertdialog = new ReservationInsert();
-					reservationInsertdialog.setVisible(true);
-					break;
-				default:	
-					break;
-				}
-			}
-		});
-				
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 1;
-		panel.add(btnNewButton, gbc_btnNewButton);
-				
 		JButton btnNewButton_2 = new JButton("검색");
-		
+	
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int sel = tabbedPane.getSelectedIndex();
-				switch (sel) {
-				case 0 :
-					MenuSelect menuSelectdialog = new MenuSelect();
-					menuSelectdialog.setVisible(true);
-					break;
-				case 1 :
-					DesignerSelect designerSelectdialog = new DesignerSelect();
-					designerSelectdialog.setVisible(true);
-					break;
-				case 2 :
-					MemberSelect memberSelectdialog = new MemberSelect();
-					memberSelectdialog.setVisible(true);
-					break;
-				case 3 :
-					ReservationSelect reservationSelectdialog = new ReservationSelect();
-					reservationSelectdialog.setVisible(true);
-					break;
-				default:					
-					break;
-				}
-			}
-		});
+		    public void actionPerformed(ActionEvent e) {
+		        int sel = tabbedPane.getSelectedIndex();
+		        String searchText = textField.getText().trim(); 
+		        
+		        switch (sel) {
+		            case 0:
+		                DefaultTableModel menuTableModel = (DefaultTableModel) mTable.getModel();
+		                performTableSearch(menuTableModel, searchText,0);
+		                break;
+		            case 1:		                
+		                DefaultTableModel designerTableModel = (DefaultTableModel) table.getModel();
+		                performTableSearch(designerTableModel, searchText,0);
+		                break;
+		            case 2:		               
+		                DefaultTableModel memberTableModel = (DefaultTableModel) table_1.getModel();
+		                performTableSearch(memberTableModel, searchText,0);
+		                break;
+		            case 3:		              
+		                DefaultTableModel reservationTableModel = (DefaultTableModel) table_3.getModel();
+		                performTableSearch(reservationTableModel, searchText,0);
+		                break;
+		            default:		               
+		                break;
+		        }
+		    }
+		});		
+		
+		textField = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.insets = new Insets(0, 0, 0, 5);
+		gbc_textField.fill = GridBagConstraints.BOTH;
+		gbc_textField.gridx = 1;
+		gbc_textField.gridy = 1;
+		panel.add(textField, gbc_textField);
+		textField.setColumns(10);
 				
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 0, 5);
@@ -299,17 +280,51 @@ public class AdministratorLogin extends JFrame {
 				}
 			}
 		});
+		
+		JButton btnNewButton = new JButton("등록");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sel = tabbedPane.getSelectedIndex();
+				switch (sel) {
+				case 0 :
+//					MenuInsert menuInsertdialog = new MenuInsert();
+					menuInsertdialog.setVisible(true);					
+					break;
+				case 1 :
+//					DesignerInsert designerInsertdialog = new DesignerInsert();
+					designerInsertdialog.setVisible(true);
+					break;
+				case 2 :
+//					MemberInsert memberInsertdialog = new MemberInsert();
+					memberInsertdialog.setVisible(true);
+					break;
+				case 3 :
+//					ReservationInsert reservationInsertdialog = new ReservationInsert();
+					reservationInsertdialog.setVisible(true);
+					break;
+				default:	
+					break;
+				}
+			}
+		});
+		
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton.gridx = 4;
+		gbc_btnNewButton.gridy = 1;
+		panel.add(btnNewButton, gbc_btnNewButton);
 				
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
 		gbc_btnNewButton_3.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_3.gridx = 3;
+		gbc_btnNewButton_3.gridx = 5;
 		gbc_btnNewButton_3.gridy = 1;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
 						
 		JButton btnNewButton_1 = new JButton("삭제");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_1.gridx = 4;
+		gbc_btnNewButton_1.gridx = 6;
 		gbc_btnNewButton_1.gridy = 1;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
@@ -357,15 +372,40 @@ public class AdministratorLogin extends JFrame {
 	                    break;
 	            }
 	        }
-		});
-		
+		});		
 		
 		displayAllMenu();
 		displayAllDesigner();
 		displayAllmember();	
 		displayAllRsrrvt();
+	}	
+	
+	private void performTableSearch(DefaultTableModel tableModel, String searchText, int columnIndex) {
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
+	    
+	    if (searchText.trim().isEmpty()) {
+	        sorter.setRowFilter(null); 
+	    } else {
+	        try {
+	            sorter.setRowFilter(RowFilter.regexFilter("(?i).*" + searchText + ".*", columnIndex));
+	        } catch (java.util.regex.PatternSyntaxException e) {
+	            e.printStackTrace();
+	            sorter.setRowFilter(null); 
+	        }
+	    }
+	    
+	    if (tableModel == mTable.getModel()) {
+	        mTable.setRowSorter(sorter);
+	    } else if (tableModel == table.getModel()) {
+	        table.setRowSorter(sorter);
+	    } else if (tableModel == table_1.getModel()) {
+	        table_1.setRowSorter(sorter);
+	    } else if (tableModel == table_3.getModel()) {
+	        table_3.setRowSorter(sorter);
+	    }
 	}
-		
+
+	
 	public void displayAllMenu() {
 		List<MenuDTO> MenuList=MenuDAO.getDAO().selectMenuAll();
 		if(MenuList.isEmpty()) {
@@ -475,7 +515,7 @@ public class AdministratorLogin extends JFrame {
 
 		}
 	}
-	//디자이너, 회원은 삭제되고 바로 표에서 사라지는데 시술이랑 예약쪽은 안돼요 
+	//디자이너, 회원은 삭제되고 바로 표에서 사라지는데 시술이랑 예약쪽은 안돼요... 
 	public void removeMenu(int mno) {
 		int rows=MenuDAO.getDAO().deleteMenu(mno);
         	
