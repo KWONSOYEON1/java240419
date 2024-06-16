@@ -67,7 +67,7 @@ public class MenuUpdate extends JDialog {
 			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textField.gridx = 2;
 			gbc_textField.gridy = 1;
-			contentPanel.add(textField, gbc_textField);
+			//contentPanel.add(textField, gbc_textField);
 			mnotextField.setColumns(10);
 		}
 		{
