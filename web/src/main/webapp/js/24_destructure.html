@@ -93,7 +93,7 @@
 	//alert("학번 ="+num+", 이름 = "+name);
 	
 	//변수의 이름이 멤버변수의 이름과 다른 경우 변수에 값이 저장되지 않아 [undefined] 자료형으로 처리
-	//var {num:bunho, name:irum}=student;
+	var {num:bunho, name:irum}=student;
 	//alert("학번 ="+bunho+", 이름 = "+irum);
 	
 	//변수의 이름이 멤버변수의 이름과 다른 경우에도 멤버변수의 값을 변수에 저장 가능
@@ -131,9 +131,16 @@
 	}
 	*/
 	
+	/*
 	//매개변수로 Object 객체를 전달받아 사용하는 함수
 	function display(obj) {
 		alert("학번 = "+obj.num+", 이름 = "+obj.name);
+	}
+	*/
+	
+	//매개변수로 Object 객체를 전달받아 구조분해할당하여 변수에 저장해 사용
+	function display({num, name}) {
+		alert("학번 = "+num+", 이름 = "+name);
 	}
 	
 	display({num:1000, name:"홍길동"});
