@@ -39,7 +39,7 @@ legend {
 <body>
 	<h1>Form Event</h1>
 	<hr>
-	<form action="20_form_event.html" method="post" id="joinForm">
+	<form action="21_form_event.html" method="post" id="joinForm">
 	<fieldset>
 		<legend>회원가입정보</legend>
 		<ul>
@@ -74,9 +74,11 @@ legend {
 	<script type="text/javascript">
 	$("#id").focus();
 	
+	//[회원가입] 버튼을 클릭한 경우 호출될 이벤트 처리 함수 등록
+	// => 이벤트 처리 함수에서 입력태그의 입력값을 검증하고 검증이 성공한 경우 form 태그가
+	//실행되도록 제출 이벤트(Submit Event) 발생
 	$("#submitBtn").click(function() {
-		
-		$(".error").text("");		
+		$(".error").text("");
 		
 		var result=true;
 		
@@ -84,7 +86,6 @@ legend {
 		if($("#id").val()=="") {
 			$("#idMsg").text("아이디를 입력해 주세요.");
 			result=false;
-			
 		} else if(!idReg.test($("#id").val())) {
 			$("#idMsg").text("6~20자의 영문자, 숫자와 특수문자(_)만 사용 가능합니다.");
 			result=false;
@@ -105,15 +106,21 @@ legend {
 			result=false;
 		}
 		
-		
+		//result 변수에 저장된 값이 [false]인 경우 이벤트 처리 함수 종료
 		if(!result) return;
 		
+		//result 변수에 저장된 값이 [true]인 경우 제출 이벤트를 발생하여 form 태그 실행
 		$("#joinForm").submit();
 		
-	});		
+	});
 	
+	//[다시작성] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
+	// => 이벤트 처리 함수에서 에러 메세지 및  입력태그의 입력값 초기화 처리
 	$("#resetBtn").click(function() {
-		$("#joinForm")[0].reset();		
+		//$(selector).reset() : 선택자로 검색된 태그(입력태그)의 입력값을 초기화 처리하는 멤버함수
+		// => form 태그가 여러개 검색되어 jQuery 객체로 제공될 수 있으므로 첨자를 사용해
+		//원하는 form 태그의 입력태그를 초기화 처리
+		$("#joinForm")[0].reset();
 		$(".error").text("");
 		$("#id").focus();
 	});
