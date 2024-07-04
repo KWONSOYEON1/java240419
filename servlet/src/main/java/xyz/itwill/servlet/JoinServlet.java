@@ -22,7 +22,7 @@ public class JoinServlet extends HttpServlet {
 		
 		//서블릿을 get 방식으로 요청한 경우 비정상적인 요청이므로 클라이언트에게 에러코드(4XX 
 		//or 5XX)를 전달하여 응답하거나 에러메세지를 출력하는 페이지의 URL 주소를 전달하여 응답
-		//HttpServletRequest.getMethod() : 클라이언트가 서블릿을 요청한 요청방식(GET or POPST)을
+		//HttpServletRequest.getMethod() : 클라이언트가 서블릿을 요청한 요청방식(GET or POST)을
 		//반환하는 메소드
 		//System.out.println("요청방식 = "+request.getMethod());//요청방식 = GET
 		if(request.getMethod().equals("GET")) {//서블릿을 GET 방식으로 요청한 경우
