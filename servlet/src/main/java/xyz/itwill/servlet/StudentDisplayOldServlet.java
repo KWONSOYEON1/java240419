@@ -39,7 +39,7 @@ public class StudentDisplayOldServlet extends HttpServlet {
 			String password="tiger";
 			con=DriverManager.getConnection(url, username, password);
 			
-			//3.Connection 객체로부터우 SQL 명령이 저장된 PreparedStatement 객체를 반환받아 저장
+			//3.Connection 객체로부터 SQL 명령이 저장된 PreparedStatement 객체를 반환받아 저장
 			String sql="select no,name,phone,address,birthday from student order by no";
 			pstmt=con.prepareStatement(sql);
 			

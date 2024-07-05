@@ -60,4 +60,5 @@ public class JndiServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+
 }
