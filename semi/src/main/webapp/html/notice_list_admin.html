@@ -95,7 +95,7 @@
                 const row = document.createElement("tr");
                 row.innerHTML = `
                     <td>${start + index + 1}</td>
-                    <td><a href="notice_detail.html?id=${notice.id}">${notice.title}</a></td>
+                    <td><a class="text-decoration-none text-black" href="notice_detail.html?id=${notice.id}">${notice.title}</a></td>
                     <td>${notice.author}</td>
                     <td>${notice.date}</td>
                 `;
@@ -112,7 +112,8 @@
 
             let startPage = Math.max(1, currentPage - 1);
             let endPage = Math.min(totalPages, currentPage + 1);
-            
+
+            // Ensure exactly 3 pages are shown in pagination
             if (currentPage === 1) {
                 endPage = Math.min(3, totalPages);
             } else if (currentPage === totalPages) {
