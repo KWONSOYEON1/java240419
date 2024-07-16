@@ -29,7 +29,7 @@
 	if(keyword == null) {
 		keyword="";
 	}
-	
+		
 	//페이징 처리에 필요한 전달값(페이지번호와 게시글갯수)을 반환받아 저장
 	int pageNum=1;//페이지번호 - 전달값이 없는 경우 사용할 기본값 저장
 	if(request.getParameter("pageNum") != null) {//전달값이 있는 경우
@@ -246,32 +246,75 @@ td {
 		<% } %>
 	</table>
 	
+	<%-- 페이지 번호 출력 --%>
+	<%
+		//하나의 페이지블럭에 출력될 페이지번호의 갯수 설정
+		int blockSize=5;
+	
+		//페이지블럭에 출력될 시작 페이지번호를 계산하여 저장
+		//ex) 1Block : 1, 2Block : 6, 3Block : 11, 4Block : 16,...
+		int startPage=(pageNum-1)/blockSize*blockSize+1; 
+
+		//페이지블럭에 출력될 종료 페이지번호를 계산하여 저장
+		//ex) 1Block : 5, 2Block : 10, 3Block : 15, 4Block : 20,...
+		int endPage=startPage+blockSize-1;
+		
+		//종료 페이지번호가 페이지 총갯수보다 큰 경우 종료 페이지번호 변경
+		if(endPage > totalPage) {
+			endPage=totalPage;
+		}
+	%>
+	<%
+		String myUrl=request.getContextPath()+"/index.jsp?workgroup=review&work=review_list"
+			+"&pageSize="+pageSize+"&search="+search+"&keyword="+keyword;
+	%>
 	
 	<div id="page_list">
-		[1]
-	</div>
+		<%-- 이전 블럭을 출력할 수 있는 링크 제공 --%>
+		<% if(startPage > blockSize) { %>
+			<a href="<%=myUrl%>&pageNum=<%=startPage-blockSize%>">[이전]</a>
+		<% } else { %>
+			[이전]
+		<% } %>
 	
-	<form action="#" method="post">
+		<% for(int i = startPage ; i <= endPage ; i++) { %>
+			<%-- 현재 처리중인 페이지 번호와 출력된 페이지 번호가 같지 않은 경우 링크 제공 --%>
+			<% if(pageNum != i) { %>
+				<a href="<%=myUrl%>&pageNum=<%=i%>">[<%=i %>]</a>
+			<%} else { %>
+				[<%=i %>]
+			<% } %>
+		<% } %>
+
+		<%-- 다음 블럭을 출력할 수 있는 링크 제공 --%>
+		<% if(endPage != totalPage) { %>
+			<a href="<%=myUrl%>&pageNum=<%=startPage+blockSize%>">[다음]</a>
+		<% } else { %>
+			[다음]
+		<% } %>
+	</div>
+
+	<%-- 조회기능을 제공하기 위한 form 태그 --%>	
+	<form action="<%=request.getContextPath() %>/index.jsp?workgroup=review&work=review_list" method="post">
+		<%-- select 태그로 전달되는 값은 반드시 컬럼명을 전달되도록 작성 --%>
 		<select name="search">
-			<option value="member_name">&nbsp;작성자&nbsp;</option>
-			<option value="review_subject">&nbsp;제목&nbsp;</option>
-			<option value="review_content">&nbsp;내용&nbsp;</option>
+			<option value="member_name" <% if(search.equals("member_name")) { %>selected<% } %>>&nbsp;작성자&nbsp;</option>
+			<option value="review_subject" <% if(search.equals("review_subject")) { %>selected<% } %>>&nbsp;제목&nbsp;</option>
+			<option value="review_content" <% if(search.equals("review_content")) { %>selected<% } %>>&nbsp;내용&nbsp;</option>
 		</select>
-		<input type="text" name="keyword">
+		<input type="text" name="keyword" value="<%=keyword%>">
 		<button type="submit">검색</button>
 	</form>
 </div>
 
+<script type="text/javascript">
+//입력태그(게시글갯수)의 입력값을 변경한 경우 호출되는 이벤트 처리 함수 등록
+$("#pageSize").change(function() {	
+	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_list"
+		+"&pageNum=<%=pageNum%>&pageSize="+$("#pageSize").val()+"&search=<%=search%>&keyword=<%=keyword%>";
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
+$("#writeBtn").click(function() {
+	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write";
+});
+</script>
