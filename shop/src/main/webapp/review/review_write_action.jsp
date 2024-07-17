@@ -1,3 +1,4 @@
+<%@page import="xyz.itwill.dto.ReviewDTO"%>
 <%@page import="xyz.itwill.dao.ReviewDAO"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
@@ -24,26 +25,26 @@
 	
 	//MultipartRequst 객체 생성 - 모든 전달파일이 서버 디렉토리에 자동으로 업로드 처리
 	// => cos.jar 라이브러리 파일이 프로젝트에 빌드 처리되어야만 MultipartRequst 클래스 사용 가능
-	MultipartRequest multipartRequest=new MultipartRequest(request, saveDirectory
+	MultipartRequest multipartReques=new MultipartRequest(request, saveDirectory
 			, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 	
 	//전달값을 반환받아 저장
-	int ref=Integer.parseInt(multipartRequest.getParameter("ref"));
-	int restep=Integer.parseInt(multipartRequest.getParameter("restep"));
-	int relevel=Integer.parseInt(multipartRequest.getParameter("relevel"));
-	String pageNum=multipartRequest.getParameter("pageNum");
-	String pageSize=multipartRequest.getParameter("pageSize");
-	String search=multipartRequest.getParameter("search");
-	String keyword=multipartRequest.getParameter("keyword");
+	int ref=Integer.parseInt(multipartReques.getParameter("ref"));
+	int restep=Integer.parseInt(multipartReques.getParameter("restep"));
+	int relevel=Integer.parseInt(multipartReques.getParameter("relevel"));
+	String pageNum=multipartReques.getParameter("pageNum");
+	String pageSize=multipartReques.getParameter("pageSize");
+	String search=multipartReques.getParameter("search");
+	String keyword=multipartReques.getParameter("keyword");
 	
-	String reviewSubject=multipartRequest.getParameter("reviewSubject");
+	String reviewSubject=multipartReques.getParameter("reviewSubject");
 	int reviewStatus=1;//전달값이 없는 경우 - 일반글
-	if(multipartRequest.getParameter("reviewStatus") != null) {//전달값이 있는 경우 - 비밀글
-		reviewStatus=Integer.parseInt(multipartRequest.getParameter("reviewStatus"));
+	if(multipartReques.getParameter("reviewStatus") != null) {//전달값이 있는 경우 - 비밀글
+		reviewStatus=Integer.parseInt(multipartReques.getParameter("reviewStatus"));
 	}
-	String reviewContent=multipartRequest.getParameter("reviewContent");
+	String reviewContent=multipartReques.getParameter("reviewContent");
 	//업로드 처리된 파일의 이름을 반환받아 저장 - 전달파일이 없는 경우 [null] 반환
-	String reviewImage=multipartRequest.getFilesystemName("reviewImage");
+	String reviewImage=multipartReques.getFilesystemName("reviewImage");
 
 	//REVIEW_SEQ 시퀸스의 다음값을 검색하여 반환하는 ReviewDAO 클래스의 메소드 호출
 	int nextNum=ReviewDAO.getDAO().selectReviewNextNum();
@@ -57,30 +58,43 @@
 	String reviewIp=request.getRemoteAddr();
 	//System.out.println("reviewIp = "+reviewIp);
 	
-	if(ref == 0 ) {
-		ref=nextNum;	
-	} else {
+	//새글과 답글을 구분하여 전달값이 저장된 변수값(ref, restep, relevel) 변경
+	// => 새글인 경우에는 변수에 [0]이 저장되어 있고 답글인 경우에는 부모글의 값 저장 
+	if(ref == 0) {//새글인 경우
+		//ref 변수값을 시퀸스의 다음값으로 변경
+		ref=nextNum;		
+	} else {//답글인 경우
+		//REVIEW 테이블에 저장된 행에서 REVIEW_REF 컬럼값이 ref 변수값(부모글)과 같은 행 중
+		//REVIEW_RESTEP 컬럼값이 restep 변수값(부모글)보다 큰 행의 REVIEW_RESTEP 컬럼값이
+		//1 증가되도록 변경 처리
+		// => 새로운 답글이 기존 답글보다 먼저 검색되도록 기존 답글의 순서를 증가 처리
+		//부모글 관련 정보를 전달받아 REVIEW 테이블에서 저장된 행에서 전달값을 비교하여 REVIEW_REF
+		//컬럼값을 1 증가되도록 변경하고 변경행의 갯수를 반환하는 ReviewDAO 클래스의 메소드 호출
+		ReviewDAO.getDAO().updateReviewRestep(ref, restep);
 		
-		
+		//restep 변수값 및 relevel 변수값을 1 증가되도록 변경 
 		restep++;
 		relevel++;
 	}
 	
+	//ReviewDTO 객체를 생성하여 변수값(전달값)으로 필드값 변경
+	ReviewDTO review=new ReviewDTO();
+	review.setReviewNum(nextNum);//시퀸스의 다음값으로 필드값 변경
+	review.setReviewMemberNum(loginMember.getMemberNum());//로그인 사용자의 회원번호로 필드값 변경
+	review.setReviewSubject(reviewSubject);
+	review.setReviewContent(reviewContent);
+	review.setReviewImage(reviewImage);
+	review.setReviewRef(ref);
+	review.setReviewRestep(restep);
+	review.setReviewRelevel(relevel);
+	review.setReviewIp(reviewIp);
+	review.setReviewStatus(reviewStatus);
+	
+	//게시글(ReviewDTO 객체)을 전달받아 REVIEW 테이블의 행으로 삽입하고 삽입행의 갯수를 
+	//반환하는 ReviewDAO 클래스의 메소드 호출
+	ReviewDAO.getDAO().insertReview(review);
+	
+	//페이지 이동 - 페이징 처리 및 조회 기능 관련 값 전달
+	request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=review&work=review_list"
+		+"&pageNum="+pageNum+"&pageSize="+pageSize+"&search="+search+"&keyword="+keyword);
 %>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
