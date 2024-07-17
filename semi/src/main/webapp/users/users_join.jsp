@@ -117,8 +117,8 @@
                             <input type="text" class="form-control" id="phone2" name="phone2">
                             <input type="text" class="form-control" id="phone3" name="phone3">
                         </div>
-                        <div id="mobileMsg" class="error">전화번호를 입력해 주세요.</div>
-                        <div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
+                        <div id="phoneMsg" class="error">전화번호를 입력해 주세요.</div>
+                        <div id="phoneRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -195,10 +195,10 @@ $(document).ready(function() {
         var phone2Reg = /^\d{3,4}$/;
         var phone3Reg = /^\d{4}$/;
         if ($("#phone2").val() == "" || $("#phone3").val() == "") {
-            $("#mobileMsg").css("display", "block");
+            $("#phoneMsg").css("display", "block");
             submitResult = false;
         } else if (!phone2Reg.test($("#phone2").val()) || !phone3Reg.test($("#phone3").val())) {
-            $("#mobileRegMsg").css("display", "block");
+            $("#phoneRegMsg").css("display", "block");
             submitResult = false;
         }
 
