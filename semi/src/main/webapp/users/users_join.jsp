@@ -138,12 +138,16 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $("#id").focus();
+    
+    $(".error").hide(); 
+
+    $("#id").focus(); 
 
     $("#join").submit(function() {
         var submitResult = true;
 
-        $(".error").css("display", "none");
+       
+        $(".error").hide();
 
         var idReg = /^[a-z0-9]{4,16}$/;
         if ($("#id").val() == "") {
@@ -217,8 +221,8 @@ $(document).ready(function() {
     });
 
     $("#idCheck").click(function() {
-        $("#idMsg").css("display", "none");
-        $("#idRegMsg").css("display", "none");
+      
+        $(".error").hide(); 
 
         var idReg = /^[a-z0-9]{4,16}$/;
         if ($("#id").val() == "") {
@@ -246,5 +250,6 @@ $(document).ready(function() {
     });
 });
 </script>
+
 </body>
 </html>
