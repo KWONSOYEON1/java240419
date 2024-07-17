@@ -344,7 +344,7 @@
         }
 
         function submitForm() {            
-            const signupUrl = 'sign_up.html';         
+            const signupUrl = 'index.jsp?workgroup=users&work=users_join';         
            
             const allAgreed = document.getElementById('agree1').checked && document.getElementById('agree2').checked;
             
