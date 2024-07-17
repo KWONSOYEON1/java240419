@@ -10,7 +10,7 @@
 			<ul>
 				<% if(loginUsers == null) { %>
 					<li><a href="index.jsp?workgroup=users&work=users_login" id="good">Sing in</a></li>
-					<li><a href="index.jsp?workgroup=users&work=agreement" id="good">Sing up</a></li>
+					<li><a href="index.jsp?workgroup=users&work=users_agreement" id="good">Sing up</a></li>
 				<% } else {	%>
 					<li><a href="index.jsp?workgroup=users&work=users_mypage" id="good">My account</a></li>
 			</ul>
