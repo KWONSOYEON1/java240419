@@ -13,7 +13,8 @@
             width: 100%;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto;
+            margin: 0 auto;
         }
 
         .form-container {
