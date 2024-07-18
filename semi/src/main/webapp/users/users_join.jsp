@@ -19,7 +19,7 @@
 
         .form-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             padding: 24px;
             border: 1px solid #ffffff;
             border-radius: 8px;
@@ -29,6 +29,7 @@
             color: red;
             font-size: 0.75em;
             margin-top: 0.2em;
+            
         }        
     </style>
 </head>
@@ -158,7 +159,7 @@ $(document).ready(function() {
             submitResult = false;
         }
 
-        var pwReg = ^(?=.*[a-zA-Z])(?=.*[\d!@#$%^&*()_+{}|:"<>?])[a-zA-Z\d!@#$%^&*()_+{}|:"<>?]{10,16}$
+        var pwReg = /^(?=.*[a-zA-Z])(?=.*[\d!@#$%^&*()_+{}|:"<>?])[a-zA-Z\d!@#$%^&*()_+{}|:"<>?]{10,16}$/;
      
         if ($("#pw").val() == "") {
             $("#pwMsg").css("display", "block");
@@ -181,7 +182,7 @@ $(document).ready(function() {
             submitResult = false;
         }
 
-        var emailReg = ^(?=.*[a-zA-Z])(?=.*[\d!@#$%^&*()_+{}|:"<>?])[a-zA-Z\d!@#$%^&*()_+{}|:"<>?]{10,16}$
+        var emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if ($("#email").val() == "") {
             $("#emailMsg").css("display", "block");
             submitResult = false;

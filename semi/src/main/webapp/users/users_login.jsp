@@ -8,9 +8,10 @@
     <title>로그인</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <style>
-        .custom-container {        	
+	
+    <style>    	
+        .custom-container {
+        	font-family:sans-serif;          	     	
             display: flex;
             width: 100%;
             justify-content: center;
@@ -21,7 +22,7 @@
 
         .form-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             padding: 20px;           
             border: 1px solid #dee2e6;
             border-radius: 8px;
