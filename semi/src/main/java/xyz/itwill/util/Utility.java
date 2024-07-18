@@ -12,8 +12,7 @@ public class Utility {
 		try {			
 			MessageDigest messageDigest=MessageDigest.getInstance("SHA-256");
 			
-			messageDigest.update(pw.getBytes());	
-			
+			messageDigest.update(pw.getBytes());			
 			
 			byte[] digest=messageDigest.digest();
 			
@@ -32,7 +31,8 @@ public class Utility {
 		Matcher matcher=htmlTag.matcher(source);
 				
 		return matcher.replaceAll("");
-	}		
+	}	
+	
 	public static String escapeTag(String source) {
 		return source.replace("<", "&lt;").replace(">", "&gt;");
 	}

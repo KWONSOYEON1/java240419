@@ -10,8 +10,7 @@
 		return;
 	}
 	
-	String id=request.getParameter("id");
-	//전달받은 비밀번호를 암호화 처리한 후 변수에 저장
+	String id=request.getParameter("id");	
 	String pw=Utility.encrypt(request.getParameter("pw"));
 	String name=request.getParameter("name");
 	String zipcode=request.getParameter("zipcode");
