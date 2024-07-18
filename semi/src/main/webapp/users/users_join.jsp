@@ -158,7 +158,8 @@ $(document).ready(function() {
             submitResult = false;
         }
 
-        var pwReg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+|<>?:{}]).{10,16}$/;
+        var pwReg = ^(?=.*[a-zA-Z])(?=.*[\d!@#$%^&*()_+{}|:"<>?])[a-zA-Z\d!@#$%^&*()_+{}|:"<>?]{10,16}$
+     
         if ($("#pw").val() == "") {
             $("#pwMsg").css("display", "block");
             submitResult = false;
@@ -180,7 +181,7 @@ $(document).ready(function() {
             submitResult = false;
         }
 
-        var emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9]{2,4})+$/;
+        var emailReg = ^(?=.*[a-zA-Z])(?=.*[\d!@#$%^&*()_+{}|:"<>?])[a-zA-Z\d!@#$%^&*()_+{}|:"<>?]{10,16}$
         if ($("#email").val() == "") {
             $("#emailMsg").css("display", "block");
             submitResult = false;
