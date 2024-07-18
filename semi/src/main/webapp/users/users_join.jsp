@@ -29,12 +29,7 @@
             color: red;
             font-size: 0.75em;
             margin-top: 0.2em;
-        }
-
-        .info {
-            color: #666;
-            font-size: 0.8em;
-        }
+        }        
     </style>
 </head>
 <body>
