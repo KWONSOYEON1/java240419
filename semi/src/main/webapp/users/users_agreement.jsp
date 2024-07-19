@@ -7,10 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이용약관</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>        
+    <style>  
+ 		.custom-container {           
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin: 100px; 
+        }   
+          
         .terms-container {
             width: 50%;
-            margin: 0 auto;           
+          	margin: 100px; 
+            height: auto;  
+            justify-content: center;
+            align-items: center;        
         }
         .terms-section {
             margin-bottom: 20px;
@@ -49,6 +61,7 @@
     </style>
 </head>
 <body>
+<div class="custom-container">
     <div class="container terms-container">
         <h1 id="top" class="text-center">이용약관</h1>
         <div class="terms-section">
@@ -323,7 +336,7 @@
 
         <button class="btn btn-primary submit-button" id="submitBtn" disabled onclick="submitForm()">확인</button>
     </div>
-
+</div>
     <script>
         function toggleAllCheckboxes(source) {
             const checkboxes = document.querySelectorAll('.form-check-input');

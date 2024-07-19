@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             height: auto;
-            margin: 0 auto;
+            margin: 100px; 
         }
 
         .form-container {
@@ -22,7 +22,7 @@
             max-width: 700px;
             padding: 24px;
             border: 1px solid #ffffff;
-            border-radius: 8px;
+            border-radius: 8px;          
         }
 
         .error {

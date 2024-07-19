@@ -36,11 +36,11 @@
             justify-content: center;
             align-items: center;
             height: auto;
-            margin: 0 auto;
+            margin: 100px; 
         }
 
         .form-container {
-            max-width: 400px;
+            max-width: 350px;
             width: 100%;
             padding: 20px;           
             border: 1px solid #dee2e6;
