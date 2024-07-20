@@ -6,9 +6,11 @@
 
 <%	
 	if(request.getMethod().equals("GET")) {
-		request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=error&work=error_400");
+		response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 		return;
 	}
+
+	request.setCharacterEncoding("utf-8");
 	
 	String id=request.getParameter("id");	
 	String pw=Utility.encrypt(request.getParameter("pw"));
@@ -30,6 +32,6 @@
 	users.setUsersEmail(email);
 		
 	UsersDAO.getDAO().insertUsers(users);
-		
-	request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=users&work=users_login");
-%>
+	
+	response.sendRedirect(request.getContextPath()+"/users/users_login.jsp");	
+%>	
