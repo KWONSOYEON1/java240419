@@ -32,6 +32,6 @@
 	users.setUsersEmail(email);
 		
 	UsersDAO.getDAO().insertUsers(users);
-	
-	response.sendRedirect(request.getContextPath()+"/users/users_login.jsp");	
-%>	
+		
+	response.sendRedirect(request.getContextPath()+"/index.jsp?workgroup=users&work=users_login");	
+%>
