@@ -21,7 +21,7 @@
             </div>
             <div id="header-bottom">
                 <div id="header-bottom-middle">
-                <div id="logo" onclick="location.href='index.html'">Flili Camera</div>
+                <div id="logo" onclick="location.href='index.html'">Filli Camera</div>
                 <div id="search_button">
                     <div id="search-middle">
                     <form action="" method="get">
