@@ -5,8 +5,8 @@
     pageEncoding="UTF-8"%>
 
 <%	
-	if(request.getMethod().equals("GET")) {
-		response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+	if(request.getMethod().equals("GET")) {	
+		request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=error&work=error_400");
 		return;
 	}
 
@@ -33,5 +33,5 @@
 		
 	UsersDAO.getDAO().insertUsers(users);
 		
-	response.sendRedirect(request.getContextPath()+"/index.jsp?workgroup=users&work=users_login");	
+	request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=users&work=users_login");
 %>
