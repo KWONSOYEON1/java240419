@@ -18,11 +18,13 @@
         }   
           
         .terms-container {
-            width: 50%;
-          	margin: 100px; 
-            height: auto;  
-            justify-content: center;
-            align-items: center;        
+            width: 100%;
+          	max-width: 550px;
+            padding: 24px;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            
+                
         }
         .terms-section {
             margin-bottom: 20px;
@@ -33,18 +35,7 @@
             height: 150px;
             overflow-y: scroll;
             background-color: #f8f9fa;
-        }
-        .submit-button {
-            display: block;
-            width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-        }
+        }        
         .submit-button:disabled {
             background-color: #ccc;
         }
@@ -58,6 +49,7 @@
         #top1 {
             font-size: 1.03em;             
         }
+        
     </style>
 </head>
 <body>
@@ -334,7 +326,7 @@
             </div>
         </div>
 
-        <button class="btn btn-primary submit-button" id="submitBtn" disabled onclick="submitForm()">확인</button>
+        <button class="btn btn-warning w-100" id="submitBtn" disabled onclick="submitForm()">확인</button>
     </div>
 </div>
     <script>

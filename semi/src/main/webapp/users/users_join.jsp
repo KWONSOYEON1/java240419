@@ -18,19 +18,20 @@
         }
 
         .form-container {
+            max-width: 500px;
             width: 100%;
-            max-width: 700px;
             padding: 24px;
-            border: 1px solid #ffffff;
-            border-radius: 8px;          
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);          
         }
 
         .error {
             color: red;
             font-size: 0.75em;
             margin-top: 0.2em;
-            
-        }        
+        }    
+                   
     </style>
 </head>
 <body>
@@ -127,7 +128,7 @@
                         <div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">가입하기</button>
+                <button type="submit" class="btn btn-warning w-100">가입하기</button>
             </form>
         </div>
     </div>        
