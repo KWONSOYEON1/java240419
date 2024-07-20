@@ -7,8 +7,8 @@
     String id = request.getParameter("id");
 
     if (id == null || id.equals("")) {
-        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-        return;
+    	response.sendRedirect(request.getContextPath()+"/error/error_400.jsp");
+		return;
     }
 
     UsersDTO users = UsersDAO.getDAO().selectUsersById(id);
