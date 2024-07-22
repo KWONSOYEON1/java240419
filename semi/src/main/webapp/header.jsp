@@ -12,7 +12,7 @@
                     <% } else { %>
                        <span> [<%=loginUsers.getUsersName() %>]님, 환영합니다!</span>
                        <a href="index.jsp?workgroup=users&work=users_logout_action">Logout</a>
-                       <a href="index.jsp?workgroup=users&work=users_mypage">My account</a>
+                       <a href="index.jsp?workgroup=myaccount&work=myacct">My account</a>
                        <% if(loginUsers.getUsersStatus() == 9) {//로그인 사용자가 관리자인 경우 %>
                        		<a href="index.jsp?workgroup=admin&work=admin_main">Manager</a>
                        <% } %>
@@ -32,12 +32,12 @@
                 <div id="nav-bar">
                 <nav>
                 <ul>
-                    <li><a href="#">Camera</a></li>
-                    <li><a href="#">Film</a></li>
-                    <li><a href="#">Accessory</a></li>
-                    <li><a href="#">Notice</a></li>
-                    <li><a href="#">Cart</a></li>
-                    <li><a href="#">Order List</a></li>
+                     <li><a href="#" id="good">Camera</a></li>
+                    <li><a href="#" id="good">Film</a></li>
+                    <li><a href="#" id="good">Accessory</a></li>
+                    <li><a href="#" id="good">Notice</a></li>
+                    <li><a href="#" id="good">Cart</a></li>
+                    <li><a href="#" id="good">Order List</a></li>
                 </ul>
             </nav>
         </div>
