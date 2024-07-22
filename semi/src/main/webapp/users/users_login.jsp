@@ -31,23 +31,17 @@
 	
     <style>    	
    a {text-decoration: none !important}
-   	
-   	
-   		.loginForm > div {
-   			margin: 0 20px;
-   		}
-   	   	
+   
         .custom-container {           
             display: flex;
             justify-content: center;
             align-items: center;
-            
-            margin: 50px; 
+            height: auto;
+            margin: 100px; 
         }
 
         .form-container {
             max-width: 400px;
-            height:400px;
             width: 100%;
             padding: 20px;           
             border: 1px solid #dee2e6;
@@ -80,15 +74,15 @@
     <div class="custom-container">
         <div class="form-container">
             <h1 class="my-4 text-center">로그인</h1>
-            <form id="login" class="d-flex flex-column loginForm" name="loginForm" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=users&work=users_login_action">
+            <form id="login" name="loginForm" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=users&work=users_login_action">
                 <input type="hidden" name="url" value="<%=url%>">
                 <div class="mb-3">
-                    <label for="id" class="form-label fs-4">아이디</label>
+                    <label for="id" class="form-label">아이디</label>
                     <input type="text" class="form-control" id="id" name="id" value="<%=id%>" placeholder="아이디를 입력하세요" autofocus>
                     
                 </div>
                 <div class="mb-3">
-                    <label for="pw" class="form-label fs-4">비밀번호</label>
+                    <label for="pw" class="form-label">비밀번호</label>
                     <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력하세요">
                     
                 </div>
