@@ -21,7 +21,7 @@
         .terms-container {
           	max-width: 550px;
             width: 100%;
-            padding: 24px;
+            padding: 20px;
             border: 1px solid #ffffff;
             border-radius: 8px;
             
