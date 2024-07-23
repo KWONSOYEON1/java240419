@@ -260,50 +260,45 @@ public class UsersDAO extends JdbcDAO {
 		return id;		
 	}
 	public String selectUsersNo(UsersDTO users) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		String no=null;
-		try {
-			con=getConnection();
-			
-			String sql="select users_no from users where users_id=? and users_name=? and users_email=?"; 
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, users.getUsersId());
-			pstmt.setString(2, users.getUsersName());
-			pstmt.setString(3, users.getUsersEmail());
-			
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				no = rs.getString("users_no");
-			}
-		} catch (SQLException e) {
-			System.out.println("[에러]selectUsersNo() 메소드의 SQL 오류 = "+e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return no;		
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    String no = null;
+	    try {
+	        con = getConnection();
+	        String sql = "select users_no from users where users_id=? and users_name=? and users_email=?";
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, users.getUsersId());
+	        pstmt.setString(2, users.getUsersName());
+	        pstmt.setString(3, users.getUsersEmail());
+	        rs = pstmt.executeQuery();
+	        if (rs.next()) {
+	            no = rs.getString("users_no");
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("[에러]selectUsersNo() 메소드의 SQL 오류 = " + e.getMessage());
+	    } finally {
+	        close(con, pstmt, rs);
+	    }
+	    return no;
 	}
-	public int updateNewPassword(String usersId, String newPassword) {
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        int result = 0;
 
-        try {
-        	con=getConnection();
-        	
-            String sql = "update users set users_pw=? where users_id=?";
-            pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, newPassword);
-            pstmt.setString(2, usersId);
-
-            result = pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            close(con, pstmt);
-        }
-        return result;
-    }
+	public int updateNewPassword(String users_id, String newPassword) {
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    int result = 0;
+	    try {
+	        con = getConnection();
+	        String sql = "update users set users_pw=? where users_id=?";
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, newPassword);
+	        pstmt.setString(2, users_id);
+	        result = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(con, pstmt);
+	    }
+	    return result;
+	}
 }

@@ -1,3 +1,4 @@
+<%@page import="xyz.itwill.util.Utility"%>
 <%@ page import="xyz.itwill.dao.UsersDAO" %>
 <%@ page import="xyz.itwill.dto.UsersDTO" %>
 <%@ page import="xyz.itwill.util.NewPasswordApp" %>
@@ -21,16 +22,20 @@
 
     String no = UsersDAO.getDAO().selectUsersNo(users);
 
-    if (no != null) {
-        String tempPassword = NewPasswordApp.getPasswordOne();
-        int result = UsersDAO.getDAO().updateNewPassword(id, tempPassword);
-
-        if (result > 0) {
-            out.println("<result><code>success</code><pw>" + tempPassword + "</pw></result>");
-        } else {
-            out.println("<result><code>error</code></result>");
-        }
-    } else {
-        out.println("<result><code>empty</code></result>");
-    }
 %>
+<result>
+	<% if (no != null) {
+        String tempPassword = NewPasswordApp.getPasswordOne();
+        String encryptedPassword = Utility.encrypt(tempPassword);
+        int result = UsersDAO.getDAO().updateNewPassword(id, encryptedPassword);
+
+        if (result > 0) { %>        
+       <code>success</code>
+       <pw><%= tempPassword %></pw>
+	<% } else {%>
+       <code>error</code>
+	<% }
+    } else { %>
+       <code>empty</code>
+	<% } %>
+</result>

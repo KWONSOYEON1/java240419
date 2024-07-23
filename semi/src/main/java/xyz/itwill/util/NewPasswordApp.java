@@ -8,7 +8,7 @@ public class NewPasswordApp {
     }
 
     public static void main(String[] args) {
-        String password = getPasswordOne();
-        System.out.println("Generated Password: " + password);
+        String pw = getPasswordOne();
+        System.out.println("Generated Password: " + pw);
     }
 }
