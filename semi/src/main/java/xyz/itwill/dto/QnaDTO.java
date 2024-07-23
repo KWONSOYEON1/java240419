@@ -23,7 +23,8 @@ public class QnaDTO {
 	private int qnaNo;
 	private String qnaTitle;
 	private String qnaContent;
-	private int qnaUsersNo;
+	private int qnaUsersNo;//로그인 사용자의 회원번호
+	private String usersName;//users 테이블의 회원이름 저장하기 위한 필드 - 작성자
 	private int qnaStatus;
 	private String qnaDate;
 	private String qnaAnswer;
@@ -65,6 +66,14 @@ public class QnaDTO {
 		this.qnaUsersNo = qnaUsersNo;
 	}
 
+	public String getUsersName() {
+		return usersName;
+	}
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
+
 	public int getQnaStatus() {
 		return qnaStatus;
 	}
@@ -96,7 +105,6 @@ public class QnaDTO {
 	public void setQnaProdNo(int qnaProdNo) {
 		this.qnaProdNo = qnaProdNo;
 	}
-	
 	
 	
 }	
