@@ -11,7 +11,7 @@ for(int i = 1; i <= 500; i++) {
     review.setReviewContent("게시글 테스트-" + i); // 내용 설정
     review.setReviewStatus(1); // 글상태 설정
     review.setReviewProdNo(61); // 제품 번호 설정
-    review.setReviewUserNo(1); // 회원번호(작성자) 설정
+    review.setReviewUsersNo(1); // 회원번호(작성자) 설정
     review.setReviewNo(nextNum); // 글번호 설정
 
     ReviewDAO.getDAO().insertReview(review);

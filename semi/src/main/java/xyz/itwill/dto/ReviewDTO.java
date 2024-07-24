@@ -37,7 +37,7 @@ public class ReviewDTO {
 	private int reviewStatus;//0:삭제글,1:일반글
 	private String reviewDate;
 	private int reviewProdNo;
-	private int reviewUserNo;//로그인 사용자의 회원번호
+	private int reviewUsersNo;//로그인 사용자의 회원번호
 	private String usersName;//users 테이블의 회원이름 저장하기 위한 필드 - 작성자
 	private String reviewImage;
 
@@ -93,12 +93,12 @@ public class ReviewDTO {
 		this.reviewProdNo = reviewProdNo;
 	}
 
-	public int getReviewUserNo() {
-		return reviewUserNo;
+	public int getReviewUsersNo() {
+		return reviewUsersNo;
 	}
 
-	public void setReviewUserNo(int reviewUserNo) {
-		this.reviewUserNo = reviewUserNo;
+	public void setReviewUsersNo(int reviewUsersNo) {
+		this.reviewUsersNo = reviewUsersNo;
 	}
 
 	public String getUsersName() {

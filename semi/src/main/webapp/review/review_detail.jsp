@@ -121,7 +121,7 @@ td {
 	<%-- 링크를 제공하는 태그 출력 --%>
 	<div id="review_menu">
 		<%-- 로그인 사용자가 게시글 작성자이거나 관리자인 경우 태그 출력 --%>
-		<% if(loginUsers !=null && (loginUsers.getUsersNo() == review.getReviewUserNo()
+		<% if(loginUsers !=null && (loginUsers.getUsersNo() == review.getReviewUsersNo()
 			|| loginUsers.getUsersStatus() == 9)) { %>
 			<button type="button" id="modifyBtn">글변경</button>
 			<button type="button" id="removeBtn">글삭제</button>

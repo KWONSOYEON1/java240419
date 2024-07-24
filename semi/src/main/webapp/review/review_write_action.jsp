@@ -38,7 +38,7 @@ review.setReviewTitle(reviewTitle);
 review.setReviewContent(reviewContent);
 review.setReviewStatus(reviewStatus);
 review.setReviewProdNo(reviewProdNo); // 폼 데이터에서 가져온 상품 번호 설정
-review.setReviewUserNo(loginUsers.getUsersNo()); // 로그인 사용자의 회원번호로 필드값 변경
+review.setReviewUsersNo(loginUsers.getUsersNo()); // 로그인 사용자의 회원번호로 필드값 변경
 review.setReviewImage(reviewImage);
 
 ReviewDAO.getDAO().insertReview(review);

@@ -79,7 +79,7 @@ public class ReviewDAO extends JdbcDAO {
 				review.setReviewStatus(rs.getInt("review_status"));
 				review.setReviewDate(rs.getString("review_date"));
 				review.setReviewProdNo(rs.getInt("review_prod_no"));
-				review.setReviewUserNo(rs.getInt("review_users_no"));
+				review.setReviewUsersNo(rs.getInt("review_users_no"));
 				review.setUsersName(rs.getString("users_name"));
 				review.setReviewImage(rs.getString("review_image"));
 
@@ -137,7 +137,7 @@ public class ReviewDAO extends JdbcDAO {
 		        pstmt.setString(3, review.getReviewContent());
 		        pstmt.setInt(4, review.getReviewStatus());
 		        pstmt.setInt(5, review.getReviewProdNo());
-		        pstmt.setInt(6, review.getReviewUserNo());
+		        pstmt.setInt(6, review.getReviewUsersNo());
 		        pstmt.setString(7, review.getReviewImage());
 
 		        rows = pstmt.executeUpdate();
@@ -171,7 +171,7 @@ public class ReviewDAO extends JdbcDAO {
 			if(rs.next()) {
 				review=new ReviewDTO();
 				review.setReviewNo(rs.getInt("review_no"));
-				review.setReviewUserNo(rs.getInt("review_users_no"));
+				review.setReviewUsersNo(rs.getInt("review_users_no"));
 				review.setUsersName(rs.getString("users_name"));
 				review.setReviewTitle(rs.getString("review_title"));
 				review.setReviewContent(rs.getString("review_content"));
@@ -243,7 +243,7 @@ public class ReviewDAO extends JdbcDAO {
 	            review.setReviewStatus(rs.getInt("review_status"));
 	            review.setReviewDate(rs.getString("review_date"));
 	            review.setReviewProdNo(rs.getInt("review_prod_no"));
-	            review.setReviewUserNo(rs.getInt("review_users_no"));
+	            review.setReviewUsersNo(rs.getInt("review_users_no"));
 	            review.setUsersName(rs.getString("users_name"));
 	            review.setReviewImage(rs.getString("review_image"));
 
