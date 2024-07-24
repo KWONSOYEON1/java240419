@@ -25,7 +25,7 @@ public class QnaDTO {
 	private String qnaContent;
 	private int qnaUsersNo;//로그인 사용자의 회원번호
 	private String usersName;//users 테이블의 회원이름 저장하기 위한 필드 - 작성자
-	private int qnaStatus;
+	private int qnaStatus;//0:삭제글,1:일반글,2:비밀글	
 	private String qnaDate;
 	private String qnaAnswer;
 	private int qnaProdNo;
