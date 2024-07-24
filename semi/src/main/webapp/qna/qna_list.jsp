@@ -101,6 +101,7 @@ h1 {
 .page-link:hover {
     background-color: #0056b3;
 }
+
 </style>
 </head>
 <body>
@@ -108,22 +109,19 @@ h1 {
         <h1>Q&A 게시판</h1>
         <table class="board">
             <thead>
+            <a href="q&awrite.html" class="write-btn">글쓰기</a>
                 <tr>
                     <th>글번호</th>
-                    <th>제목</th>
-                    <th>내용</th>
-                    <th>아이디</th>
-                    <th>작성일</th>
-                    <th>문의답변</th>
-                    <th>상품번호</th>
-                    <th>삭제</th>
+                    <th>제목</th>                    
+                    <th>작성자</th>
+                    <th>작성일</th>                   
                 </tr>
             </thead>
             <tbody id="board-contents">
                 <!-- JavaScript를 사용하여 Q&A 항목을 추가할 수 있습니다 -->
             </tbody>
         </table>
-        <a href="q&awrite.html" class="write-btn">글쓰기</a>
+        
         <div class="pagination">
             <a href="#" class="page-link">1</a>
             <a href="#" class="page-link">2</a>
