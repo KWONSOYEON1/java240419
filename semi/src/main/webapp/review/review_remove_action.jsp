@@ -5,16 +5,16 @@
     pageEncoding="UTF-8"%>
 <%@include file="/security/login_check.jspf" %>
 <%
-	if(request.getParameter("reviewNum") == null) {
+	if(request.getParameter("reviewNo") == null) {
 		request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=error&work=error_400");
 		return;
 	}
 	
-	int reviewNum=Integer.parseInt(request.getParameter("reviewNo"));
+	int reviewNo=Integer.parseInt(request.getParameter("reviewNo"));
 	String pageNum=request.getParameter("pageNum");
 	String pageSize=request.getParameter("pageSize");
 		
-	ReviewDTO review=ReviewDAO.getDAO().selectReviewByNum(reviewNum);
+	ReviewDTO review=ReviewDAO.getDAO().selectReviewByNum(reviewNo);
 		
 	if(review == null) {
 		request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=error&work=error_400");
