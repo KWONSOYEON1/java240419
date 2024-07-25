@@ -89,101 +89,6 @@
 		.text-muted {
 			font-size: small;
 		}
-		.uni-btn {
-        width: 100px;
-        height: 40px;
-        color: #fff;
-        border-radius: 5px;
-        padding: 0;
-        font-family: 'Do Hyeon', sans-serif;
-        font-weight: 500;
-        background: transparent;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block; 
-        outline: none;
-        border: none;
-        font-size: 14px; 
-        line-height: 40px; 
-        text-align: center; 
-    }
-
-    .btn {
-        background: linear-gradient(0deg, #f6d365 0%, #fda085 100%);
-        line-height: 40px;
-        padding: 0;
-        border: none;
-    }
-    .btn span {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        line-height: 40px; 
-    }
-    .btn:before,
-    .btn:after {
-        position: absolute;
-        content: "";
-        right: 0;
-        bottom: 0;
-        background:  #fda085;
-        box-shadow:
-        -7px -7px 20px 0px rgba(255,255,255,.9),
-        -4px -4px 5px 0px rgba(255,255,255,.9),
-        7px 7px 20px 0px rgba(0,0,0,.2),
-        4px 4px 5px 0px rgba(0,0,0,.3);
-        transition: all 0.3s ease;
-    }
-    .btn:before {
-        height: 0%;
-        width: 2px;
-    }
-    .btn:after {
-        width: 0%;
-        height: 2px;
-    }
-    .btn:hover {
-        color: #fda085;
-        background: transparent;
-    }
-    .btn:hover:before {
-        height: 100%;
-    }
-    .btn:hover:after {
-        width: 100%;
-    }
-    .btn span:before,
-    .btn span:after {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        background: #fda085;
-        box-shadow:
-        -7px -7px 20px 0px rgba(255,255,255,.9),
-        -4px -4px 5px 0px rgba(255,255,255,.9),
-        7px 7px 20px 0px rgba(0,0,0,.2),
-        4px 4px 5px 0px rgba(0,0,0,.3);
-        transition: all 0.3s ease;
-    }
-    .btn span:before {
-        width: 2px;
-        height: 0%;
-    }
-    .btn span:after {
-        height: 2px;
-        width: 0%;
-    }
-    .btn span:hover:before {
-        height: 100%;
-    }
-    .btn span:hover:after {
-        width: 100%;
-    }
-   				
     </style>
 </head>
 <body>
@@ -202,8 +107,8 @@
                     <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력하세요">
                     <div id="pwNullMsg" class="invalid-feedback">비밀번호를 입력해 주세요.(영문대소문자/숫자/특수 문자, 6~16자)</div>
                 </div>
-                <button class="uni-btn btn w-100" type="submit" id="login_btn"><span>로그인</span></button>                
-                <a href="index.jsp?workgroup=users&work=users_agreement" class="uni-btn btn w-100 mt-2"><span>회원가입</span></a>
+                <button class="btn btn-warning w-100 py-2" type="submit" id="login_btn">로그인</button>                
+                <a href="index.jsp?workgroup=users&work=users_agreement" class="btn btn-warning w-100 py-2 mt-2">회원가입</a>
                 <div class="d-flex justify-content-center mt-2">
                     <a href="index.jsp?workgroup=users&work=search_id_one" class="text-decoration-none text-muted mx-2">아이디 찾기</a>
                     <span class="text-muted">|</span>

@@ -54,106 +54,10 @@
 		}
 		.btn-secondary {
 			font-size: small;
-			
 		}
 		.form-select {
 			font-size: medium;
-		}
-		.uni-btn {
-        width: 100px;
-        height: 40px;
-        color: #fff;
-        border-radius: 5px;
-        padding: 0;
-        font-family: 'Do Hyeon', sans-serif;
-        font-weight: 500;
-        background: transparent;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block; 
-        outline: none;
-        border: none;
-        font-size: 14px; 
-        line-height: 40px; 
-        text-align: center; 
-    }
-
-    .btn {
-        background: linear-gradient(0deg, #f6d365 0%, #fda085 100%);
-        line-height: 40px;
-        padding: 0;
-        border: none;
-    }
-    .btn span {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        line-height: 40px; 
-    }
-    .btn:before,
-    .btn:after {
-        position: absolute;
-        content: "";
-        right: 0;
-        bottom: 0;
-        background:  #fda085;
-        box-shadow:
-        -7px -7px 20px 0px rgba(255,255,255,.9),
-        -4px -4px 5px 0px rgba(255,255,255,.9),
-        7px 7px 20px 0px rgba(0,0,0,.2),
-        4px 4px 5px 0px rgba(0,0,0,.3);
-        transition: all 0.3s ease;
-    }
-    .btn:before {
-        height: 0%;
-        width: 2px;
-    }
-    .btn:after {
-        width: 0%;
-        height: 2px;
-    }
-    .btn:hover {
-        color: #fda085;
-        background: transparent;
-    }
-    .btn:hover:before {
-        height: 100%;
-    }
-    .btn:hover:after {
-        width: 100%;
-    }
-    .btn span:before,
-    .btn span:after {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        background: #fda085;
-        box-shadow:
-        -7px -7px 20px 0px rgba(255,255,255,.9),
-        -4px -4px 5px 0px rgba(255,255,255,.9),
-        7px 7px 20px 0px rgba(0,0,0,.2),
-        4px 4px 5px 0px rgba(0,0,0,.3);
-        transition: all 0.3s ease;
-    }
-    .btn span:before {
-        width: 2px;
-        height: 0%;
-    }
-    .btn span:after {
-        height: 2px;
-        width: 0%;
-    }
-    .btn span:hover:before {
-        height: 100%;
-    }
-    .btn span:hover:after {
-        width: 100%;
-    }
-   				
+		}				
                    
     </style>
 </head>
@@ -202,7 +106,7 @@
                     <div class="col-sm-8">
                         <div class="input-group">
                             <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="우편번호" readonly>
-                            <button type="button" class="btn btn-secondary" id="postSearch" onclick="sample6_execDaumPostcode()"><span>우편번호 찾기</span></button>
+                            <button type="button" class="btn btn-secondary" id="postSearch" onclick="sample6_execDaumPostcode()">우편번호 찾기</button>
                         </div>
                         <div id="zipcodeMsg" class="msg">우편번호를 입력해 주세요.</div>
                     </div>
@@ -248,7 +152,7 @@
                         <div id="emailValidMsg" class="msg">이메일을 형식에 맞게 입력해 주세요.</div>
                     </div>
                 </div>
-                <button type="submit" class="uni-btn btn w-100"><span>가입하기</span></button>
+                <button type="submit" class="btn btn-warning w-100">가입하기</button>
             </form>
         </div>
     </div>        
