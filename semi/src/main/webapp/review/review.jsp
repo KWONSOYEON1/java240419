@@ -17,7 +17,9 @@ if (request.getParameter("pageSize") != null) { // 전달값이 있는 경우
     pageSize = Integer.parseInt(request.getParameter("pageSize"));
 }
 
-int totalReview = ReviewDAO.getDAO().selectTotalReview(); // 게시글의 총갯수
+int prodNo = Integer.parseInt(request.getParameter("prodNo"));
+
+int totalReview = ReviewDAO.getDAO().selectTotalReviewByProduct(prodNo); // 특정 상품의 게시글의 총갯수
 
 int totalPage = (int)Math.ceil((double)totalReview/pageSize); // 페이지의 총갯수 계산
 
@@ -188,8 +190,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize; // 게시글에 출력�
             endPage = totalPage;
         }
 
-        String myUrl = request.getContextPath() + "/index.jsp?workgroup=review&work=review"
-                + "&pageSize=" + pageSize;
+        String myUrl = request.getContextPath() + "/index.jsp?prodNo="+ prodNo + "&pageSize=" + pageSize;
     %>
 
     <div id="page_list">
@@ -218,12 +219,12 @@ int displayNum = totalReview - (pageNum - 1) * pageSize; // 게시글에 출력�
 <script type="text/javascript">
 // 게시글 갯수 변경 이벤트 처리
 document.getElementById("pageSize").addEventListener("change", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
+	location.href = "<%= request.getContextPath() %>/review.jsp?prodNo=<%= prodNo %>"
         + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
 });
 
 // 글쓰기 버튼 클릭 이벤트 처리
 document.getElementById("writeBtn").addEventListener("click", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review_write";
+    location.href = "<%= request.getContextPath() %>/review_write.jsp?prodNo=<%= prodNo %>";
 });
 </script>
