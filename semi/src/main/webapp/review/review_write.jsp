@@ -71,6 +71,23 @@ td {
 </div>
 <div id="message" style="color: red;"></div>
 <script type="text/javascript">
+
+const textarea = document.getElementById('reviewContent');
+
+textarea.addEventListener('input', function() {
+    // Calculate number of lines
+    const lines = textarea.value.split('\n').length;
+
+    // Limit to 10 lines
+    if (lines > 10) {
+        // Truncate excess lines
+        textarea.value = textarea.value.split('\n').slice(0, 10).join('\n');
+        // Alternatively, you can disable further input or show an error message
+        // Example: textarea.setAttribute('disabled', 'disabled');
+        // Example: alert('Maximum 10 lines allowed!');
+    }
+});
+
 $("#reviewTitle").focus();
 
 $("#reviewForm").submit(function() {
