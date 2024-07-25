@@ -13,6 +13,7 @@
 <title>리뷰 작성하기</title>
 </head>
 <style type="text/css">
+ a {text-decoration: none !important}
 #write-wrap {
 	width: 720px;
 	height: 230px;
