@@ -34,6 +34,12 @@ td {
 	text-align: center;
 	font-size: large;
 }
+textarea {
+    width: 100%;
+    height: 150px; 
+    overflow-y: auto; 
+    resize: vertical; 
+  }
 </style>
 <div id="write-wrap">	
 	<form action="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write_action"
@@ -52,7 +58,7 @@ td {
 		<tr>
 			<th>내용</th>
 			<td>
-				<textarea rows="7" cols="60" name="reviewContent" id="reviewContent"></textarea>
+				<textarea rows="7" cols="60" name="reviewContent" id="reviewContent" ></textarea>
 			</td>
 		</tr>
 		<tr>
