@@ -258,7 +258,7 @@ public class ReviewDAO extends JdbcDAO {
 	    return reviewList;
 	}
 	
-	public int selectTotalReviewByProduct(int prodNo) {
+	public int selectTotalReviewByProduct(int reviewProdNo) {
 	    Connection con = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -268,7 +268,7 @@ public class ReviewDAO extends JdbcDAO {
 
 	        String sql = "select count(*) from review where review_prod_no = ?";
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setInt(1, prodNo);
+	        pstmt.setInt(1, reviewProdNo);
 
 	        rs = pstmt.executeQuery();
 
