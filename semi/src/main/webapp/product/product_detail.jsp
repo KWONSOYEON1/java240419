@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>카메라 상세페이지</title>
-    <style type="text/css">
+   <style type="text/css">
     body {
         font-family: 'Do Hyeon', sans-serif;
         margin: 0;
@@ -452,7 +452,7 @@
 
 <%
     if(request.getParameter("prodNo") == null) {
-        request.setAttribute("returnUrl", request.getContextPath()+"/index.jsp?workgroup=error&work=error_400");
+        request.setAttribute("returnUrl", request.getContextPath() + "/index.jsp?workgroup=error&work=error_400");
         return;
     }
 
@@ -476,17 +476,17 @@
         product.getProdImage3(), 
         product.getProdImage4()
     };
-
 %>
 
-<form action="<%=request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail" method="post" enctype="multipart/form-data">
+<main>
     <div class="product-container">
         <div class="product-images">
-            <img id="mainImage" src="product_image/<%= productImages[0] %>" alt="메인 이미지 <%= productName %>">
+            <img id="mainImage" src="<%=request.getContextPath()%>/product_image/<%= productImages[0] %>" alt="메인 이미지 <%= product.getProdName() %>">
             <div class="thumbnail-images">
-                <% for (int i = 0; i < productImages.length; i++) { %>
-                    <img src="product_image/<%= productImages[i] %>" alt="작은 이미지<%= i + 1 %> <%= productName %>" onclick="changeMainImage('product_image/<%= productImages[i] %>')">
-                <% } %>
+                <% for (int i = 0; i < 3; i++) { 
+                    if (productImages[i] != null && !productImages[i].isEmpty()) { %>
+                    <img src="<%=request.getContextPath()%>/product_image/<%= productImages[i] %>" alt="작은 이미지<%= i + 1 %> <%= productName %>" onclick="changeMainImage('<%=request.getContextPath()%>/product_image/<%= productImages[i] %>')">
+                <% }} %>
             </div>
         </div>
         <div class="product-details">
@@ -508,8 +508,8 @@
                 <p class="price"><%= String.format("%,d원", productPrice) %></p>
             </div>
             <div class="buttons">
-                <button type="submit" class="uni-btn btn-buy"><span>구매하기</span></button>
-                <button type="submit" class="uni-btn btn-basket"><span>장바구니</span></button>
+                <button type="button" class="uni-btn btn-buy"><span>구매하기</span></button>
+                <button type="button" class="uni-btn btn-basket"><span>장바구니</span></button>
             </div>
         </div>
         <div class="floating">
@@ -524,7 +524,7 @@
             <input id="tab3-1" name="tabs-three" type="radio" checked="checked">
             <div>
                 <h4></h4>
-                  <img id="tab3-1" src="product_image/<%= productImages[0] %>" alt="상세 페이지 이미지 <%= productName %>">
+                <img id="tab3-1" src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage4() %>" alt="상세 페이지 이미지 <%= productName %>">
             </div>
         </div>
         <div class="tab-menu">
@@ -564,6 +564,6 @@
             }
         }
     </script>
-</form>
+</main>
 </body>
 </html>
