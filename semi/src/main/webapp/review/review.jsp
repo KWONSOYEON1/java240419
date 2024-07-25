@@ -155,7 +155,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize; // 게시글에 출력�
                         %>
                         <% if (review.getReviewStatus() == 1) { %>
                             <a href="<%= url %>"><%= review.getReviewTitle() %></a>
-                        <% } else if (review.getReviewStatus() == 2) { %>
+                        <% } else if (review.getReviewStatus() == 0) { %>
                             <span class="subject_hidden">
                                 게시글 작성자 또는 관리자에 의해 삭제된 게시글입니다.
                             </span>
