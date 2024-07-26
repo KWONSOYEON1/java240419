@@ -388,13 +388,17 @@
 </head>
 <body>
 <%
+
+	//추가
     ProductDAO productDAO = ProductDAO.getDAO();
+	
+	
 
     String filter = request.getParameter("filter");
     
     int pageNum = 1;
     int pageSize = 12; 
-    if (request.getParameter("pageNum") != null) {
+    if (request.getParameter("pageaNum") != null) {
         try {
             pageNum = Integer.parseInt(request.getParameter("pageNum"));
         } catch (NumberFormatException e) {
@@ -410,6 +414,8 @@
     int endRow = pageNum * pageSize;
 
     List<ProductDTO> products = productDAO.selectProductListByType2WithPaging(startRow, endRow, filter);
+		
+    
 %>
 <main>
     <section class="product-list">
@@ -427,7 +433,15 @@
                     <h3><%= product.getProdName() %></h3>
                 </a>
                 <p class="price">₩<%= String.format("%,d", product.getProdPrice()) %></p>
-                <button type="button" class="uni-btn btn-basket"><span>장바구니</span></button>
+                
+                 
+ 			 <%--폼태그 추가  --%>
+                <form  action="<%=request.getContextPath()%>/index.jsp?workgroup=cart&work=addtocart" method="post">   
+                	<button type="submit" class="uni-btn btn-basket"><span>장바구니</span></button>
+               	 		<input type="hidden" name="prodNo" value="<%= product.getProdNo() %>">
+               			<input type="hidden" id="prodAmount" name="prodAmount" value="1"> <!-- /index.jsp?workgroup=cart&work=addtocart" -->
+               	</form>
+                
                 <button type="button" class="uni-btn btn-buy"><span>바로구매</span></button>
             </div>
             <% } %>
