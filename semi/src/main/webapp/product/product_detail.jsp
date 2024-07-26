@@ -770,26 +770,16 @@ int displayNum = totalReview - (pageNum - 1) * pageSize; // 게시글 일련번�
     </div>
 </div>
 
-<script type="text/javascript">
-// 게시글 갯수 변경 이벤트 처리
-document.getElementById("pageSize").addEventListener("change", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
-        + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
-});
-
-// 글쓰기 버튼 클릭 이벤트 처리
-document.getElementById("writeBtn").addEventListener("click", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review_write";
-});
-
-</script>
-
-
                
             </div>
         </div>
     </div>
     <script>
+    	document.getElementById("pageSize").addEventListener("change", function() {
+      	 	 location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
+         	  	 + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
+   		 });
+    	
         function changeMainImage(imageSrc) {
             document.getElementById('mainImage').src = imageSrc;
         }
