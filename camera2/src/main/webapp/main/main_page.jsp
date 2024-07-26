@@ -5,13 +5,13 @@
 <div id="img-box">
 	<div id="img-slider">
 		<div class="img-slide">
-			<img src="img/main1.jpg" alt="">
+			<img src="img/main1.png" alt="">
 		</div>
 		<div class="img-slide">
-			<img src="img/main2.jpg" alt="">
+			<img src="img/main2.png" alt="">
 		</div>
 		<div class="img-slide">
-			<img src="img/main3.jpg" alt="">
+			<img src="img/main3.png" alt="">
 		</div>
 	</div>
 </div>
@@ -38,7 +38,7 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=camera_list">More +</a>
 					</h1>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=camera_list">More +</a>
 					</h1>
 				</div>
 			</div>
@@ -71,14 +71,14 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=camera_list">More +</a>
 					</h1>
 				</div>
 			</div>
 			<div id="product-box">
 				<div id="productimg">
 					<div id="productimglist4">
-						<img src="img/productuimg4.png" alt="" width="277px">
+						<img src="img/productimg4.png" alt="" width="277px">
 					</div>
 				</div>
 				<div id="textbox">
@@ -87,83 +87,12 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=camera_list">More +</a>
 					</h1>
 				</div>
 			</div>
 		</div>
 
-		<div id="product">
-
-			<div id="product-title">
-				<div id="title-box"></div>
-			</div>
-			<div id="product-box">
-				<div id="productimg">
-					<div id="productimglist1-1">
-						<img src="img/productimg5.png" alt="" width="350px">
-					</div>
-				</div>
-				<div id="textbox">
-					<h1>Yellow Camera</h1>
-					<P>10000000원</P>
-				</div>
-				<div id="add-box">
-					<h1>
-						<a href="">More +</a>
-					</h1>
-				</div>
-			</div>
-			<div id="product-box">
-				<div id="productimg">
-					<div id="productimglist2-2">
-						<img src="img/productimg6.png" alt="" width="330px">
-					</div>
-				</div>
-				<div id="textbox">
-					<h1>Yellow Camera</h1>
-					<P>10000000원</P>
-
-				</div>
-				<div id="add-box">
-					<h1>
-						<a href="">More +</a>
-					</h1>
-				</div>
-			</div>
-			<div id="product-box">
-				<div id="productimg">
-					<div id="productimglist3-3">
-						<img src="img/productimg7.png" alt="" width="330px">
-					</div>
-				</div>
-				<div id="textbox">
-					<h1>Yellow Camera</h1>
-					<P>10000000원</P>
-				</div>
-				<div id="add-box">
-					<h1>
-						<a href="">More +</a>
-					</h1>
-				</div>
-			</div>
-			<div id="product-box">
-				<div id="productimg">
-					<div id="productimglist4-4">
-						<img src="img/productimg8.png" alt="" width="277px">
-					</div>
-				</div>
-				<div id="textbox">
-					<h1>Yellow Camera</h1>
-					<P>10000000원</P>
-				</div>
-				<div id="add-box">
-					<h1>
-						<a href="">More +</a>
-					</h1>
-				</div>
-			</div>
-		</div>
 
 		<div id="product1">
 			<div id="product-title">
@@ -175,7 +104,7 @@
 			<div id="product-box">
 				<div id="productimg">
 					<div id="flimimglist1">
-						<img src="img/flimimg1.png" alt="" width="217px">
+						<img src="img/flimimg1.png" alt="" width="417px">
 					</div>
 				</div>
 				<div id="textbox">
@@ -184,7 +113,7 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=film_list">More +</a>
 					</h1>
 				</div>
 			</div>
@@ -201,7 +130,7 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=film_list">More +</a>
 					</h1>
 				</div>
 			</div>
@@ -217,14 +146,14 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=film_list">More +</a>
 					</h1>
 				</div>
 			</div>
 			<div id="product-box">
 				<div id="productimg">
 					<div id="flimimglist4">
-						<img src="img/flimimg4.png" alt="" width="210px">
+						<img src="img/flimimg4.png" alt="" width="410px">
 					</div>
 				</div>
 				<div id="textbox">
@@ -233,15 +162,15 @@
 				</div>
 				<div id="add-box">
 					<h1>
-						<a href="">More +</a>
+						<a href="index.jsp?workgroup=product&work=film_list">More +</a>
 					</h1>
 				</div>
 			</div>
 		</div>
 
-
-
 	</div>
+
+	
 
 	<div class="lastbox">
 		<div id="font-box">
@@ -252,6 +181,8 @@
 			</div>
 		</div>
 	</div>
+	
+
 
 </div>
 
