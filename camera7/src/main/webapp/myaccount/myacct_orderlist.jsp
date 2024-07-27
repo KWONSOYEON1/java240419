@@ -89,7 +89,7 @@
                 <td>2</td>
                 <td>200,000원</td>
                 <td>주문완료</td>
-               <td><a href="<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review_write&reviewProdNo=?&redirect=myacct_review">글쓰기</a></td>
+               <td><a href="<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review_write&reviewProdNo&reviewNo=?&redirect=myacct_review">글쓰기</a></td>
             </tr>
         </table>
     </div>
