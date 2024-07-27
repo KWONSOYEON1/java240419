@@ -767,7 +767,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         function changeMainImage(imageSrc) {
             document.getElementById('mainImage').src = imageSrc;
         }
