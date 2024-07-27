@@ -102,7 +102,59 @@
             font-size: 20px;
             margin: 10px 0;
         }
+		.product .filter {
+        position: absolute;
+        top: -30px; 
+        left: 0;
+        right: 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0); 
+        padding: 5px 0;
+   	 	}
 
+  	  .product .filter a {
+        color: #333;
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 14px;
+  		  }
+    
+    	.pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        font-family: 'Do Hyeon', sans-serif;
+  		  }
+
+    	.pagination a {
+        color: #333;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        margin: 0 0.2rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+   		 }
+
+   		 .pagination a.active,
+   		 .pagination a:hover {
+        background: #f6d365; 
+        color: #333;
+   		 }
+
+    	.floating {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    	}
+	
+   		 .floating a {
+        color: #fda085;
+        font-size: 2rem;
+        text-decoration: none;
+   		 }
+    
         .buttons {
             display: flex;
             justify-content: center;
