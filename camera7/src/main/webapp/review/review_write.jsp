@@ -9,7 +9,7 @@
 <%@ include file="/security/login_check.jspf" %>
 <%
 	String pageNum = "1", pageSize = "10";	
-	int reviewProdNo = 64; // 예시: 각 제품마다 들어가게 구현해야됨
+	int reviewProdNo = 64; // 예시/ 각 제품마다 들어가게 구현해야됨
 %>
 <!DOCTYPE html>
 <html lang="ko">
