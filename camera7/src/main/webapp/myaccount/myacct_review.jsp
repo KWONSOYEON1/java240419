@@ -165,9 +165,10 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
     width: 1000px;
     margin: 0 auto;
     text-align: center;    
-    height: 600px;
+    height: 650px;
     margin-top: 20px;
     margin-left: 0;
+    overflow-y: auto
   }
 
   .board {
@@ -253,9 +254,9 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
           <thead>
             <tr>
               <th width="50">글번호</th>
-              <th width="150">제목</th>
+              <th width="130">제목</th>
               <th width="50">작성자</th>
-              <th width="100">작성일</th>
+              <th width="120">작성일</th>
             </tr>
           </thead>
           <% if (totalReview == 0) { %>
@@ -304,7 +305,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
           if (endPage > totalPage) {
             endPage = totalPage;
           }
-          String myUrl = request.getContextPath() + "/index.jsp?workgroup=review&work=review"
+          String myUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review"
             + "&pageSize=" + pageSize;
         %>
         <div id="page_list">
@@ -332,7 +333,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
 </div>
 <script type="text/javascript">
 document.getElementById("pageSize").addEventListener("change", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
+    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=myaccount&work=myacct_review"
         + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
 });
 
