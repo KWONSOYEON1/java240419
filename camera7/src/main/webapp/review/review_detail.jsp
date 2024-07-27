@@ -149,7 +149,7 @@ $("#removeBtn").click(function() {
 
 
 $("#listBtn").click(function() {
-	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review"
+	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=myaccount&work=myacct_review"
 		+"&pageNum=<%=pageNum%>&pageSize=<%=pageSize%>";
 });
 </script>
