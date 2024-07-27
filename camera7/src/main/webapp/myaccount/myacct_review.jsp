@@ -114,25 +114,26 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   #account-box {
-    width: 1100px;
-    height: 600px;
+    width: 1420px;
+    height: 700px;
     border: 1px solid green;
     margin: 0 auto;
   }
 
   #acc1-box {
     width: 200px;
-    height: 600px;
+    height: 700px;
     border: 1px solid black;
     float: left;
   }
 
   #acc2-box {
-    width: 895px;
-    height: 600px;
+    width: 1220px;
+    height: 700px;
     border: 1px solid black;
-    float: right;
-    overflow: hidden;  
+    float:none;
+   
+   
   }
 
   #acc1-box nav ul {
@@ -162,11 +163,10 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   #review_list {
     width: 1000px;
     margin: 0 auto;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 50px;
-    height: 500px;
-    overflow-y: auto;
+    text-align: center;    
+    height: 600px;
+    margin-top: 30px;
+    margin-left: 0;
   }
 
   .board {
@@ -251,7 +251,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
         <table class="board">
           <thead>
             <tr>
-              <th width="80">글번호</th>
+              <th width="50">글번호</th>
               <th width="100">제목</th>
               <th width="80">작성자</th>
               <th width="150">작성일</th>
