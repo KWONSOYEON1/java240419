@@ -9,7 +9,7 @@
 <%@ include file="/security/login_check.jspf" %>
 <%
 	String pageNum = "1", pageSize = "10";	
-	int reviewProdNo = 61; // 예시
+	int reviewProdNo = 64; // 예시
 %>
 <!DOCTYPE html>
 <html lang="ko">
