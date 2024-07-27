@@ -660,7 +660,7 @@
             <div>
             	<h4>리뷰</h4>                                          
                
-<div id="review_list">
+	<div id="review_list">
     <div id="review_title">Product Review (<%= totalReview %>)</div>
     
     <div style="text-align: right; font-size: 19px;">
