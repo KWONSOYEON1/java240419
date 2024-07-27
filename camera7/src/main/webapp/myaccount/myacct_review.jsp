@@ -114,7 +114,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   #account-box {
-    width: 1420px;
+    width: 1300px;
     height: 700px;
     border: 1px solid green;
     margin: 0 auto;
@@ -128,10 +128,11 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   #acc2-box {
-    width: 1220px;
+    width: 1300px;
     height: 700px;
     border: 1px solid black;
     float:none;
+    margin-left: -70px;
    
    
   }
@@ -165,14 +166,14 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
     margin: 0 auto;
     text-align: center;    
     height: 600px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 0;
   }
 
   .board {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 0 auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 17px;
   }
@@ -252,9 +253,9 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
           <thead>
             <tr>
               <th width="50">글번호</th>
-              <th width="100">제목</th>
-              <th width="80">작성자</th>
-              <th width="150">작성일</th>
+              <th width="150">제목</th>
+              <th width="50">작성자</th>
+              <th width="100">작성일</th>
             </tr>
           </thead>
           <% if (totalReview == 0) { %>
