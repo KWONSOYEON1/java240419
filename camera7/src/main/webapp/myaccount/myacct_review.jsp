@@ -231,7 +231,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
         <li><a href="index.jsp?workgroup=myaccount&work=myacct" id="good">회원정보</a></li>
         <li><a href="index.jsp?workgroup=myaccount&work=myacct_review" id="good">리뷰</a></li>
         <li><a href="index.jsp?workgroup=myaccount&work=myacct_qna" id="good">Q&A</a></li>
-        <li><a href="index.jsp?workgroup=myaccount&work=myacct_inquiry" id="good">문의내역</a></li>
+        <li><a href="index.jsp?workgroup=myaccount&work=myacct_orderlist" id="good">주문내역</a></li>
       </ul>
     </nav>
   </div>
