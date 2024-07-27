@@ -644,7 +644,7 @@
             <input id="tab3-1" name="tabs-three" type="radio" checked="checked">
             <div>
                 <h4></h4>
-                <img id="tab3-1" src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage4() %>" alt="상세 페이지 이미지 <%= productName %>">
+               
             </div>
         </div>
         <div class="tab-menu">
