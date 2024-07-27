@@ -20,6 +20,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>카메라 상세페이지</title>
+   <%
+    ReviewDAO reviewDAO = ReviewDAO.getDAO();
+
+    int prodNo = Integer.parseInt(request.getParameter("prodNo"));
+
+    int pageNum = 1;
+    if (request.getParameter("pageNum") != null) {
+        pageNum = Integer.parseInt(request.getParameter("pageNum"));
+    }
+
+    int pageSize = 10;
+    if (request.getParameter("pageSize") != null) {
+        pageSize = Integer.parseInt(request.getParameter("pageSize"));
+    }
+
+    int totalReview = reviewDAO.selectTotalReviewByProduct(prodNo);
+    int totalPage = (int) Math.ceil((double) totalReview / pageSize);
+
+    if (pageNum <= 0 || pageNum > totalPage) {
+        pageNum = 1;
+    }
+
+    int startRow = (pageNum - 1) * pageSize + 1;
+    int endRow = pageNum * pageSize;
+
+    if (endRow > totalReview) {
+        endRow = totalReview;
+    }
+
+    List<ReviewDTO> reviewList = reviewDAO.selectReviewListByProduct(prodNo, startRow, endRow);
+    String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    int displayNum = totalReview - (pageNum - 1) * pageSize;
+%>
+   
    <style type="text/css">
     body {
         font-family: 'Do Hyeon', sans-serif;
@@ -453,7 +487,75 @@
         margin-left: -200%;
     }
     
-    </style>    
+   
+* { font-family: 'Jua', sans-serif; }
+ a {text-decoration: none !important}
+
+#review_title {
+    font-size: 30px;
+}
+
+#review_list {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.board {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 17px;
+}
+
+.board th, .board td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+}
+
+.board th {
+    background-color: #ffc107;
+    color: white;
+    font-weight: bold;
+}
+
+.board tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.board tr:hover {
+    background-color: #e9ecef;
+}
+
+.subject {
+    text-align: left;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#review_list a:hover {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.subject_hidden {    
+    color: black;
+    font-size: 14px;
+   
+}
+
+#page_list {
+    font-size: 1.5em;
+    margin: 10px;
+}
+</style>  
 </head>
 <body>
 
@@ -461,9 +563,7 @@
     if(request.getParameter("prodNo") == null) {
         request.setAttribute("returnUrl", request.getContextPath() + "/index.jsp?workgroup=error&work=error_400");
         return;
-    }
-
-    int prodNo = Integer.parseInt(request.getParameter("prodNo"));
+    }   
 
     ProductDAO productDAO = ProductDAO.getDAO();
     ProductDTO product = productDAO.selectProductByNo(prodNo);
@@ -558,9 +658,109 @@
             <label for="tab3-3">리뷰</label>
             <input id="tab3-3" name="tabs-three" type="radio">
             <div>
-            	<h4>리뷰</h4>
-                <p>리뷰 내용</p>                          
-                
+            	<h4>리뷰</h4>                                          
+               
+<div id="review_list">
+    <div id="review_title">Product Review (<%= totalReview %>)</div>
+    
+    <div style="text-align: right; font-size: 19px;">
+        게시글 :
+        <select id="pageSize">
+            <option value="10" <% if (pageSize == 10) { %> selected <% } %>>&nbsp;10개&nbsp;</option>
+            <option value="20" <% if (pageSize == 20) { %> selected <% } %>>&nbsp;20개&nbsp;</option>
+            <option value="50" <% if (pageSize == 50) { %> selected <% } %>>&nbsp;50개&nbsp;</option>
+            <option value="100" <% if (pageSize == 100) { %> selected <% } %>>&nbsp;100개&nbsp;</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+      
+    </div>
+
+    <table class="board">
+        <thead>
+            <tr>
+                <th width="100">글번호</th>
+                <th width="500">제목</th>
+                <th width="100">작성자</th>
+                <th width="200">작성일</th>
+            </tr>
+        </thead>
+
+        <% if (totalReview == 0) { %>
+            <tr>
+                <td colspan="4">작성된 게시글이 없습니다.</td>
+            </tr>
+        <% } else { %>
+            <% for (ReviewDTO review : reviewList) { %>
+                <tr>
+                    <td><%= displayNum %></td>
+                    <% displayNum--; %>
+                    <td class="subject">
+                        <%
+                            String url = request.getContextPath() + "/index.jsp?workgroup=review&work=review_detail"
+                                    + "&reviewNo=" + review.getReviewNo() + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+                        %>
+                        <% if (review.getReviewStatus() == 1) { %>
+                            <a href="<%= url %>"><%= review.getReviewTitle() %></a>
+                        <% } else if (review.getReviewStatus() == 0) { %>
+                            <span class="subject_hidden">
+                                게시글 작성자 또는 관리자에 의해 삭제된 게시글입니다.
+                            </span>
+                        <% } %>
+                    </td>
+
+                    <% if (review.getReviewStatus() != 0) { %>
+                        <td><%= review.getUsersName() %></td>
+                        <td>
+                            <% if (currentDate.equals(review.getReviewDate().substring(0, 10))) { %>
+                                <%= review.getReviewDate().substring(11) %>
+                            <% } else { %>
+                                <%= review.getReviewDate() %>
+                            <% } %>
+                        </td>
+                    <% } else { %>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>                     
+                    <% } %>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+
+    <% // 페이지 번호 출력 
+        int blockSize = 5; // 페이지 블럭 크기
+        int startPage = (pageNum - 1) / blockSize * blockSize + 1; // 시작 페이지 번호
+        int endPage = startPage + blockSize - 1; // 종료 페이지 번호
+
+        if (endPage > totalPage) {
+            endPage = totalPage;
+        }
+
+        String myUrl = request.getContextPath() + "/index.jsp?workgroup=review&work=review"
+                + "&pageSize=" + pageSize;
+    %>
+
+    <div id="page_list">
+        <% if (startPage > blockSize) { %>
+            <a href="<%= myUrl %>&pageNum=<%= startPage - blockSize %>">[이전]</a>
+        <% } else { %>
+            [이전]
+        <% } %>
+
+        <% for (int i = startPage; i <= endPage; i++) { %>
+            <% if (pageNum != i) { %>
+                <a href="<%= myUrl %>&pageNum=<%= i %>">[<%= i %>]</a>
+            <% } else { %>
+                [<%= i %>]
+            <% } %>
+        <% } %>
+
+        <% if (endPage != totalPage) { %>
+            <a href="<%= myUrl %>&pageNum=<%= startPage + blockSize %>">[다음]</a>
+        <% } else { %>
+            [다음]
+        <% } %>
+    </div>
+</div>
 
 
                
@@ -591,6 +791,11 @@
                 document.getElementById('finalQuantity').value = finalQuantity;
             }
         }
+        
+        document.getElementById("pageSize").addEventListener("change", function() {
+            location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
+                + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
+        });
     </script>
 </main>
 </body>
