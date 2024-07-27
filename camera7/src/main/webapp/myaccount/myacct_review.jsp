@@ -304,7 +304,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
           if (endPage > totalPage) {
             endPage = totalPage;
           }
-          String myUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review"
+          String myUrl = request.getContextPath() + "/index.jsp?workgroup=review&work=review"
             + "&pageSize=" + pageSize;
         %>
         <div id="page_list">
@@ -332,12 +332,10 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
 </div>
 <script type="text/javascript">
 document.getElementById("pageSize").addEventListener("change", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=myaccount&work=myacct_review"
+    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review"
         + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
 });
-document.getElementById("writeBtn").addEventListener("click", function() {
-    location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=review&work=review_write";
-});
+
 </script>
 </body>
 </html>
