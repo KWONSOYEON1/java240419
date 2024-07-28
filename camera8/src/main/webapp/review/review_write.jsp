@@ -46,13 +46,13 @@
  	text-align: center;
 	font-size: large;
     margin-top: 50px
-}
+    }
  textarea {
 	width: 100%;
 	height: 150px;
 	overflow-y: auto;
 	resize: vertical;
-}
+	}
 </style>
 </head>
 <body>
