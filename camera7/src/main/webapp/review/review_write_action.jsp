@@ -23,6 +23,7 @@ String reviewImage = multipartRequest.getFilesystemName("reviewImage");
 int reviewProdNo = Integer.parseInt(multipartRequest.getParameter("reviewProdNo"));
 String redirect = multipartRequest.getParameter("redirect");
 
+
 int nextNum = ReviewDAO.getDAO().selectReviewNextNum();
 
 ReviewDTO review = new ReviewDTO();
@@ -31,13 +32,12 @@ review.setReviewTitle(reviewTitle);
 review.setReviewContent(reviewContent);
 review.setReviewStatus(reviewStatus);
 review.setReviewProdNo(reviewProdNo);
-review.setReviewUsersNo(loginUsers.getUsersNo());
+review.setReviewUsersNo(loginUsers.getUsersNo()); 
 review.setReviewImage(reviewImage);
 
 ReviewDAO.getDAO().insertReview(review);
 
 String redirectUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review"
-+ "&pageNum=" + pageNum + "&pageSize=" + pageSize;
-
-
+    + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
+response.sendRedirect(redirectUrl);
 %>
