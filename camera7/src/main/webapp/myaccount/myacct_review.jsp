@@ -132,7 +132,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
     height: 700px;
     border: 1px solid black;
     float:none;
-    margin-left: -70px;
+    margin-left: -20px;
    
    
   }
@@ -162,7 +162,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   #review_list {
-    width: 1000px;
+    width: 900px;
     margin: 0 auto;
     text-align: center;    
     height: 650px;
@@ -254,7 +254,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
           <thead>
             <tr>
               <th width="50">글번호</th>
-              <th width="130">제목</th>
+              <th width="120">제목</th>
               <th width="50">작성자</th>
               <th width="120">작성일</th>
             </tr>
