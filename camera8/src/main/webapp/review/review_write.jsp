@@ -18,24 +18,41 @@
 <link rel="stylesheet" href="css/write.css">
 <title>리뷰 작성하기</title>
 <style>
- a {text-decoration: none !important}
- #write-wrap {width: 720px; height: 230px; font-size: 17px; margin: 0 auto; margin-top: 40px;}
- table {margin: 0 auto; margin-top: 20px;}
+ a { text-decoration: none !important}
+ #write-wrap {
+	width: 720px;
+ 	height: 230px;
+	font-size: 17px;
+	margin: 0 auto;
+	margin-top: 40px;
+ }
+ table {
+	margin: 0 auto;	
+	margin-top: 20px;
+ }
  th {
 	width: 100px;
 	font-size:medium;	
 }
  
- td {text-align: left;}
+ td {
+ 	text-align: left;}
  h1 {
 	text-align: center;
 	margin-top: 50px;
 	font-size: 22px;
 }
- #message {text-align: center;
-  font-size: large;
-   margin-top: 50px}
- textarea {width: 100%; height: 150px; overflow-y: auto; resize: vertical;}
+ #message {
+ 	text-align: center;
+	font-size: large;
+    margin-top: 50px
+}
+ textarea {
+	width: 100%;
+	height: 150px;
+	overflow-y: auto;
+	resize: vertical;
+}
 </style>
 </head>
 <body>

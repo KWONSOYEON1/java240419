@@ -45,8 +45,16 @@ h1 {
 	margin-top: 50px;
 	font-size: 22px;
 }
-#message {text-align: center; font-size: large;}
- textarea {width: 100%; height: 150px; overflow-y: auto; resize: vertical;}
+#message {
+text-align: center;
+font-size: large;
+}
+textarea {
+width: 100%;
+height: 150px;
+overflow-y: auto;
+resize: vertical;
+}
 </style>
 <h1>게시글 변경</h1>
 
