@@ -141,30 +141,33 @@ if (loginUsers == null) {
             <% for (AdminOrdersDTO order : adminOrder) { %>
             
             <%--   <%  out.println("주문 사용자 ID: " + order.getOrdersUsersId());%>  --%>
-            <% if (loginUsers.getUsersId().equals(order.getOrdersUsersId())) { %>
-            <tr>
-                <td class="hidden-column"><%= order.getOrdersUsersId() %></td>
-                <td class="hidden-column"><%= order.getOrdersProdNo() %></td>
-                <td><%= order.getProdName() %></td>
-                <td><%= order.getProdPrice() %></td>
-                <td><%= order.getOrdersCartAmount() %></td>
-                <td><%= order.getOrdersCartPrice() %></td>
-                <% if (order.getOrdersStatus() == 0) { %>
-                <td>배송 준비중입니다</td>
-                <% } else if (order.getOrdersStatus() == 1) { %>
-                <td>배송이 완료되었습니다</td>
-                <% } %>
-                <td>
-                    <form action="<%= request.getContextPath() %>/index.jsp" method="get">
-                        <input type="hidden" name="workgroup" value="review">
-                        <input type="hidden" name="work" value="review_write">
-                        <input type="hidden" name="reviewProdNo" value="<%= order.getOrdersProdNo() %>">
-                        <input type="hidden" name="redirect" value="myacct_review">
-                        <button type="submit">글쓰기</button>
-                    </form>
-                </td>
-            </tr>
+          <% if (loginUsers.getUsersId().equals(order.getOrdersUsersId())) { %>
+    <tr>
+        <td class="hidden-column"><%= order.getOrdersUsersId() %></td>
+        <td class="hidden-column"><%= order.getOrdersProdNo() %></td>
+        <td><%= order.getProdName() %></td>
+        <td><%= order.getProdPrice() %></td>
+        <td><%= order.getOrdersCartAmount() %></td>
+        <td><%= order.getOrdersCartPrice() %></td>
+        <% if (order.getOrdersStatus() == 0) { %>
+        <td>배송 준비중입니다</td>
+        <% } else if (order.getOrdersStatus() == 1) { %>
+        <td>배송이 완료되었습니다</td>
+        <% } %>
+        <td>
+            <% if (order.getOrdersStatus() == 1) { %>
+            <form action="<%= request.getContextPath() %>/index.jsp" method="get">
+                <input type="hidden" name="workgroup" value="review">
+                <input type="hidden" name="work" value="review_write">
+                <input type="hidden" name="reviewProdNo" value="<%= order.getOrdersProdNo() %>">
+                <input type="hidden" name="redirect" value="myacct_review">
+                <button type="submit">글쓰기</button>
+            </form>
             <% } %>
+        </td>
+    </tr>
+<% } %>
+
             <% } %>
         </table>
     </div>
