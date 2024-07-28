@@ -11,6 +11,7 @@ if (request.getMethod().equals("GET")) {
     return;
 }
 
+
 String saveDirectory = request.getServletContext().getRealPath("/review_image");
 MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, 20 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
@@ -22,7 +23,6 @@ String reviewContent = Utility.escapeTag(multipartRequest.getParameter("reviewCo
 String reviewImage = multipartRequest.getFilesystemName("reviewImage");
 int reviewProdNo = Integer.parseInt(multipartRequest.getParameter("reviewProdNo"));
 String redirect = multipartRequest.getParameter("redirect");
-
 
 int nextNum = ReviewDAO.getDAO().selectReviewNextNum();
 

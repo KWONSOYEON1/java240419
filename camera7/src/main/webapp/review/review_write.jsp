@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="xyz.itwill.dto.ReviewDTO" %>
-<%@ page import="xyz.itwill.dao.ReviewDAO" %>
-<%@ page import="xyz.itwill.util.Utility" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="xyz.itwill.dto.UsersDTO" %>
+<%@ page import="xyz.itwill.dto.ReviewDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="xyz.itwill.dao.ReviewDAO" %>
 <%@ include file="/security/login_check.jspf" %>
 <%
 	String pageNum = "1", pageSize = "10";	
@@ -18,34 +17,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/write.css">
 <title>리뷰 작성하기</title>
-<style type="text/css">
+<style>
  a {text-decoration: none !important}
-#write-wrap {
-	width: 720px;
-	height: 230px;
-	font-size: 17px;
-	margin: 0 auto;
-	margin-top: 60px;
-}
-table {
-	margin: 0 auto;
-}
-th {
-	width: 100px;
-}
-td {
-	text-align: left;
-}
-#message {
-	text-align: center;
-	font-size: large;
-}
-textarea {
-    width: 100%;
-    height: 150px; 
-    overflow-y: auto; 
-    resize: vertical; 
-  }
+ #write-wrap {width: 720px; height: 230px; font-size: 17px; margin: 0 auto; margin-top: 60px;}
+ table {margin: 0 auto;}
+ th {width: 100px;}
+ td {text-align: left;}
+ #message {text-align: center; font-size: large;}
+ textarea {width: 100%; height: 150px; overflow-y: auto; resize: vertical;}
 </style>
 </head>
 <body>
@@ -81,30 +60,25 @@ textarea {
 <div id="message" style="color: red;"></div>
 <script type="text/javascript">
 const textarea = document.getElementById('reviewContent');
-
 textarea.addEventListener('input', function() {
     const lines = textarea.value.split('\n').length;
     if (lines > 10) {
         textarea.value = textarea.value.split('\n').slice(0, 10).join('\n');
     }
 });
-
 $("#reviewTitle").focus();
-
 $("#reviewForm").submit(function() {
 	if ($("#reviewTitle").val() == "") {
 		$("#message").text("제목을 입력해 주세요.");
 		$("#reviewTitle").focus();
 		return false;
 	}
-	
 	if ($("#reviewContent").val() == "") {
 		$("#message").text("내용을 입력해 주세요.");
 		$("#reviewContent").focus();
 		return false;
 	}
 });
-
 $("#resetBtn").click(function() {
 	$("#reviewTitle").focus();
 	$("#message").text("");
