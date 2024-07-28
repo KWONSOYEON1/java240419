@@ -37,7 +37,8 @@ review.setReviewImage(reviewImage);
 
 ReviewDAO.getDAO().insertReview(review);
 
-String redirectUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review"
+String forwardUrl = "/index.jsp?workgroup=myaccount&work=myacct_review"
     + "&pageNum=" + pageNum + "&pageSize=" + pageSize;
-response.sendRedirect(redirectUrl);
+request.getRequestDispatcher(forwardUrl).forward(request, response);
+
 %>
