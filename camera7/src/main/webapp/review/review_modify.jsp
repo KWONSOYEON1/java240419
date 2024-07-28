@@ -29,14 +29,19 @@
  a {text-decoration: none !important}
 table {
 	margin: 0 auto;
+	margin-top: 20px;
 }
 
 th {
-	width: 100px;
+	width: 100px;	
 }
 
 td {
 	text-align: left;
+}
+h1 {
+	text-align: center;
+	margin-top: 50px;
 }
 </style>
 <h1>게시글 변경</h1>
