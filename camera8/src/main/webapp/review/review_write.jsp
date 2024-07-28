@@ -19,11 +19,22 @@
 <title>리뷰 작성하기</title>
 <style>
  a {text-decoration: none !important}
- #write-wrap {width: 720px; height: 230px; font-size: 17px; margin: 0 auto; margin-top: 60px;}
- table {margin: 0 auto;}
- th {width: 100px;}
+ #write-wrap {width: 720px; height: 230px; font-size: 17px; margin: 0 auto; margin-top: 40px;}
+ table {margin: 0 auto; margin-top: 20px;}
+ th {
+	width: 100px;
+	font-size:medium;	
+}
+ 
  td {text-align: left;}
- #message {text-align: center; font-size: large;}
+ h1 {
+	text-align: center;
+	margin-top: 50px;
+	font-size: 22px;
+}
+ #message {text-align: center;
+  font-size: large;
+   margin-top: 50px}
  textarea {width: 100%; height: 150px; overflow-y: auto; resize: vertical;}
 </style>
 </head>
@@ -35,7 +46,7 @@
         <input type="hidden" name="reviewProdNo" value="<%= reviewProdNo %>">
         <input type="hidden" name="redirect" value="<%= request.getParameter("redirect") %>">
         <table>
-            <h1 style="text-align: center; font-size: 22px;">글쓰기</h1>
+            <h1>글쓰기</h1>
             <tr>
                 <th>제목</th>
                 <td><input type="text" name="reviewTitle" id="reviewTitle" size="40"></td>
