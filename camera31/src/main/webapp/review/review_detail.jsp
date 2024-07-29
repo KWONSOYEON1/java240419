@@ -74,7 +74,7 @@ th, td {
 
 th {
 	width: 100px;
-	background-color: #ffc107;
+	background-color: gray;
 	color: white;
 }
 
