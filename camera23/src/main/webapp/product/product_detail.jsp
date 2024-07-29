@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
- 	<link rel="stylesheet" href="<%=request.getContextPath() %>/product/product_detail.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/product/product_detail.css">
     <title>카메라 상세페이지</title>
    <%
     ReviewDAO reviewDAO = ReviewDAO.getDAO();
@@ -207,7 +207,7 @@
                             + "&reviewNo=" + review.getReviewNo()
                             + "&pageNum=" + pageNum
                             + "&pageSize=" + pageSize
-                            + "&returnUrl=" + URLEncoder.encode(returnUrl, "UTF-8");
+                            + "&returnUrl=" + URLEncoder.encode(returnUrl + "#tab3-3", "UTF-8");
                         %>
                         <% if (review.getReviewStatus() == 1) { %>
                             <a href="<%= url %>"><%= review.getReviewTitle() %></a>
@@ -246,7 +246,8 @@
         }
 
         String myUrl = request.getContextPath() + "/index.jsp?workgroup=product&work=product_detail"
-                + "&pageSize=" + pageSize;
+                + "&prodNo=" + prodNo
+                + "&pageSize=" + pageSize + "#tab3-3";
     %>
 
     <div id="page_list">
@@ -304,7 +305,7 @@
         
         document.getElementById("pageSize").addEventListener("change", function() {
             location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
-                + "&pageNum=<%= pageNum %>&pageSize=" + this.value;
+                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + this.value + "#tab3-3";
         });
     </script>
 </main>
