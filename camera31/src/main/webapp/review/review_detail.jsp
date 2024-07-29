@@ -33,11 +33,15 @@
 		     
 		    } catch (UnsupportedEncodingException e) {
 		      // Handle the exception if decoding fails
-		      returnUrl = "index.jsp";
+		    	 returnUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review";
 		    }
 		  } else {
-		    returnUrl = "index.jsp";
+			  returnUrl = request.getContextPath() + "/index.jsp?workgroup=myaccount&work=myacct_review";
+			  
 		  }
+	   
+
+
     %>
     
 
