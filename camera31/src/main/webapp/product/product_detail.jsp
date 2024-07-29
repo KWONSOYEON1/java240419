@@ -140,17 +140,14 @@
         <div class="tab-menu">
             <label for="tab3-1">상품 정보</label>
             <input id="tab3-1" name="tabs-three" type="radio" checked="checked">
-            
-            
-            <div>
+            <div class="tab-content">
                 <img src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage4() %>" alt="상세 페이지 이미지 <%= productName %>">
-               
             </div>
         </div>
         <div class="tab-menu">
             <label for="tab3-2">Q & A</label>
             <input id="tab3-2" name="tabs-three" type="radio">
-            <div>
+            <div class="tab-content">
                 <h4>Q & A</h4>
                 <p>내용</p>
             </div>
@@ -158,8 +155,8 @@
         <div class="tab-menu">
             <label for="tab3-3">리뷰</label>
             <input id="tab3-3" name="tabs-three" type="radio">
-            <div>
-            	<h4>리뷰</h4>                                          
+            <div class="tab-content">
+                <h4>리뷰</h4>                                          
                
 	<div id="review_list">
     <div id="review_title">Product Review (<%= totalReview %>)</div>
@@ -305,6 +302,27 @@
             location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
                 + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize;
         }
+
+    // 추가된 스크립트
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.tab-menu input[type="radio"]');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('change', function() {
+                contents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                const targetContent = tab.nextElementSibling;
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                }
+            });
+        });
+
+        // 초기 상태 설정
+        document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
+    });
     </script>
 </main>
 </body>
