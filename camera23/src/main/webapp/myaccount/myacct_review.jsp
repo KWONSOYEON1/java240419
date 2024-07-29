@@ -117,7 +117,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
 
   #account-box {
     width: 1300px;
-    height: 700px;
+    
     border: 1px solid green;
     margin: 0 auto;
   }
@@ -188,7 +188,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   .board th {
-    background-color: #ffc107;
+    background-color: gray;
     color: white;
     font-weight: bold;
   }
