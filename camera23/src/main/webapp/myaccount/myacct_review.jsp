@@ -45,6 +45,7 @@ if (endRow > totalReview) {
     endRow = totalReview;
 }
 
+
 List<ReviewDTO> reviewList = ReviewDAO.getDAO().selectReviewListByUser(usersNo, startRow, endRow);
 String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 int displayNum = totalReview - (pageNum - 1) * pageSize;
