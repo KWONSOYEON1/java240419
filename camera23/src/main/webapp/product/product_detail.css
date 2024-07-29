@@ -17,11 +17,11 @@
         justify-content: space-between;
         font-family: "Do Hyeon", sans-serif;
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 0 auto;       
         padding: 20px;
         background-color: #fff;
         border: 1px solid #a6a6a6;
-        border-radius: 10px;
+        border-radius: 10px;       
     }
 
     .product-images {
@@ -331,7 +331,7 @@
         font-size: 16px;
         font-weight: 300;
         letter-spacing: 0.01em;
-        line-height: 1.6em;
+        line-height: 1.6em;      
         margin: 0;
         padding: 100px;
     }
