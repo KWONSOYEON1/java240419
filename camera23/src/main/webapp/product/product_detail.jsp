@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/product/product_detail.css">
+ 	<link rel="stylesheet" href="<%=request.getContextPath() %>/product/product_detail.css">
     <title>카메라 상세페이지</title>
    <%
     ReviewDAO reviewDAO = ReviewDAO.getDAO();
@@ -168,7 +168,7 @@
     
     <div style="text-align: right; font-size: 19px;">
         게시글 :
-        <select id="pageSize">
+        <select id="pageSize" onchange="changePageSize(this.value)">
             <option value="10" <% if (pageSize == 10) { %> selected <% } %>>&nbsp;10개&nbsp;</option>
             <option value="20" <% if (pageSize == 20) { %> selected <% } %>>&nbsp;20개&nbsp;</option>
             <option value="50" <% if (pageSize == 50) { %> selected <% } %>>&nbsp;50개&nbsp;</option>
@@ -207,7 +207,7 @@
                             + "&reviewNo=" + review.getReviewNo()
                             + "&pageNum=" + pageNum
                             + "&pageSize=" + pageSize
-                            + "&returnUrl=" + URLEncoder.encode(returnUrl + "#tab3-3", "UTF-8");
+                            + "&returnUrl=" + URLEncoder.encode(returnUrl, "UTF-8");
                         %>
                         <% if (review.getReviewStatus() == 1) { %>
                             <a href="<%= url %>"><%= review.getReviewTitle() %></a>
@@ -247,7 +247,7 @@
 
         String myUrl = request.getContextPath() + "/index.jsp?workgroup=product&work=product_detail"
                 + "&prodNo=" + prodNo
-                + "&pageSize=" + pageSize + "#tab3-3";
+                + "&pageSize=" + pageSize;
     %>
 
     <div id="page_list">
@@ -303,10 +303,10 @@
             }
         }
         
-        document.getElementById("pageSize").addEventListener("change", function() {
+        function changePageSize(pageSize) {
             location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
-                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + this.value + "#tab3-3";
-        });
+                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize;
+        }
     </script>
 </main>
 </body>
