@@ -88,7 +88,6 @@
     };
 %>
 
-
 <main>
     <div class="product-container">
         <div class="product-images">
