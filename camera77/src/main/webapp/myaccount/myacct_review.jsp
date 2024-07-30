@@ -168,7 +168,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
     margin: 0 auto;
     text-align: center;    
     height: 650px;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 0;
     overflow-y: auto
   }
