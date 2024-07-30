@@ -288,7 +288,7 @@
             const tabs = document.querySelectorAll('.tab-menu input[type="radio"]');
             const contents = document.querySelectorAll('.tab-content');
             const urlParams = new URLSearchParams(window.location.search);
-            const currentTab = urlParams.get('tab') || '1'; // 기본 탭을 '1'로 설정
+            const currentTab = urlParams.get('tab') || '1';
             tabs.forEach(tab => {
                 tab.addEventListener('change', function () {
                     contents.forEach(content => {
@@ -311,7 +311,6 @@
                 }
             }
         });
-
     </script>
 </main>
 </body>
