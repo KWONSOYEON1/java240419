@@ -50,6 +50,7 @@
         if (endRow > totalReview) {
             endRow = totalReview;
         }
+        
 
         List<ReviewDTO> reviewList = reviewDAO.selectReviewListByProduct(prodNo, startRow, endRow);
         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
@@ -92,7 +93,7 @@
         <div class="product-images">
             <img id="mainImage" src="<%=request.getContextPath()%>/product_image/<%= productImages[0] %>" alt="메인 이미지 <%= product.getProdName() %>">
             <div class="thumbnail-images">
-                <% for (int i = 0; i < 3; i++) { 
+                <% for (int i = 0; i < 2; i++) { 
                     if (productImages[i] != null && !productImages[i].isEmpty()) { %>
                     <img src="<%=request.getContextPath()%>/product_image/<%= productImages[i] %>" alt="작은 이미지<%= i + 1 %> <%= productName %>" onclick="changeMainImage('<%=request.getContextPath()%>/product_image/<%= productImages[i] %>')">
                 <% }} %>
@@ -120,12 +121,12 @@
                 <form action="<%=request.getContextPath()%>/index.jsp?workgroup=cart&work=addtoorder2" method="post">   
                     <button type="submit" class="uni-btn btn-buy"><span>구매하기</span></button>
                     <input type="hidden" name="prodNo" value="<%= prodNo %>">
-                    <input type="hidden" id="finalQuantity" name="finalQuantity" value="">
+                    <input type="hidden" id="finalQuantityPay" name="finalQuantity" value="">
                 </form>
                 <form action="<%=request.getContextPath()%>/index.jsp?workgroup=cart&work=addtocart2" method="post">   
                     <button type="submit" class="uni-btn btn-basket"><span>장바구니</span></button>
                     <input type="hidden" name="prodNo" value="<%= prodNo %>">
-                    <input type="hidden" id="finalQuantity" name="finalQuantity" value="">
+                    <input type="hidden" id="finalQuantityCart" name="finalQuantity" value="">
                 </form> 
             </div>
         </div>
@@ -140,23 +141,23 @@
         <div class="tab-menu">
             <label for="tab3-1">상품 정보</label>
             <input id="tab3-1" name="tabs-three" type="radio" value="1">
-            <div class="tab-content" style="border:1px solid green; width: 1900px;">
+            <div class="tab-content" style="border:1px solid green; position: relative; left: 500px;">
                 <img src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage4() %>" alt="상세 페이지 이미지 <%= productName %>">
             </div>
         </div>
         <div class="tab-menu">
-            <label for="tab3-2">Q & A</label>
+            <label for="tab3-2">배송 정보</label>
             <input id="tab3-2" name="tabs-three" type="radio" value="2">
-            <div class="tab-content" style="border:1px solid green; width: 1900px;">
-                <h4>Q & A</h4>
-                <p>내용</p>
+            <div class="tab-content" style="border:1px solid green;  position: relative; left: 500px;">
+              	 <img src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage3() %>" alt="상세 페이지 이미지 <%= productName %>">
+                
             </div>
         </div>
         <div class="tab-menu">
             <label for="tab3-3">리뷰</label>
             <input id="tab3-3" name="tabs-three" type="radio" value="3" <%= request.getParameter("tab") != null && request.getParameter("tab").equals("3") ? "checked" : "" %> >
-            <div class="tab-content" style="border:1px solid green; width: 1900px; ">
-                <h4>리뷰</h4>
+            <div class="tab-content" style="border:1px solid green; position: relative; left: 450px;">
+                
                 <div id="review_list">
                     <div id="review_title">Product Review (<%= totalReview %>)</div>
                     <div style="text-align: right; font-size: 19px;">
@@ -259,61 +260,61 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function changeMainImage(imageSrc) {
-            document.getElementById('mainImage').src = imageSrc;
+   <script type="text/javascript">
+    function changeMainImage(imageSrc) {
+        document.getElementById('mainImage').src = imageSrc;
+    }
+    function changeQuantity(amount) {
+        var quantityInput = document.getElementById('quantityInput');
+        var currentQuantity = parseInt(quantityInput.value);
+        if (isNaN(currentQuantity)) {
+            currentQuantity = 1;
         }
-        function changeQuantity(amount) {
-            var quantityInput = document.getElementById('quantityInput');
-            var currentQuantity = parseInt(quantityInput.value);
-            if (isNaN(currentQuantity)) {
-                currentQuantity = 1;
-            }
-            var newQuantity = currentQuantity + amount;
-            if (newQuantity > 0) {
-                quantityInput.value = newQuantity;
-                finalQuantity = newQuantity;
-                var productPrice = <%= productPrice %>;
-                var totalPriceElement = document.querySelector('.total-price .price');
-                totalPriceElement.textContent = (newQuantity * productPrice).toLocaleString('ko-KR') + '원';
-                document.getElementById('finalQuantity').value = finalQuantity;
-            }
+        var newQuantity = currentQuantity + amount;
+        if (newQuantity > 0) {
+            quantityInput.value = newQuantity;
+            var productPrice = <%= productPrice %>;
+            var totalPriceElement = document.querySelector('.total-price .price');
+            totalPriceElement.textContent = (newQuantity * productPrice).toLocaleString('ko-KR') + '원';
+            document.getElementById('finalQuantityCart').value = newQuantity;
+            document.getElementById('finalQuantityPay').value = newQuantity;
         }
-        function changePageSize(pageSize) {
-            location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
-                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize
-                + "&tab=" + document.querySelector('.tab-menu input[type="radio"]:checked').value;
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-menu input[type="radio"]');
-            const contents = document.querySelectorAll('.tab-content');
-            const urlParams = new URLSearchParams(window.location.search);
-            const currentTab = urlParams.get('tab') || '1'; // 기본 탭을 '1'로 설정
-            tabs.forEach(tab => {
-                tab.addEventListener('change', function () {
-                    contents.forEach(content => {
-                        content.style.display = 'none';
-                    });
-                    const targetContent = tab.nextElementSibling;
-                    if (targetContent) {
-                        targetContent.style.display = 'block';
-                    }
+    }
+    function changePageSize(pageSize) {
+        location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
+            + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize
+            + "&tab=" + document.querySelector('.tab-menu input[type="radio"]:checked').value;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.tab-menu input[type="radio"]');
+        const contents = document.querySelectorAll('.tab-content');
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentTab = urlParams.get('tab') || '1'; // 기본 탭을 '1'로 설정
+        tabs.forEach(tab => {
+            tab.addEventListener('change', function () {
+                contents.forEach(content => {
+                    content.style.display = 'none';
                 });
-            });
-            document.querySelector(`.tab-menu input[type="radio"][value="${currentTab}"]`).checked = true;
-            document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
-            if (currentTab === '3') {
-                const reviewTab = document.querySelector('.tab-menu input[type="radio"][value="3"]').nextElementSibling;
-                if (reviewTab) {
-                    setTimeout(() => {
-                        reviewTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500); // 페이지 로드 후 0.5초 후 스크롤
+                const targetContent = tab.nextElementSibling;
+                if (targetContent) {
+                    targetContent.style.display = 'block';
                 }
-            }
+            });
         });
+        document.querySelector(`.tab-menu input[type="radio"][value="${currentTab}"]`).checked = true;
+        document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
+        if (currentTab === '3') {
+            const reviewTab = document.querySelector('.tab-menu input[type="radio"][value="3"]').nextElementSibling;
+            if (reviewTab) {
+                setTimeout(() => {
+                    reviewTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500); // 페이지 로드 후 0.5초 후 스크롤
+            }
+        }
+    });
+</script>
 
-        
-    </script>
+
 </main>
 </body>
 </html>
