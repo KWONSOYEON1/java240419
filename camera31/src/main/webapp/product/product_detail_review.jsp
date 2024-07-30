@@ -139,23 +139,18 @@
     <div class="tabs">
         <div class="tab-menu">
             <label for="tab3-1">상품 정보</label>
-            <input id="tab3-1" name="tabs-three" type="radio" value="1">
-            <div class="tab-content" style="border:1px solid green; width: 1900px;">
-                <img src="<%=request.getContextPath()%>/product_image/<%= product.getProdImage4() %>" alt="상세 페이지 이미지 <%= productName %>">
-            </div>
+          
+           
         </div>
         <div class="tab-menu">
             <label for="tab3-2">Q & A</label>
-            <input id="tab3-2" name="tabs-three" type="radio" value="2">
-            <div class="tab-content" style="border:1px solid green; width: 1900px;">
-                <h4>Q & A</h4>
-                <p>내용</p>
-            </div>
+           
+            
         </div>
         <div class="tab-menu">
-            <label for="tab3-3">리뷰</label>
-            <input id="tab3-3" name="tabs-three" type="radio" value="3" <%= request.getParameter("tab") != null && request.getParameter("tab").equals("3") ? "checked" : "" %> >
-            <div class="tab-content" style="border:1px solid green; width: 1900px; ">
+            <label for="tab3-3">Review</label>
+            <input id="tab3-3" name="tabs-three" type="radio"  value="1">
+            <div class="tab-content" style="border:1px solid green; margin: 0 auto;">
                 <h4>리뷰</h4>
                 <div id="review_list">
                     <div id="review_title">Product Review (<%= totalReview %>)</div>
@@ -281,48 +276,10 @@
         }
         function changePageSize(pageSize) {
             location.href = "<%= request.getContextPath() %>/index.jsp?workgroup=product&work=product_detail"
-                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize
-                + "&tab=" + document.querySelector('.tab-menu input[type="radio"]:checked').value;
+                + "&prodNo=<%= prodNo %>&pageNum=<%= pageNum %>&pageSize=" + pageSize;
+              
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-menu input[type="radio"]');
-            const contents = document.querySelectorAll('.tab-content');
-            const urlParams = new URLSearchParams(window.location.search);
-            const currentTab = urlParams.get('tab') || '1'; // 기본 탭을 '1'로 설정
-            tabs.forEach(tab => {
-                tab.addEventListener('change', function () {
-                    contents.forEach(content => {
-                        content.style.display = 'none';
-                    });
-                    const targetContent = tab.nextElementSibling;
-                    if (targetContent) {
-                        targetContent.style.display = 'block';
-                    }
-                });
-            });
-            document.querySelector(`.tab-menu input[type="radio"][value="${currentTab}"]`).checked = true;
-            document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
-            if (currentTab === '3') {
-                const reviewTab = document.querySelector('.tab-menu input[type="radio"][value="3"]').nextElementSibling;
-                if (reviewTab) {
-                    setTimeout(() => {
-                        reviewTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500); // 페이지 로드 후 0.5초 후 스크롤
-                }
-            }
-        });
-
-            document.querySelector(`.tab-menu input[type="radio"][value="${currentTab}"]`).checked = true;
-            document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
-            if (currentTab === '3') {
-                const reviewTab = document.querySelector('.tab-menu input[type="radio"][value="3"]').nextElementSibling;
-                if (reviewTab) {
-                    setTimeout(() => {
-                        reviewTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500); // 페이지 로드 후 0.5초 후 스크롤
-                }
-            }
-        });
+        
     </script>
 </main>
 </body>
