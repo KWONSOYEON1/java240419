@@ -312,17 +312,6 @@
             }
         });
 
-            document.querySelector(`.tab-menu input[type="radio"][value="${currentTab}"]`).checked = true;
-            document.querySelector('.tab-menu input[type="radio"]:checked').dispatchEvent(new Event('change'));
-            if (currentTab === '3') {
-                const reviewTab = document.querySelector('.tab-menu input[type="radio"][value="3"]').nextElementSibling;
-                if (reviewTab) {
-                    setTimeout(() => {
-                        reviewTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500); // 페이지 로드 후 0.5초 후 스크롤
-                }
-            }
-        });
     </script>
 </main>
 </body>
