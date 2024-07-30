@@ -117,7 +117,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
 
   #account-box {
     width: 1300px;
-    
+    height: 700px; 
   
     margin: 0 auto;
   }
@@ -130,7 +130,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
   }
 
   #acc2-box {
-    width: 1300px;
+    width: 1100px;
     height: 700px;
    
     float:none;
@@ -257,7 +257,7 @@ int displayNum = totalReview - (pageNum - 1) * pageSize;
             <tr>
               <th width="50">글번호</th>
               <th width="120">제목</th>
-              <th width="50">작성자</th>
+              <th width="60">작성자</th>
               <th width="120">작성일</th>
             </tr>
           </thead>
