@@ -3,6 +3,8 @@ body {
     font-family: 'Do Hyeon', sans-serif;
     margin: 0;
     background-color: #ffffff;
+   
+    border:1px solid red;
 }
 
 .do-hyeon-regular {
