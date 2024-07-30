@@ -21,6 +21,7 @@ body {
     background-color: #fff;
     border: 1px solid #a6a6a6;
     border-radius: 10px;
+    padding-top: 40px;
 }
 
 .product-images {
@@ -415,6 +416,7 @@ select:focus {
 
 .tabs .tab-menu {
     width: 33.33%;
+ 
 }
 
 .tabs .tab-menu[type="radio"] + div {
@@ -507,8 +509,9 @@ a {
     font-size: 1.5em;
     margin: 10px;
 }
-.tab-content {
-    padding-left: 100px; 
-    margin: 0 auto;
-    max-width: 1000px;     
+
+#container-wrap{
+	width: 100%;
+	padding-top: 40px;
+	
 }
