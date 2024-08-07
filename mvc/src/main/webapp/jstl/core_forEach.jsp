@@ -14,7 +14,7 @@
 	<%-- var 속성 : Scope 속성값을 구분하기 위한 이름(속성명)을 속성값으로 설정 --%>
 	<%-- begin 속성 : Scope 속성값으로 저장될 시작값(Integer 객체)을 속성값으로 설정 --%>
 	<%-- end 속성 : Scope 속성값으로 저장될 종료값(Integer 객체)을 속성값으로 설정 --%>
-	<%-- end 속성 : Scope 속성값을 변경하기 위한 증가값(Integer 객체)을 속성값으로 설정 --%>
+	<%-- step 속성 : Scope 속성값을 변경하기 위한 증가값(Integer 객체)을 속성값으로 설정 --%>
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<p>${i }번째 출력되는 내용입니다.</p>
 	</c:forEach>
