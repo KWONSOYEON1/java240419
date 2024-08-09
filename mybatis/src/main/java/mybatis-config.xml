@@ -108,7 +108,7 @@
 		<!-- <mapper resource="xyz/itwill/mapper/MyMemberMapper.xml"/> -->
 		
 		<!-- mapper : 패키지에 작성된 모든 Interface 기반의 매퍼파일을 자동으로 매퍼로 등록하는 엘리먼트 -->
-		<!-- => XML 기반의 매퍼파일은 pakeage 엘리먼트를 사용해 매퍼로 등록 불가능 -->
+		<!-- => XML 기반의 매퍼파일은 package 엘리먼트를 사용해 매퍼로 등록 불가능 -->
 		<!-- name 속성 : Interface 기반의 매퍼파일이 작성된 패키지를 속성값으로 설정 -->
 		<package name="xyz.itwill.mapper"/>
 	</mappers>
