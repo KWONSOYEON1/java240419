@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import xyz.itwill.dto.MyMember;
 
-//mybartis 프레임워크는 인터페이스로 매퍼파일를 작성해 매퍼 등록 가능
+//mybatis 프레임워크는 인터페이스로 매퍼파일를 작성해 매퍼 등록 가능
 // => 추상메소드에 매퍼 어노테이션(Mapper Annotation)을 사용하여 SQL 명령을 작성해 등록
 public interface MyMemberInterfaceMapper {
 	//@Insert : 추상메소드에 INSERT 명령을 등록하기 위한 어노테이션
