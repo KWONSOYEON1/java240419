@@ -40,12 +40,3 @@ public class MyUserDAO extends AbstractSession {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
