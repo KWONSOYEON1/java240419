@@ -5,7 +5,6 @@
     pageEncoding="UTF-8"%>
 <%
 	List<MyHewon> hewonList=MyHewonDAO.getDAO().selectHewonList();
-
 %>    
 <!DOCTYPE html>
 <html>

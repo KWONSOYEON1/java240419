@@ -227,8 +227,7 @@
 			</association>
 		</collection>
 	</resultMap>
-	-->
-	
+	-->	
 
 	<!-- 게시글번호를 전달받아 MYCOMMENT 테이블(MYUSER 테이블)에 저장된 행과 MYREPLY 테이블(MYUSER 
 	테이블)에 저장된 행을 1:N 관계로 결합하여 MyCommentUserReplyUser 객체로 제공하는 엘리먼트 -->
