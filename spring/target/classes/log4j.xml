@@ -23,6 +23,7 @@
 		</layout>
 	</appender>
 	
+	
 	<!-- Application Loggers -->
 	<logger name="xyz.itwill.spring">
 		<level value="info" />
