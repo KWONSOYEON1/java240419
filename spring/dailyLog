@@ -10,3 +10,7 @@
 [00:40:12]INFO  : xyz.itwill00.log.LogHelloWorld - 시작
 [00:40:12]INFO  : xyz.itwill00.log.LogHelloWorld - 종료
 [00:40:12]INFO  : xyz.itwill00.log.LogHelloWorldApp - 종료
+[10:46:01]INFO  : xyz.itwill00.log.LogHelloWorldApp - 시작
+[10:46:01]INFO  : xyz.itwill00.log.LogHelloWorld - 시작
+[10:46:01]INFO  : xyz.itwill00.log.LogHelloWorld - 종료
+[10:46:01]INFO  : xyz.itwill00.log.LogHelloWorldApp - 종료
