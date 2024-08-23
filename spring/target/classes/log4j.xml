@@ -46,7 +46,7 @@
 	</appender>
 	
 	<appender name="daily" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="dailyLog"/>
+		<param name="File" value="deilyLog"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%d{HH:mm:ss}]%-5p : %c - %m%n" />
@@ -74,6 +74,10 @@
 		<level value="info"/>
 		<appender-ref ref="hello" />
 		<appender-ref ref="daily" />
+	</logger>
+	
+	<logger name="xyz.itwill05.lombok">
+		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
