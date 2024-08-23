@@ -46,7 +46,7 @@
 	</appender>
 	
 	<appender name="daily" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="deilyLog"/>
+		<param name="File" value="dailyLog"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%d{HH:mm:ss}]%-5p : %c - %m%n" />
