@@ -6,7 +6,7 @@ package xyz.itwill06.aop;
 public class OopOne {
 	/*
 	private void beforeLog() {
-		System.out.println("### 메소드 명령(핵심관심코드) 실행전에 가록될 내용 ###");
+		System.out.println("### 메소드 명령(핵심관심코드) 실행전에 기록될 내용 ###");
 	}
 	*/
 	
@@ -15,7 +15,7 @@ public class OopOne {
 	public void display1() {
 		//횡단관심코드 : 프로그램 실행에 보조적인 기능을 제공하는 명령
 		// => 로그 처리, 권한 처리(보안), 트렌젹션 처리, 예외 처리 등
-		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 가록될 내용 ###");
+		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 기록될 내용 ###");
 		//beforeLog();
 		logger.beforeLog();
 	
@@ -24,14 +24,14 @@ public class OopOne {
 	}
 	
 	public void display2() {
-		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 가록될 내용 ###");
+		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 기록될 내용 ###");
 		//beforeLog();
 		logger.beforeLog();
 		System.out.println("*** OopOne 클래스의 display2() 메소드 호출 ***");
 	}
 	
 	public void display3() {
-		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 가록될 내용 ###");
+		//System.out.println("### 메소드 명령(핵심관심코드) 실행전에 기록될 내용 ###");
 		//beforeLog();
 		logger.beforeLog();
 		System.out.println("*** OopOne 클래스의 display3() 메소드 호출 ***");
