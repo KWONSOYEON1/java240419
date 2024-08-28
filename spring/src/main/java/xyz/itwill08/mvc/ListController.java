@@ -22,7 +22,7 @@ public class ListController implements Controller {
 		//데이타를 처리하는 명령 작성 - Service 클래스의 메소드 호출
 		List<Member> memberList=new ArrayList<Member>();
 		memberList.add(new Member("abc123", "홍길동", "서울시 강남구"));
-		memberList.add(new Member("opq456", "임꺼정", "인천시 월미구"));
+		memberList.add(new Member("opq456", "임꺽정", "인천시 월미구"));
 		memberList.add(new Member("xyz789", "전우치", "수원시 팔달구"));
 		
 		//요청에 대한 처리결과를 뷰(View)에게 제공하기 위한 request 객체의 속성값으로 저장
