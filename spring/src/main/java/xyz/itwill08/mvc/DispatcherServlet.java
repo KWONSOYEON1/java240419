@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//클라이언트가 서블릿을 요청할 때만다 자동으로 호출되는 메소드
+	//클라이언트가 서블릿을 요청할 때마다 자동으로 호출되는 메소드
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//클라이언트의 요청 URL 주소를 분석하여 요청정보를 반환받아 저장
