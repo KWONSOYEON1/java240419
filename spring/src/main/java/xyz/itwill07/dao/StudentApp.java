@@ -20,15 +20,15 @@ public class StudentApp {
 				.birthday("1999-05-05")
 				.build();
 		
-		service.addStudnent(newStudent);
+		service.addStudent(newStudent);
 		*/
 		
 		/*
-		Student searchStudent=service.getStudnent(6000);
+		Student searchStudent=service.getStudent(6000);
 		//System.out.println(searchStudent);
 		searchStudent.setName("고길동");
 		searchStudent.setBirthday("2000-01-13");
-		service.modifyStudnent(searchStudent);
+		service.modifyStudent(searchStudent);
 		*/
 		
 		service.removeStudent(6000);
