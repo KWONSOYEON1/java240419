@@ -111,8 +111,3 @@ public class StudentDAOImpl implements StudentDAO {
 		return jdbcTemplate.query(sql, new StudentRowMapper());
 	}
 }
-
-
-
-
-
