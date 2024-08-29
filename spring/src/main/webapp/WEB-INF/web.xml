@@ -75,7 +75,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<!-- init-param : 서블릿으로 등록된 클래스에게 값을 제공하기 위한 엘리먼트 -->
 		<!-- => contextConfigLocation 이름으로 스프링 컨테이너(WebApplication 객체)에게
-		제공할 Spring Bean Configuration File의 경로를 제공하기 위해 사용 --> -->
+		제공할 Spring Bean Configuration File의 경로를 제공하기 위해 사용 -->
 		<!-- => 스프링 컨테이너는 Spring Bean Configuration File에 등록된 Spring Bean은 Front 
 		Controller의 역활의 클래스에게만 객체 제공 -->
 		<!-- => Spring Bean Configuration File은 엔터(Enter) 또는 [,] 및 [;] 기호를 사용해 여러개 제공 가능 -->
