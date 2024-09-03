@@ -18,7 +18,7 @@ public class RedirectController {
 		//제공받아 JSP 문서로 포워드 이동하여 응답 처리
 		//포워드 이동 : 클라이언트 요청에 의해 실행된 웹프로그램(Front Controller)에서 응답 
 		//처리할 웹프로그램(View - JSP)으로 스레드를 이동하여 응답 처리
-		// => 클라이언트의 요청 URL 주소는 변경되지 않고 Request Scope 속성값을 스레드가 이동된
+		// => 클라이언트의 요청 URL 주소는 변경되지 않고 Request Scope 속성값을 포워드 이동된
 		//웹프로그램(JSP)에서 객체로 제공받아 사용 가능
 		return "display_forward";
 	}
