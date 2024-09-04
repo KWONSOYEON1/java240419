@@ -101,7 +101,7 @@
 		<level value="info" />
 	</logger>
 
-	<!-- SpyLogDelegator 객체에 의해 발생된 로그 이벤트를 기록하기 위한 looger 엘리먼트 -->
+	<!-- SpyLogDelegator 객체에 의해 발생된 로그 이벤트를 기록하기 위한 logger 엘리먼트 -->
 	<!-- jdbc.sqlonly : 완성된 SQL 명령 기록 -->
 	<logger name="jdbc.sqlonly">
 		<level value="info"/>
