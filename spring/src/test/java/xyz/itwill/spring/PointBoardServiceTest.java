@@ -19,7 +19,21 @@ import xyz.itwill09.service.PointBoardService;
 // => spring-jdbc 라이브러리를 프로젝트에 빌드 처리하면 라이브러리 의존관계에 의해 자동으로 빌드 처리
 //2.Spring Bean Configuration File(root-context.xml)에 TransactionManager 관련 클래스를 Spring Bean으로 등록
 //3.Spring Bean Configuration File(servlet-context.xml)에 트렌젝션 처리를 위한 Spring AOP 설정
+/*
+create table point_user(id varchar2(20) primary key, name varchar2(30), point number);
 
+create table point_board(num number primary key, writer varchar2(20), content varchar2(100));
+create sequence point_board_seq; 
+
+select * from point_user;
+select * from point_board;
+
+drop table point_user PURGE;
+drop table point_board PURGE;
+drop SEQUENCE point_board_seq;  
+
+purge RECYCLEBIN;
+*/
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
