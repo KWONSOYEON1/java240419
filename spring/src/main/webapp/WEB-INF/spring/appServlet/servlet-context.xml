@@ -5,7 +5,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task https://www.springframework.org/schema/task/spring-task.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
@@ -162,10 +164,22 @@
 		<!-- defaultEncoding 필드에 전달값에 대한 문자형태가 저장되도록 값 주입 -->
 		<beans:property name="defaultEncoding" value="utf-8"/>	
 	</beans:bean>
-	
+	  
 	<!-- 파일 다운로드 기능을 제공하는 응답 처리 클래스를 Spring Bean으로 등록 -->
 	<!-- => Spring Bean의 식별자(beanName)을 요청 처리 메소드의 반환값(ViewName)과 같도록 작성 -->
 	<beans:bean class="xyz.itwill09.util.FileDownload" id="fileDownload"/>
+	
+	<beans:bean class="xyz.itwill09.util.Scheduler" id="scheduler"/>
+	
+	<task:scheduler id="baseScheduler" pool-size="10"/>
+	<!--
+	
+	<task:scheduled-tasks scheduler="baseScheduler">
+		<task:scheduled ref="scheduler" method="autoupdate" cron="1 * * * * *"/>	
+	</task:scheduled-tasks>
+	-->
+	
+	<task:annotation-driven/>
 </beans:beans>
 
 
