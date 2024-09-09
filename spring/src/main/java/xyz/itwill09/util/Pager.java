@@ -31,21 +31,21 @@ public class Pager {
 	}
 	
 	private void calcPaging() {
-		totalPage=(int)Math.ceil((double)totalSize/pageSize);// 전체 페이지 수를 계산합니다.
-		if(pageNum <=0 || pageNum > totalPage) {// 페이지 번호가 범위를 벗어나면
-			pageNum=1;// 첫 번째 페이지로 설정합니다.
+		totalPage=(int)Math.ceil((double)totalSize/pageSize);
+		if(pageNum <=0 || pageNum > totalPage) {
+			pageNum=1;
 		}
 		
-		startRow=(pageNum-1)*pageSize+1;// 현재 페이지에서의 데이터 시작 행 번호를 계산합니다.
-		endRow=pageNum*pageSize;// 현재 페이지에서의 데이터 끝 행 번호를 계산합니다.
-		if(endRow > totalSize) {// 마지막 페이지의 끝 행 번호가 전체 데이터 수를 초과하면
-			endRow=totalSize;// 끝 행 번호를 전체 데이터 수로 조정합니다.
+		startRow=(pageNum-1)*pageSize+1;
+		endRow=pageNum*pageSize;
+		if(endRow > totalSize) {
+			endRow=totalSize;
 		}
 		
-		startPage=(pageNum-1)/blockSize*blockSize+1;// 현재 페이지가 속한 페이지 블록의 시작 페이지를 계산합니다.
-		endPage=startPage+blockSize-1;// 현재 페이지가 속한 페이지 블록의 끝 페이지를 계산합니다.
+		startPage=(pageNum-1)/blockSize*blockSize+1;
+		endPage=startPage+blockSize-1;
 
-		prevPage=startPage-blockSize;// 이전 페이지 블록의 마지막 페이지 번호를 계산합니다.
-		nextPage=startPage+blockSize;// 다음 페이지 블록의 첫 페이지 번호를 계산합니다.
+		prevPage=startPage-blockSize;
+		nextPage=startPage+blockSize;
 	}
 }
