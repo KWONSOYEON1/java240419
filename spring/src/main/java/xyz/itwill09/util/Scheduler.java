@@ -16,7 +16,7 @@ public class Scheduler {
 	//@Scheduled(cron = "1 * * * * *")//매월 매일 매요일 매시 매분 1초
 	//@Scheduled(cron = "0 1 * * * *")//매월 매일 매요일 매시 1분 0초
 	//@Scheduled(cron = "0 0 5 * * *")//매월 매일 매요일 5시 0분 0초
-	//@Scheduled(cron = "0 0 5 1 * *")//1월 1일 매요일 5시 0분 0초 //? 매월?
+	//@Scheduled(cron = "0 0 5 1 * *")//1월 1일 매요일 5시 0분 0초
 	//@Scheduled(cron = "0 0 5 * * 1-5")//매월 매일 월요일부터 금요일까지 5시 0분 0초
 	@Scheduled(cron = "0 0 5 1 1-12/3 *")//1월부터 12월까지 3개월마다 1일 매요일 5시 0분 0초
 	public void autoUpdate() {

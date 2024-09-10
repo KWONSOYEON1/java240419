@@ -33,7 +33,7 @@ public class FileDownload extends AbstractView {
 		File file=new File(uploadDirectory, uploadFilename);
 		
 		//클라이언트에게 파일을 전달하여 응답되도록 응답 파일의 형식(MimeType) 변경
-		response.setContentType("application/downlown; utf-8");
+		response.setContentType("application/download; utf-8");
 		
 		//클라이언트에게 응답파일 파일 크기 변경
 		response.setContentLengthLong(file.length());
