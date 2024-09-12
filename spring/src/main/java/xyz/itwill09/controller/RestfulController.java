@@ -21,7 +21,6 @@ import xyz.itwill09.dto.RestMember;
 //Restful API : REST 기능을 사용해 두 컴퓨터의 시스템이 안전하게 값을 주고 받기 위한 프로그램
 // => 스마트기기의 프로그램(앱) 실행에 필요한 정보를 전달받거나 실행결과를 제공하기 위해 작성
 
-
 @Controller
 @RequestMapping("/rest")
 public class RestfulController {
