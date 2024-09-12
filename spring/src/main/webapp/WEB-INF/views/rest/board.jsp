@@ -91,5 +91,83 @@
 			</tr>
 		</table>
 	</div>
+	
+	<script type="text/javascript">
+	var page=1;
+	
+	boardListDisplay(page, 5);
+	
+	function boardListDisplay(pageNum, pageSize) {
+		page=pageNum;
+		$.ajax({
+			type: "get",
+			url: "<c:url value="/rest/board_list"/>",
+			data: {"pageNum":pageNum, "pageSize":pageSize},
+			dataType: "json",
+			success: function(result) {
+				//alert(result);
+				if(result.restBoardList.length == 0) {
+					var html="<table id='restBoardTable'>";
+					html+="<tr>";
+					html+="<th width='800'>검색된 게시글이 없습니다.</th>";
+					html+="</tr>";
+					html+="</table>";
+					$("#restBoardListDiv").html(html);
+					return;
+				}
+				var html="<table id='restBoardTable'>";
+				html+="<tr>";
+				html+="<th width='50'>번호</th>";
+				html+="<th width='50'>작성자</th>";
+				html+="<th width='50'>내용</th>";
+				html+="<th width='50'>작성일</th>";
+				html+="<th width='50'>변경</th>";
+				html+="<th width='50'>삭제</th>";
+				html+="</tr>";
+				$(result.restBoardList).each(function() {
+					html+="<tr>";
+					html+="<td align='center'>"+this.idx+"</td>";
+					html+="<td align='center'>"+this.writer+"</td>";
+					html+="<td>"+this.content"</td>";
+					html+="<td align='center'>"+this.regdate+"</td>";
+					html+="<td align='center'><button type='button'>변경</td>";
+					html+="<td align='center'><button type='button'>삭제</td>";
+					html+="</tr>";
+				})
+				html+="</table>";
+				$("#restBoardListDiv").html(html);
+				pageNumberDisplay(result.pager);
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 목록 검색) = "xhr.status);
+			}
+		});
+	}
+	
+	function pageNumberDisplay(pager) {
+		var html="";
+		
+		if(pager.startPage > pager.blockSize) {
+			html+="<a href='javascript:boardListDisplay("+pager.prevPage+");'>[이전]</a>";"
+		}else {
+			html+"[이전]";
+		}
+		
+		for(i = pager.startPage; i <= pager.endPage ; i++) {
+			if(pager.pageNum != i) {
+				html+="<a href='javascript:boardListDisplay("+i+");'>["+i+"]</a>";"
+			}else {
+				html+"["+i+"]";
+			}
+		}
+		if(pager.endPage != pager.totalPage) {
+			html+="<a href='javascript:boardListDisplay("+pager.nextPage+");'>[다음]</a>";"
+		}else {
+			html+"[다음]";
+		}
+		
+		$("#pageNumDiv").html(html);
+	}
+	</script>
 </body>
 </html>
