@@ -138,8 +138,8 @@
 					html+="<td align='center'>"+this.writer+"</td>";
 					html+="<td>"+this.content+"</td>";
 					html+="<td align='center'>"+this.regdate+"</td>";
-					html+="<td align='center'><button type='button'>변경</button></td>";
-					html+="<td align='center'><button type='button'>삭제</button></td>";
+					html+="<td align='center'><button type='button' onclick='modify("+this.idx+")'>변경</button></td>";
+					html+="<td align='center'><button type='button'onclick='remove("+this.idx+")'>삭제</button></td>";
 					html+="</tr>";
 				});
 				html+="</table>";
@@ -178,6 +178,130 @@
 		}
 		
 		$("#pageNumDiv").html(html);
+	}
+	
+	function init() {
+		$(".insert").val("");
+		$(".update").val("");
+		$(".inputDiv").hide();
+	}
+	
+	$("#writeBtn").click(function() {
+		init();
+		$("#insertDiv").show();
+	});
+	
+	$("#insertBtn").click(function() {
+		var write=$("#insertWriter").val();
+		var content=$("#insertContent").val();
+		
+		if(writer == "") {
+			alert("작성자를 입력해 주세요.");
+			return;
+		}
+
+		if(content == "") {
+			alert("내용을 입력해 주세요.");
+			return;
+		}
+		
+		$.ajax({
+			type: "post",
+			url: "<c:url value="/rest/board_add"/>",
+			//headers: {"contentType":"application/json"},
+			contentType:"application/json",
+			data: JSON.stringify({"writer":writer, "content":content}),
+			dataType: "text",
+			success: function(result) {
+				if(result == "success") {
+					init();
+					boardListDisplay(page, 5);
+				}
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 삽입) = "+xhr.status);
+			}
+		});
+	});
+	
+	$("#cancelInsertBtn").click(init);
+	
+	function modify(idx) {
+		//alert(idx);
+		init();
+		$("#updateDiv").show();
+	
+		$.ajax({
+			type: "get",
+			url: "<c:url value="/rest/board_view"/>"/+idx;
+			dataType: "json",
+			success: function(result) {
+				$("updateIdx").val(result.idx);
+				$("updateWriter").val(result.writer);
+				$("updateContent").val(result.content);
+			}	
+			error: function(xhr) {	
+				alert("에러코드(게시글 검색) = "+xhr.status);
+			}
+	
+		});
+	}
+	
+	$("#cancelUpdateBtn").click(init);
+	
+	$("#updateBtn").click(function() {
+		var idx=$("#updateIdx").val();
+		var write=$("#updateWriter").val();
+		var content=$("#updateContent").val();
+		
+		if(writer == "") {
+			alert("작성자를 입력해 주세요.");
+			return;
+		}
+
+		if(content == "") {
+			alert("내용을 입력해 주세요.");
+			return;
+		}
+		
+		$.ajax({
+			type: "put",
+			url: "<c:url value="/rest/board_modify"/>",
+			//headers: {"contentType":"application/json"},
+			contentType:"application/json",
+			data: JSON.stringify({"idx":idx, "writer":writer, "content":content}),
+			dataType: "text",
+			success: function(result) {
+				if(result == "success") {
+					init();
+					boardListDisplay(page, 5);
+				}
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 변경) = "+xhr.status);
+			}
+		});
+	});
+	
+	$("#cancelUpdateBtn").click(init);
+	
+	function remove(idx) {
+		if(confirm("게시글을 삭제 하시겠습니까?")) {
+			$.ajax({
+				type: "delete",
+				url: "<c:url value="/rest.board_remove"/>/"+idx,
+				success: function(result) {
+					if(result == "success") {
+						init();
+						boardListDisplay(page, 5);
+					}
+				},
+				error: function(xhr) {
+					alert("에러코드(게시글 삭제) = "+xhr.status);
+				}
+				
+			});	
+		}	
 	}
 	</script>
 </body>
