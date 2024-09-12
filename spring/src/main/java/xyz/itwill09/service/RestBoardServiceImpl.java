@@ -11,7 +11,6 @@ import xyz.itwill09.dao.RestBoardDAO;
 import xyz.itwill09.dto.RestBoard;
 import xyz.itwill09.util.Pager;
 
-
 @Service
 @RequiredArgsConstructor
 public class RestBoardServiceImpl implements RestBoardService {

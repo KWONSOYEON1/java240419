@@ -217,7 +217,6 @@
 			<beans:ref bean="adminAuthInterceptor"/>
 		</interceptor>	
 		
-		
 		<interceptor>
 			<!-- 
 			<mapping path="/userinfo/list"/>
