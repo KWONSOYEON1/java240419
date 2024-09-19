@@ -31,8 +31,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //Spring Security를 SpringMVC 프로그램에 적용하는 방법
 //1.spring-security-web, spring-security-core, spring-security-config, spring-security-tablibs
 //라이브러리를 프로트젝에 빌드 처리 - 메이븐 : pom.xml
-
-
+//2.[web.xml] 파일에 Spring Security 기능을 제공하는 필터 클래스를 필터로 등록하고 필터가 실행
+//되기 위한 URL 패턴을 매핑 처리
+//3.[web.xml] 파일에 Spring Security 기능의 필터가 사용하기 위한 정보를 제공하는 Spring Bean
+//Configuration File 설정 - ContextLoaderListener 클래스가 읽을 수 있도록 파일 경로 지정
+//4.Spring Security 기능을 구현하기 위한 Spring Bean Configuration File 작성
+// => Spring Security 관련 필터가 동작되기 위한 정보를 security 네임스페이스를 추가하여
+//spring-security.xsd 파일에 설정된 엘리먼트를 사용하여 제공
 
 @Controller
 public class HomeController {
