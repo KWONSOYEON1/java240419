@@ -85,7 +85,7 @@ public class CustomUserDetails implements UserDetails {
 	}
 
 	//인증된 사용자의 활성화 상태를 반환하는 메소드
-	// => false : 사용자 비활성화 상태, true : 사용자 비활성화 상태  
+	// => false : 사용자 활성화 상태, true : 사용자 비활성화 상태  
 	@Override
 	public boolean isEnabled() {
 		if(enabled.equals("0")) {
