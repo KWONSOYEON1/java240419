@@ -14,5 +14,5 @@ public class SecurityBoard {
 	private String content;
 	private String regdate;
 	
-	private String name;//작성자(이름)
+	private String name;//작성자(이름) - join하려고
 }
