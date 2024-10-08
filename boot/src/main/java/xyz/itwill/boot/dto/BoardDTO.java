@@ -6,7 +6,7 @@ import lombok.Data;
 import xyz.itwill.boot.entity.BoardEntity;
 
 @Data
-public class Board {
+public class BoardDTO {
 	private Long num;//글번호
 	private String writer;//작성자
 	private String title;//제목
