@@ -1,8 +1,10 @@
 package xyz.itwill.boot.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,7 +36,24 @@ public class BoardController {
 	}
 	
 	@GetMapping("/list")
-	public String list() {
+	public String list(Model model) {
+		model.addAttribute("boardList", boardService.getBoardList());
 		return "board/list"; 
 	}
+	
+	@GetMapping("/detail/{num}")
+	public String detail(@PathVariable(value = "num") Long num,  Model model) {
+		boardService.updateHit(num);
+		model.addAttribute("board", boardService.getBoard(num));
+		return "board/detail"; 
+	}
 }
+
+
+
+
+
+
+
+
+
