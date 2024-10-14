@@ -11,4 +11,5 @@ public class HomeController {
 		model.addAttribute("name", "임꺽정");
 		return "index";
 	}
+	
 }
